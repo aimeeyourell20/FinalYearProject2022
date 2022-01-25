@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/navigation_mentors"
+        android:icon="@drawable/ic_profile"
+        android:title="Mentors"/>
+
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_usersearch"
+        android:title="Search for Mentor"/>
+
+    <item
+        android:id="@+id/navigation_messages"
+        android:icon="@drawable/ic_message"
+        android:title="Messages"/>
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile"/>
+
+    <item
+        android:id="@+id/navigation_ratings"
+        android:icon="@drawable/ic_rating"
+        android:title="Rating"/>
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="Settings"/>
+    <item
+        android:id="@+id/navigation_cv"
+        android:icon="@drawable/ic_settings"
+        android:title="Resume"/>
+    <item
+        android:id="@+id/navigation_career"
+        android:icon="@drawable/ic_settings"
+        android:title="Career Options"/>
+
+    <item
+        android:id="@+id/navigation_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout"/>
+
+</menu>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="11dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="21dp"
+    android:background="@drawable/gradient2"
+    android:gravity="center_vertical"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="12dp"
+        android:elevation="12dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/cardview">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="6dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Goal Title"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/goalTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Work on communication"
+            android:textAlignment="textStart"
+            android:textColor="#000"
+            android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Goal Description"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+
+        <TextView
+            android:id="@+id/goalDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="By practising my presentation skills"
+            android:textAlignment="textStart"
+            android:textColor="#000"
+            android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Goal Due Date"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/goalDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tomorrow"
+            android:textAlignment="textStart"
+            android:textColor="#000"
+            android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Goal Status"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/spinnerStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Only started"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Check if goal is complete"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <CheckBox
+                android:id="@+id/goal_is_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

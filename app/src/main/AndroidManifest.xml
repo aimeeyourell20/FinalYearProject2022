@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.finalyearproject">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FinalYearProject">
+        <activity
+            android:name=".Edit_Goal"
+            android:exported="true" />
+        <activity
+            android:name=".Add_Goal"
+            android:exported="true" />
+        <activity
+            android:name=".Goals"
+            android:exported="true" />
+        <activity
+            android:name=".fragments.Search"
+            android:exported="true" />
+        <activity
+            android:name=".Meetings"
+            android:exported="true" />
+        <activity
+            android:name=".RecommendedMentors"
+            android:exported="true" />
+        <activity
+            android:name=".MeetingRequest"
+            android:exported="true" />
+        <activity
+            android:name=".MenteeRequestMentor"
+            android:exported="true" />
+        <activity
+            android:name=".Request_Meeting_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".CareerDetails"
+            android:exported="true" />
+        <activity
+            android:name=".MentorFriends"
+            android:exported="true" />
+        <activity
+            android:name=".Mentee_Edit_Resume"
+            android:exported="true" />
+        <activity
+            android:name=".Mentee_Resume"
+            android:exported="true" />
+        <activity
+            android:name=".SkillsPage"
+            android:exported="true" />
+        <activity
+            android:name=".Message_Mentee"
+            android:exported="true" />
+        <activity
+            android:name=".CareerOptions"
+            android:exported="true" />
+        <activity
+            android:name=".Message_Mentor"
+            android:exported="true"
+            android:parentActivityName=".MentorMainActivity" />
+        <activity
+            android:name=".MenteeList"
+            android:exported="true" />
+        <activity
+            android:name=".MentorList"
+            android:exported="true" />
+        <activity
+            android:name=".Person_Profile_Activity_2"
+            android:exported="true" />
+        <activity
+            android:name=".Mentee_Request_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Person_Profile_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Welcome_Activity_Screen"
+            android:exported="true" />
+        <activity
+            android:name=".Mentee_Find_Mentors_Activity"
+            android:exported="true"
+            android:parentActivityName=".MenteeMainActivity" />
+        <activity
+            android:name=".Mentor_Profile_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Mentee_Profile_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Profile_Settings_Mentor_Activity"
+            android:exported="true"
+            android:parentActivityName=".MentorMainActivity" />
+        <activity
+            android:name=".Profile_Settings_Mentee_Activity"
+            android:exported="true"
+            android:parentActivityName=".MenteeMainActivity" />
+        <activity
+            android:name=".Mentor_Registration_Activity_2"
+            android:exported="true" />
+        <activity
+            android:name=".Mentor_Login_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Mentee_Login_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Rating_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".MoreInfo_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".MenteeMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MentorMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Selection_Activity_2"
+            android:exported="true" />
+        <activity
+            android:name=".Welcome_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Mentee_Registration_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Mentor_Registration_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Selection_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Login_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

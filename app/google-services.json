@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "431797572516",
+    "project_id": "final-year-project-fcafe",
+    "storage_bucket": "final-year-project-fcafe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431797572516:android:8554c3a42da68476316731",
+        "android_client_info": {
+          "package_name": "com.example.finalyearproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431797572516-lh3f2qersme6bav4tikf4p1lrh1tlb93.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.finalyearproject",
+            "certificate_hash": "f6540d5a68e55c82847fa50ad9f298d9e5f611df"
+          }
+        },
+        {
+          "client_id": "431797572516-apre9q6ndij4ek9f4i31t715k9bkhavi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATgyDmuR6kvgkh_QGNRbuWcP5mGk6p-Uo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431797572516-apre9q6ndij4ek9f4i31t715k9bkhavi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

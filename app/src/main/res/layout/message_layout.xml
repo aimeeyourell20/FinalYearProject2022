@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/message_layout_profile_image"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:src="@drawable/profile_image"/>
+
+    <TextView
+        android:id="@+id/receiver_message_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="3dp"
+        android:layout_toEndOf="@+id/message_layout_profile_image"
+        android:background="@drawable/mentee_message_text"
+        android:text="Mentee message"
+        android:textColor="#fff"
+        android:padding="11dp"/>
+
+    <TextView
+        android:id="@+id/sender_message_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="3dp"
+        android:layout_alignParentTop="@+id/receiver_message_text"
+        android:background="@drawable/mentor_message_text"
+        android:text="Mentor message"
+        android:textColor="#fff"
+        android:padding="11dp"/>
+
+
+</RelativeLayout>
