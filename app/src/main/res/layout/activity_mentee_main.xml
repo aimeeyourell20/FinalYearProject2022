@@ -141,7 +141,7 @@
 
 
                     <ImageView
-                        android:id="@+id/messages"
+                        android:id="@+id/goals"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:src="@drawable/goals"

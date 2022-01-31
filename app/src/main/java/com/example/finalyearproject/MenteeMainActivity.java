@@ -32,7 +32,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class MenteeMainActivity extends AppCompatActivity{
 
-    private ImageView mentors, findMentor, settings, messages, career, cv, profile, logout, meeting;
+    private ImageView mentors, findMentor, settings, goals, career, cv, profile, logout, meeting;
     private TextView profileName, type;
     private DatabaseReference dr;
     private DatabaseReference user;
@@ -56,9 +56,10 @@ public class MenteeMainActivity extends AppCompatActivity{
         mentors = findViewById(R.id.mentor);
         findMentor = findViewById(R.id.findMentor);
         settings = findViewById(R.id.settings);
-        messages = findViewById(R.id.messages);
+        //messages = findViewById(R.id.messages);
         career = findViewById(R.id.careerFinder);
         cv = findViewById(R.id.resume);
+        goals = findViewById(R.id.goals);
         profileName = findViewById(R.id.profilename);
         profile = findViewById(R.id.profileimage);
         type = findViewById(R.id.type);
@@ -113,12 +114,6 @@ public class MenteeMainActivity extends AppCompatActivity{
             }
         });
 
-        messages.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Goals();
-            }
-        });
 
         career.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +133,13 @@ public class MenteeMainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Profile();
+            }
+        });
+
+        goals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Goals();
             }
         });
 
@@ -286,8 +288,8 @@ public class MenteeMainActivity extends AppCompatActivity{
     }
 
     private void Goals() {
-        //Intent i = new Intent(MenteeMainActivity.this, Goals_Activity_Mentee.class);
-        //startActivity(i);
+        Intent i = new Intent(MenteeMainActivity.this, Goals_Activity_Mentee.class);
+        startActivity(i);
         }
 
     private void Mentors() {

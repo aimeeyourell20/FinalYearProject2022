@@ -91,7 +91,9 @@ public class MenteeList extends AppCompatActivity {
 
                                             "Send Message",
 
-                                            "Request Meeting"
+                                            "Request Meeting",
+
+                                            "Add Goal"
                                     };
 
                                     AlertDialog.Builder builder = new AlertDialog.Builder(MenteeList.this);
@@ -119,6 +121,14 @@ public class MenteeList extends AppCompatActivity {
                                             if(i == 2){
 
                                                 Intent intent = new Intent(MenteeList.this, MeetingRequest.class);
+                                                intent.putExtra("mentorid", users);
+                                                intent.putExtra("name", name);
+                                                startActivity(intent);
+                                            }
+
+                                            if(i == 3){
+
+                                                Intent intent = new Intent(MenteeList.this, Goals_Add_Activity.class);
                                                 intent.putExtra("mentorid", users);
                                                 intent.putExtra("name", name);
                                                 startActivity(intent);

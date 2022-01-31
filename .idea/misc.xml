@@ -51,6 +51,9 @@
         <entry key="app/src/main/res/layout/activity_edit_goal.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_find_mentors.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_goals.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_goals_add.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/activity_goals_mentee.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/activity_goals_mentor.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_login_mentor.xml" value="0.3098958333333333" />
