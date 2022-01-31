@@ -126,7 +126,7 @@ public class Person_Profile_Activity_2 extends AppCompatActivity {
         }
         else
         {
-           // DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
+            // DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
             //SendFriendReqButton.setVisibility(View.INVISIBLE);
         }
     }

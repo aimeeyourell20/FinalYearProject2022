@@ -103,7 +103,6 @@ public class Italy_Fragment extends Fragment {
                                 public void onClick(View view) {
                                     String mentorid = getRef(i).getKey();
 
-
                                     Intent i = new Intent(getActivity(), Person_Profile_Activity.class);
                                     i.putExtra("mentorid", mentorid);
                                     startActivity(i);

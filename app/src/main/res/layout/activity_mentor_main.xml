@@ -41,8 +41,8 @@
                 android:id="@+id/profileimage"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="20dp"
                 android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
                 android:src="@drawable/profile_image" />
         </RelativeLayout>
 
@@ -210,14 +210,15 @@
 
 
                     <ImageView
-                        android:id="@+id/resume"
+                        android:id="@+id/meeting"
                         android:layout_width="80dp"
+                        android:src="@drawable/meeting"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=""
+                        android:text="Meetings"
                         android:textSize="18sp"
                         android:layout_marginTop="12dp"/>
 

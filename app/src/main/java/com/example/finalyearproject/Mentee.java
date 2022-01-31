@@ -5,14 +5,14 @@ import android.widget.Spinner;
 public class Mentee {
 
     public String type, name, goals, language, skills, college, course, occupation;
-    public Spinner location;
+    public String location;
 
     public Mentee()
     {
 
     }
 
-    public Mentee(String type, String name, String goals, String language, String skills, String college, String course, String occupation, Spinner location) {
+    public Mentee(String type, String name, String goals, String language, String skills, String college, String course, String occupation, String location) {
         this.type = type;
         this.name = name;
         this.goals = goals;
@@ -48,11 +48,11 @@ public class Mentee {
         this.goals = goals;
     }
 
-    public Spinner getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Spinner location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 

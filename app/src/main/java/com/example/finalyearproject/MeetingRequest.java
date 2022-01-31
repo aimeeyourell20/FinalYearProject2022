@@ -28,29 +28,38 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Map;
 
 public class MeetingRequest extends AppCompatActivity {
 
-    private EditText title, location, description, mentor;
+    private EditText title, location, description, mentor, mentee;
     private TextView date;
     private Button request, cancel, calendar;
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference dr, UsersRef;
+    private DatabaseReference dr, UsersRef, MenteeRef;
     private String receiverUserId = "";
     private String saveCurrentDate;
+    private DatabaseReference RootRef;
+    private String messageSenderID;
+    private String messageReceiverID1;
+    private String menteeReceiverID1;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_request);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-
+        //firebaseAuth = FirebaseAuth.getInstance();
+        RootRef = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+        messageSenderID = mAuth.getCurrentUser().getUid();
 
         title = findViewById(R.id.meetingTitle);
         location = findViewById(R.id.meetingLocation);
         description = findViewById(R.id.meetingDescription);
         mentor = findViewById(R.id.meetingMentor);
+        mentee = findViewById(R.id.meetingMentee);
         request = findViewById(R.id.meeting);
         cancel = findViewById(R.id.cancel);
 
@@ -59,20 +68,38 @@ public class MeetingRequest extends AppCompatActivity {
             Bundle extras = intent.getExtras();
 
             if (extras != null) {
-                receiverUserId = (String) extras.get("mentorid");
-                //messageReceiverName = (String) extras.get("name");
+                messageReceiverID1 = (String) extras.get("mentorid");
             }
         }
 
+
+
         UsersRef = FirebaseDatabase.getInstance().getReference().child("users");
+        MenteeRef = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         //dr = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        UsersRef.child(receiverUserId).addValueEventListener(new ValueEventListener() {
+        UsersRef.child(messageReceiverID1).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String name = snapshot.child("email").getValue().toString();
+                    mentor.setText(name);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        MenteeRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     String name = snapshot.child("name").getValue().toString();
-                    mentor.setText(name);
+                    mentee.setText(name);
 
                 }
             }
@@ -97,7 +124,7 @@ public class MeetingRequest extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!title.getText().toString().isEmpty() && !location.getText().toString().isEmpty() && !description.getText().toString().isEmpty()
-                        && !mentor.getText().toString().isEmpty()){
+                        && !mentor.getText().toString().isEmpty()  && !mentee.getText().toString().isEmpty()){
 
                     Calendar beginTime = Calendar.getInstance();
                     beginTime.set(2022, 0, 17, 7, 30);
@@ -123,14 +150,20 @@ public class MeetingRequest extends AppCompatActivity {
                     String locations = location.getText().toString();
                     String descriptions = description.getText().toString();
                     String mentors = mentor.getText().toString();
+                    String mentees = mentee.getText().toString();
 
                     Calendar calFordDate = Calendar.getInstance();
                     SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-yyyy");
                     saveCurrentDate = currentDate.format(calFordDate.getTime());
 
-                    String currentUser = firebaseAuth.getCurrentUser().getUid();
-                    dr = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("Meeting").push();
-                    HashMap meeting = new HashMap();
+                    String message_sender_ref = "Meetings/" + messageSenderID + "/" + messageReceiverID1;
+                    String message_receiver_ref = "Meetings/" + messageReceiverID1 + "/" + messageSenderID;
+
+//                    String currentUser = firebaseAuth.getCurrentUser().getUid();
+                    //dr = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("Meeting").child(receiverUserId).push();
+                    DatabaseReference user_message_key = RootRef.child("Meetings").child(messageSenderID).child(messageSenderID).child(messageReceiverID1).push();
+                    String message_push_id = user_message_key.getKey();
+                    Map meeting = new HashMap();
                     meeting.put("meetingTitle", titles);
                     meeting.put("meetingLocation", locations);
                     meeting.put("meetingDescription", descriptions);
@@ -138,12 +171,19 @@ public class MeetingRequest extends AppCompatActivity {
                     meeting.put("meetingEndTime", EXTRA_EVENT_END_TIME);
                     //meeting.put("meetingDate", date);
                     meeting.put("meetingMentor", mentors);
+                    meeting.put("meetingMentee", mentees);
 
 
-                    dr.updateChildren(meeting).addOnCompleteListener(new OnCompleteListener() {
+                    Map messageBodyDetails = new HashMap();
+                    messageBodyDetails.put(message_sender_ref + "/" + message_push_id , meeting);
+                    messageBodyDetails.put(message_receiver_ref + "/" + message_push_id , meeting);
+
+
+                    RootRef.updateChildren(messageBodyDetails).addOnCompleteListener(new OnCompleteListener() {
                         @Override
                         public void onComplete(@NonNull Task task) {
                             if (task.isSuccessful()) {
+
                                 Toast.makeText(MeetingRequest.this, "Meeting info successfully added", Toast.LENGTH_SHORT).show();
                                 startActivity(intent);
                             } else {
@@ -152,11 +192,6 @@ public class MeetingRequest extends AppCompatActivity {
 
                         }
                     });
-
-
-
-
-
 
                 }else{
                     Toast.makeText(MeetingRequest.this, "Please fill in form", Toast.LENGTH_SHORT).show();

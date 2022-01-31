@@ -98,6 +98,7 @@ public class France_Fragment extends Fragment {
                             findMentorViewHolder.setSkill1(findMentor.getSkill1());
                             findMentorViewHolder.setSkill2(findMentor.getSkill2());
 
+
                             findMentorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {

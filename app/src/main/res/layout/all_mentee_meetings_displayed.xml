@@ -36,7 +36,16 @@
                     android:layout_height="wrap_content"
                     android:text="Mentor Fullname"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="100dp"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/searchMenteeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentee Fullname"
+                    android:textAlignment="textStart"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
@@ -47,7 +56,6 @@
                     android:layout_height="wrap_content"
                     android:text="Meeting Title"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="100dp"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
@@ -58,7 +66,6 @@
                     android:layout_height="wrap_content"
                     android:text="Meeting Location"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="100dp"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
@@ -69,7 +76,6 @@
                     android:layout_height="wrap_content"
                     android:text="Meeting Description"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="100dp"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold"/>

@@ -2,25 +2,25 @@ package com.example.finalyearproject;
 
 public class FindMentor {
 
-        public String type, name, bio, location, language, skill1, skill2, skill3;
+    public String type, name, bio, location, language, skill1, skill2, skill3;
 
-        public FindMentor()
-        {
+    public FindMentor()
+    {
 
-        }
+    }
 
-        public FindMentor(String type, String name, String bio, String location, String language, String skill1, String skill2, String skill3)
-        {
-            this.type = type;
-            this.name = name;
-            this.bio = bio;
-            this.location = location;
-            this.language = language;
-            this.skill1 = skill1;
-            this.skill2 = skill2;
-            this.skill3 = skill3;
+    public FindMentor(String type, String name, String bio, String location, String language, String skill1, String skill2, String skill3)
+    {
+        this.type = type;
+        this.name = name;
+        this.bio = bio;
+        this.location = location;
+        this.language = language;
+        this.skill1 = skill1;
+        this.skill2 = skill2;
+        this.skill3 = skill3;
 
-        }
+    }
 
     public String getType() {
         return type;

@@ -127,17 +127,16 @@ public class Mentor_Registration_Activity extends AppCompatActivity {
                     mentee.put("email", email);
                     mentee.put("skill1", "Skill1");
                     mentee.put("skill2", "Skill2");
-                    mentee.put("skill3", "Skill3");
                     mentee.put("location", "location");
                     mentee.put("language", "language");
                     mentee.put("bio", "Really interested in computers");
                     mentee.put("jobTitle", "Customer Service");
                     mentee.put("industry", "Tech");
+                    mentee.put("company", "SAP");
                     mentee.put("type", "Mentor");
                     mentee.put("all1", "all1");
-                    mentee.put("all2", "all2");
-                    //mentee.put("allSkills", "allSkills")
-                    //mentee.put("search", "Mentor" + location);
+                    mentee.put("profileimage", "");
+
 
                     dr.updateChildren(mentee).addOnCompleteListener(new OnCompleteListener() {
                         @Override

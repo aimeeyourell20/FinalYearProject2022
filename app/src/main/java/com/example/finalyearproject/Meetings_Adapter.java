@@ -12,13 +12,21 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.BreakIterator;
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Meetings_Adapter extends RecyclerView.Adapter<Meetings_Adapter.MeetingsViewHolder> {
 
     Context context;
     ArrayList<Meeting_Model> meeting_models;
+    private FirebaseAuth mAuth;
+
+    public Meetings_Adapter (List<Meeting_Model> meeting_models)
+    {
+        this.meeting_models = (ArrayList<Meeting_Model>) meeting_models;
+    }
 
     public Meetings_Adapter(Context c, ArrayList<Meeting_Model> g){
         context = c;
@@ -28,18 +36,25 @@ public class Meetings_Adapter extends RecyclerView.Adapter<Meetings_Adapter.Meet
     @NonNull
     @Override
     public Meetings_Adapter.MeetingsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new Meetings_Adapter.MeetingsViewHolder(LayoutInflater.from(context).inflate(R.layout.all_mentee_meetings_displayed, parent, false));
+        View V = LayoutInflater.from(parent.getContext()).inflate(R.layout.all_mentee_meetings_displayed, parent, false);
+
+        //return new Meetings_Adapter.MeetingsViewHolder(LayoutInflater.from(context).inflate(R.layout.all_mentee_meetings_displayed, parent, false));
+        mAuth = FirebaseAuth.getInstance();
+
+        return new Meetings_Adapter.MeetingsViewHolder(V);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Meetings_Adapter.MeetingsViewHolder holder, int position) {
 
+        //String messageSenderID = mAuth.getCurrentUser().getUid();
         Meeting_Model meeting_model = meeting_models.get(position);
 
         holder.meetingDescription.setText(meeting_model.getMeetingDescription());
         holder.meetingLocation.setText(meeting_model.getMeetingLocation());
         holder.meetingMentor.setText(meeting_model.getMeetingMentor());
         holder.meetingTitle.setText(meeting_model.getMeetingTitle());
+        holder.meetingMentee.setText(meeting_model.getMeetingMentee());
 
 
         final String getMeetingDescription = meeting_model.getMeetingDescription();
@@ -51,13 +66,37 @@ public class Meetings_Adapter extends RecyclerView.Adapter<Meetings_Adapter.Meet
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(context, Goals.class);
-                context.startActivity(i);
+
+
+                CharSequence options[] = new CharSequence[]{
+                        "Add Goal"
+                };
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Select an option");
+
+                builder.setItems(options, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        if(i == 0){
+
+                            //Intent intent = new Intent(context, Add_Goal.class);
+                            //context.startActivity(intent);
+
+                        }
+
+                    }
+                });
+
+                builder.show();
             }
-
-
         });
+
     }
+
+
+
+
 
     @Override
     public int getItemCount() {
@@ -66,7 +105,7 @@ public class Meetings_Adapter extends RecyclerView.Adapter<Meetings_Adapter.Meet
 
     class MeetingsViewHolder extends RecyclerView.ViewHolder{
 
-        TextView meetingDescription,meetingLocation,meetingMentor, meetingTitle;
+        TextView meetingDescription,meetingLocation,meetingMentor, meetingTitle, meetingMentee;
 
 
 
@@ -77,6 +116,7 @@ public class Meetings_Adapter extends RecyclerView.Adapter<Meetings_Adapter.Meet
             meetingLocation = itemView.findViewById(R.id.locationMeeting);
             meetingMentor = itemView.findViewById(R.id.searchMentorName);
             meetingTitle = itemView.findViewById(R.id.titleMeeting);
+            meetingMentee = itemView.findViewById(R.id.searchMenteeName);
 
         }
     }

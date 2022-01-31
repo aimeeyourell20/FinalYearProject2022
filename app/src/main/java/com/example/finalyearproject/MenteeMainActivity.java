@@ -1,16 +1,23 @@
 package com.example.finalyearproject;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.finalyearproject.fragments.Search;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -18,6 +25,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class MenteeMainActivity extends AppCompatActivity{
 
@@ -27,6 +38,10 @@ public class MenteeMainActivity extends AppCompatActivity{
     private DatabaseReference user;
     private FirebaseAuth firebaseAuth;
     private ActionBarDrawerToggle toggle;
+    private static int PICK_IMAGE = 123;
+    private StorageReference storageReference;
+    private String currentUser;
+
 
 
     @Override
@@ -35,6 +50,7 @@ public class MenteeMainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_mentee_main);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser().getUid();
         user = FirebaseDatabase.getInstance().getReference().child("users");
 
         mentors = findViewById(R.id.mentor);
@@ -61,6 +77,10 @@ public class MenteeMainActivity extends AppCompatActivity{
 
                     String types = snapshot.child("type").getValue().toString();
                     type.setText(types);
+
+                    String photo = "";
+                    photo = snapshot.child("profileimage").getValue().toString();
+                    Glide.with(getApplicationContext()).load(photo).into(profile);
 
                 }
             }
@@ -138,6 +158,75 @@ public class MenteeMainActivity extends AppCompatActivity{
 
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==PICK_IMAGE && resultCode==RESULT_OK && data!=null){
+
+            Uri image = data.getData();
+
+            CropImage.activity(image).setGuidelines(CropImageView.Guidelines.ON).setAspectRatio(1, 1).start(this);
+
+        }
+
+        if(requestCode==CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
+
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+
+            if(resultCode==RESULT_OK) {
+
+                Uri resultUri = result.getUri();
+
+                StorageReference r = storageReference.child(currentUser + ".jpg");
+
+                r.putFile(resultUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        r.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String url = uri.toString();
+
+                                dr.child("profileimage").setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+
+                                        if (task.isSuccessful()) {
+
+                                            Intent i = new Intent(MenteeMainActivity.this, MenteeMainActivity.class);
+                                            startActivity(i);
+
+                                            Toast.makeText(MenteeMainActivity.this, "Profile image stored to firebase database successfully", Toast.LENGTH_SHORT).show();
+
+                                        } else {
+
+
+                                            Toast.makeText(MenteeMainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
+                                        }
+
+                                    }
+                                });
+                            }
+                        });
+                    }
+
+
+                });
+            }
+            else{
+
+                Toast.makeText(MenteeMainActivity.this, "Error image can not be cropped", Toast.LENGTH_SHORT).show();
+
+
+            }
+
+        }
+
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -197,8 +286,9 @@ public class MenteeMainActivity extends AppCompatActivity{
     }
 
     private void Goals() {
-        Intent i = new Intent(MenteeMainActivity.this, Goals.class);
-        startActivity(i);    }
+        //Intent i = new Intent(MenteeMainActivity.this, Goals_Activity_Mentee.class);
+        //startActivity(i);
+        }
 
     private void Mentors() {
 
@@ -239,7 +329,7 @@ public class MenteeMainActivity extends AppCompatActivity{
     }
 
     private void Meeting() {
-        Intent i = new Intent(MenteeMainActivity.this, Meetings.class);
+        Intent i = new Intent(MenteeMainActivity.this, Meetings_Activity_Mentee.class);
         startActivity(i);
         finish();
     }

@@ -105,13 +105,13 @@ public class Argentina_Fragment extends Fragment {
                             findMentorViewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
                         }
                         else {
-
                             findMentorViewHolder.setType(findMentor.getType());
                             findMentorViewHolder.setName(findMentor.getName());
                             findMentorViewHolder.setLanguage(findMentor.getLanguage());
                             findMentorViewHolder.setLocation(findMentor.getLocation());
                             findMentorViewHolder.setSkill1(findMentor.getSkill1());
                             findMentorViewHolder.setSkill2(findMentor.getSkill2());
+
 
 
 
@@ -181,6 +181,5 @@ public class Argentina_Fragment extends Fragment {
                 TextView mySkill2 = (TextView) mView.findViewById(R.id.searchMentorBio2);
                 mySkill2.setText(skill2);
             }
-
         }
 }

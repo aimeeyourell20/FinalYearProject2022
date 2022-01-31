@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -229,7 +230,7 @@ public class Message_Mentor extends AppCompatActivity
             {
                 if(dataSnapshot.exists())
                 {
-                    //final String profileImage = dataSnapshot.child("profileimage").getValue().toString();
+                    final String profileImage = dataSnapshot.child("profileimage").getValue().toString();
                    /* final String type = dataSnapshot.child("userState").child("type").getValue().toString();
                     final String lastDate = dataSnapshot.child("userState").child("date").getValue().toString();
                     final String lastTime = dataSnapshot.child("userState").child("time").getValue().toString();*/
@@ -243,7 +244,8 @@ public class Message_Mentor extends AppCompatActivity
                         userLastSeen.setText("last seen: " + lastTime + "  " + lastDate);
                     }*/
 
-                    //Picasso.get().load(profileImage).placeholder(R.drawable.profile).into(receiverProfileImage);
+                    Glide.with(getApplicationContext()).load(profileImage).into(receiverProfileImage);
+
                 }
             }
 

@@ -106,6 +106,7 @@ public class Turkey_Fragment extends Fragment {
                                     Intent i = new Intent(getActivity(), Person_Profile_Activity.class);
                                     i.putExtra("mentorid", mentorid);
                                     startActivity(i);
+
                                 }
                             });
                         }

@@ -2,7 +2,7 @@ package com.example.finalyearproject;
 
 public class MenteeFriendList {
 
-    public String date;
+    public String date, profileimage;
 
     public MenteeFriendList(){
 

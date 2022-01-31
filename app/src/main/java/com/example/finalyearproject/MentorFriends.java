@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +29,7 @@ public class MentorFriends extends AppCompatActivity {
     private Button SendFriendReqButton, DeclineFriendRequestButton;
     private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef;
     private FirebaseAuth mAuth;
+    private ImageView mprofile;
     private String senderUserId, CURRENT_STATE, saveCurrentDate;
     private String receiverUserId = "";
 
@@ -48,6 +51,7 @@ public class MentorFriends extends AppCompatActivity {
         mcourse = findViewById(R.id.personcourse);
         moccupation = findViewById(R.id.personoccupation);
         mgoals = findViewById(R.id.persongoals);
+        mprofile = findViewById(R.id.profileImageProfile);
         SendFriendReqButton = (Button) findViewById(R.id.sendRequest);
         DeclineFriendRequestButton = (Button) findViewById(R.id.cancelRequest);
 
@@ -74,13 +78,14 @@ public class MentorFriends extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
                     String name = dataSnapshot.child("name").getValue().toString();
                     String type = dataSnapshot.child("type").getValue().toString();
-                    String skills = dataSnapshot.child("skills").getValue().toString();
+                    String skills = dataSnapshot.child("skill1").getValue().toString();
                     String language = dataSnapshot.child("language").getValue().toString();
                     String location = dataSnapshot.child("location").getValue().toString();
                     String college = dataSnapshot.child("college").getValue().toString();
                     String course = dataSnapshot.child("course").getValue().toString();
                     String occupation = dataSnapshot.child("occupation").getValue().toString();
                     String goals = dataSnapshot.child("goals").getValue().toString();
+                    String photo = dataSnapshot.child("profileimage").getValue().toString();
 
 
                     mname.setText("Fullname " + name);
@@ -92,6 +97,7 @@ public class MentorFriends extends AppCompatActivity {
                     mcollege.setText("College " + college);
                     moccupation.setText("Occupation " + occupation);
                     mgoals.setText("Goals " + goals);
+                    Glide.with(getApplicationContext()).load(photo).into(mprofile);
 
 
                 }

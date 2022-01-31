@@ -6,17 +6,21 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -26,6 +30,7 @@ public class MentorMessageAdapter extends RecyclerView.Adapter<MentorMessageAdap
     private List<MentorMessages> userMessagesList;
     private FirebaseAuth mAuth;
     private DatabaseReference usersDatabaseRef;
+    public CircleImageView receiverProfileImage;
 
     public MentorMessageAdapter (List<MentorMessages> userMessagesList)
     {
@@ -35,7 +40,8 @@ public class MentorMessageAdapter extends RecyclerView.Adapter<MentorMessageAdap
     public class MessageViewHolder extends RecyclerView.ViewHolder
     {
         public TextView SenderMessagetext, ReceiverMessageText;
-        public CircleImageView receiverProfileImage;
+        public ImageView receiverProfileImage;
+
 
         public MessageViewHolder(View itemView)
         {
@@ -43,7 +49,7 @@ public class MentorMessageAdapter extends RecyclerView.Adapter<MentorMessageAdap
 
             SenderMessagetext = (TextView) itemView.findViewById(R.id.sender_message_text);
             ReceiverMessageText = (TextView) itemView.findViewById(R.id.receiver_message_text);
-            //receiverProfileImage = (CircleImageView) itemView.findViewById(R.id.message_profile_image);
+            receiverProfileImage = (CircleImageView) itemView.findViewById(R.id.message_layout_profile_image);
         }
     }
 
@@ -75,9 +81,10 @@ public class MentorMessageAdapter extends RecyclerView.Adapter<MentorMessageAdap
             {
                 if(dataSnapshot.exists())
                 {
-                    //String image = dataSnapshot.child("profileimage").getValue().toString();
+                    String image = dataSnapshot.child("profileimage").getValue().toString();
+                    //Glide.with(getApplicationContext()).load(image).into(receiverProfileImage);
 
-                    //Picasso.get().load(image).placeholder(R.drawable.profile).into(messageViewHolder.receiverProfileImage);
+                    Picasso.get().load(image).placeholder(R.drawable.profile_image).into(messageViewHolder.receiverProfileImage);
                 }
             }
 
@@ -91,7 +98,7 @@ public class MentorMessageAdapter extends RecyclerView.Adapter<MentorMessageAdap
         if(fromMessageType.equals("text"))
         {
             messageViewHolder.ReceiverMessageText.setVisibility(View.INVISIBLE);
-            //messageViewHolder.receiverProfileImage.setVisibility(View.INVISIBLE);
+            messageViewHolder.receiverProfileImage.setVisibility(View.INVISIBLE);
 
             if(fromUserID.equals(messageSenderID))
             {
@@ -105,7 +112,7 @@ public class MentorMessageAdapter extends RecyclerView.Adapter<MentorMessageAdap
                 messageViewHolder.SenderMessagetext.setVisibility(View.INVISIBLE);
 
                 messageViewHolder.ReceiverMessageText.setVisibility(View.VISIBLE);
-                //messageViewHolder.receiverProfileImage.setVisibility(View.VISIBLE);
+                messageViewHolder.receiverProfileImage.setVisibility(View.VISIBLE);
 
                 messageViewHolder.ReceiverMessageText.setBackgroundResource(R.drawable.mentor_message_text);
                 messageViewHolder.ReceiverMessageText.setTextColor(Color.WHITE);

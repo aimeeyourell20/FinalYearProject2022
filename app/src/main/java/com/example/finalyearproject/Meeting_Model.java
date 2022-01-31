@@ -1,8 +1,11 @@
 package com.example.finalyearproject;
 
+import java.util.Map;
+
 public class Meeting_Model {
 
-    private String meetingDescription, meetingLocation, meetingMentor, meetingTitle;
+    private String meetingDescription, meetingLocation, meetingMentor, meetingTitle, meetingMentee;
+
 
 
     public Meeting_Model() {
@@ -39,4 +42,14 @@ public class Meeting_Model {
     public void setMeetingTitle(String meetingTitle) {
         this.meetingTitle = meetingTitle;
     }
+
+    public String getMeetingMentee() {
+        return meetingMentee;
+    }
+
+    public void setMeetingMentee(String meetingMentee) {
+        this.meetingMentee = meetingMentee;
+    }
+
+
 }

@@ -22,13 +22,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class Mentee_Registration_Activity extends AppCompatActivity {
+public class  Mentee_Registration_Activity extends AppCompatActivity {
 
 
     private TextInputEditText mRegisterEmail, mRegisterName, mRegisterPassword;
@@ -37,13 +40,15 @@ public class Mentee_Registration_Activity extends AppCompatActivity {
     private CircleImageView mprofile;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference dr;
-    private Uri uri;
-    private StorageReference storageReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mentee_registration_activity);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
 
         mRegisterEmail = findViewById(R.id.registerEmail);
         mRegisterName = findViewById(R.id.registerName);
@@ -54,20 +59,16 @@ public class Mentee_Registration_Activity extends AppCompatActivity {
         mLanguageSpinner = findViewById(R.id.languageSpinner);
         mprofile = findViewById(R.id.profile_image);
 
-
-        firebaseAuth = FirebaseAuth.getInstance();
-
-
         mMenteeSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signupUser();
             }
         });
+
     }
 
-
-    private void signupUser() {
+  private void signupUser() {
         String email = mRegisterEmail.getText().toString().trim();
         String password = mRegisterPassword.getText().toString().trim();
         String name = mRegisterName.getText().toString().trim();
@@ -141,6 +142,8 @@ public class Mentee_Registration_Activity extends AppCompatActivity {
                     mentee.put("course", "Computer Science");
                     mentee.put("goals", "To learn about computers");
                     mentee.put("type", "Mentee");
+                    mentee.put("profileimage", "");
+
 
                     dr.updateChildren(mentee).addOnCompleteListener(new OnCompleteListener() {
                         @Override
@@ -190,6 +193,6 @@ public class Mentee_Registration_Activity extends AppCompatActivity {
 
         Intent i = new Intent(Mentee_Registration_Activity.this, Login_Activity.class);
         startActivity(i);
-        finish();;
+        finish();
     }
 }

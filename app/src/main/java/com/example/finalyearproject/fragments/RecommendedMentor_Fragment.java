@@ -1,5 +1,6 @@
 package com.example.finalyearproject.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.finalyearproject.AdapterClass;
 import com.example.finalyearproject.FindMentor;
 import com.example.finalyearproject.Person_Profile_Activity;
@@ -117,6 +120,7 @@ public class RecommendedMentor_Fragment extends Fragment {
                                 findMentorViewHolder.setSkill1(findMentor.getSkill1());
                                 findMentorViewHolder.setSkill2(findMentor.getSkill2());
 
+
                                 findMentorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -191,6 +195,8 @@ public class RecommendedMentor_Fragment extends Fragment {
                     TextView mySkill2 = (TextView) mView.findViewById(R.id.searchMentorBio2);
                     mySkill2.setText(skill2);
                 }
+
             }
+
 
         }

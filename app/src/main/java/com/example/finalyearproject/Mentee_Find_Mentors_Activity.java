@@ -1,4 +1,3 @@
-
 package com.example.finalyearproject;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -81,25 +80,20 @@ public class Mentee_Find_Mentors_Activity extends AppCompatActivity {
                         public void onClick(View view) {
                                 String searchBoxInput3 = SearchInputText3.getText().toString();
                                 SearchPeopleAndFriends3(searchBoxInput3);
-
                         }
                 });
-
                 SearchButton4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                                 String searchBoxInput4 = SearchInputText4.getText().toString();
                                 SearchPeopleAndFriends4(searchBoxInput4);
-
                         }
                 });
-
                 SearchButton5.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                                 String searchBoxInput5 = SearchInputText5.getText().toString();
                                 SearchPeopleAndFriends5(searchBoxInput5);
-
                         }
                 });
 */
@@ -108,7 +102,6 @@ public class Mentee_Find_Mentors_Activity extends AppCompatActivity {
         }
 
        /* private void SearchPeopleAndFriends5(String searchBoxInput5) {
-
                 Query searchPeopleAndFriendsQuery = allUsersDatabaseRef.orderByChild("skill3")
                         .startAt(searchBoxInput5).endAt(searchBoxInput5 + "\uf8ff");
                 FirebaseRecyclerAdapter<FindMentor, FindMentorViewHolder> firebaseRecyclerAdapter =
@@ -117,16 +110,13 @@ public class Mentee_Find_Mentors_Activity extends AppCompatActivity {
                                 R.layout.all_mentors_displayed,
                                 FindMentorViewHolder.class,
                                 searchPeopleAndFriendsQuery
-
                         ) {
                                 @Override
                                 protected void populateViewHolder(FindMentorViewHolder findMentorViewHolder, FindMentor findMentor, int i) {
-
                                         if (findMentor.getType().equals("Mentee")) {
                                                 findMentorViewHolder.itemView.setVisibility(View.GONE);
                                                 findMentorViewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
                                         } else {
-
                                                 findMentorViewHolder.setType(findMentor.getType());
                                                 findMentorViewHolder.setName(findMentor.getName());
                                                 findMentorViewHolder.setLanguage(findMentor.getLanguage());
@@ -134,28 +124,21 @@ public class Mentee_Find_Mentors_Activity extends AppCompatActivity {
                                                 findMentorViewHolder.setSkill1(findMentor.getSkill1());
                                                 findMentorViewHolder.setSkill2(findMentor.getSkill2());
                                                 findMentorViewHolder.setSkill3(findMentor.getSkill3());
-
                                                 findMentorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                                         @Override
                                                         public void onClick(View view) {
                                                                 String mentorid = getRef(i).getKey();
-
                                                                 Intent i = new Intent(Mentee_Find_Mentors_Activity.this, Person_Profile_Activity.class);
                                                                 i.putExtra("mentorid", mentorid);
                                                                 startActivity(i);
-
                                                         }
                                                 });
                                         }
                                 }
                         };
-
                 SearchResultList.setAdapter(firebaseRecyclerAdapter);
-
         }
-
         private void SearchPeopleAndFriends4(String searchBoxInput4) {
-
                 Query searchPeopleAndFriendsQuery = allUsersDatabaseRef.orderByChild("language")
                         .startAt(searchBoxInput4).endAt(searchBoxInput4 + "\uf8ff");
                 FirebaseRecyclerAdapter<FindMentor, FindMentorViewHolder> firebaseRecyclerAdapter =
@@ -164,16 +147,13 @@ public class Mentee_Find_Mentors_Activity extends AppCompatActivity {
                                 R.layout.all_mentors_displayed,
                                 FindMentorViewHolder.class,
                                 searchPeopleAndFriendsQuery
-
                         ) {
                                 @Override
                                 protected void populateViewHolder(FindMentorViewHolder findMentorViewHolder, FindMentor findMentor, int i) {
-
                                         if (findMentor.getType().equals("Mentee")) {
                                                 findMentorViewHolder.itemView.setVisibility(View.GONE);
                                                 findMentorViewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
                                         } else {
-
                                                 findMentorViewHolder.setType(findMentor.getType());
                                                 findMentorViewHolder.setName(findMentor.getName());
                                                 findMentorViewHolder.setLanguage(findMentor.getLanguage());
@@ -181,30 +161,21 @@ public class Mentee_Find_Mentors_Activity extends AppCompatActivity {
                                                 findMentorViewHolder.setSkill1(findMentor.getSkill1());
                                                 findMentorViewHolder.setSkill2(findMentor.getSkill2());
                                                 findMentorViewHolder.setSkill3(findMentor.getSkill3());
-
                                                 findMentorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                                         @Override
                                                         public void onClick(View view) {
                                                                 String mentorid = getRef(i).getKey();
-
                                                                 Intent i = new Intent(Mentee_Find_Mentors_Activity.this, Person_Profile_Activity.class);
                                                                 i.putExtra("mentorid", mentorid);
                                                                 startActivity(i);
-
                                                         }
                                                 });
                                         }
                                 }
                         };
-
                 SearchResultList.setAdapter(firebaseRecyclerAdapter);
-
         }
-
-
-
         private void SearchPeopleAndFriends3(String searchBoxInput3) {
-
                 Query searchPeopleAndFriendsQuery = allUsersDatabaseRef.orderByChild("location")
                         .startAt(searchBoxInput3).endAt(searchBoxInput3 + "\uf8ff");
                 FirebaseRecyclerAdapter<FindMentor, FindMentorViewHolder> firebaseRecyclerAdapter =
@@ -213,16 +184,13 @@ public class Mentee_Find_Mentors_Activity extends AppCompatActivity {
                                 R.layout.all_mentors_displayed,
                                 FindMentorViewHolder.class,
                                 searchPeopleAndFriendsQuery
-
                         ) {
                                 @Override
                                 protected void populateViewHolder(FindMentorViewHolder findMentorViewHolder, FindMentor findMentor, int i) {
-
                                         if (findMentor.getType().equals("Mentee")) {
                                                 findMentorViewHolder.itemView.setVisibility(View.GONE);
                                                 findMentorViewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
                                         } else {
-
                                                 findMentorViewHolder.setType(findMentor.getType());
                                                 findMentorViewHolder.setName(findMentor.getName());
                                                 findMentorViewHolder.setLanguage(findMentor.getLanguage());
@@ -230,24 +198,19 @@ public class Mentee_Find_Mentors_Activity extends AppCompatActivity {
                                                 findMentorViewHolder.setSkill1(findMentor.getSkill1());
                                                 findMentorViewHolder.setSkill2(findMentor.getSkill2());
                                                 findMentorViewHolder.setSkill3(findMentor.getSkill3());
-
                                                 findMentorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                                         @Override
                                                         public void onClick(View view) {
                                                                 String mentorid = getRef(i).getKey();
-
                                                                 Intent i = new Intent(Mentee_Find_Mentors_Activity.this, Person_Profile_Activity.class);
                                                                 i.putExtra("mentorid", mentorid);
                                                                 startActivity(i);
-
                                                         }
                                                 });
                                         }
                                 }
                         };
-
                 SearchResultList.setAdapter(firebaseRecyclerAdapter);
-
         }*/
 
 

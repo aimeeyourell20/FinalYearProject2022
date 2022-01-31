@@ -52,6 +52,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:text="Mentors Name"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/mentorsName"
+                android:layout_width="match_parent"
+                android:paddingLeft="12dp"
+                android:textColor="#0352DA"
+                android:layout_height="55dp"
+                android:background="@drawable/goals_task"
+                android:inputType="text"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:text="Add Goal Title"
                 android:layout_marginBottom="10dp"/>
 
@@ -118,36 +144,6 @@
                 android:background="@drawable/goals_task"
                 android:hint="31/01/2022"
                 android:inputType="datetime"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Add Goal Status"
-                android:layout_marginBottom="10dp"/>
-
-            <Spinner
-                android:id="@+id/statusSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginBottom="11dp"
-                android:background="#fff"
-                android:entries="@array/status"
-                android:gravity="center"
-                android:minHeight="48dp" />
 
         </LinearLayout>
     </LinearLayout>

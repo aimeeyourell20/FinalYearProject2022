@@ -30,11 +30,9 @@ public class Ireland_Fragment extends Fragment {
     private EditText SearchInputText1;
 
 
-
     public Ireland_Fragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -85,11 +83,10 @@ public class Ireland_Fragment extends Fragment {
                             findMentorViewHolder.itemView.setVisibility(View.GONE);
                             findMentorViewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
                         }
-                        if(!findMentor.getLocation().equalsIgnoreCase("Ireland")){
+                        if (!findMentor.getLocation().equalsIgnoreCase("Ireland")) {
                             findMentorViewHolder.itemView.setVisibility(View.GONE);
                             findMentorViewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
-                        }
-                        else {
+                        } else {
 
                             findMentorViewHolder.setType(findMentor.getType());
                             findMentorViewHolder.setName(findMentor.getName());
@@ -97,6 +94,7 @@ public class Ireland_Fragment extends Fragment {
                             findMentorViewHolder.setLocation(findMentor.getLocation());
                             findMentorViewHolder.setSkill1(findMentor.getSkill1());
                             findMentorViewHolder.setSkill2(findMentor.getSkill2());
+
 
                             findMentorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -113,12 +111,14 @@ public class Ireland_Fragment extends Fragment {
                     }
                 };
 
+
         RecyclerView.setAdapter(firebaseRecyclerAdapter);
     }
 
     public static class FindMentorViewHolder extends RecyclerView.ViewHolder {
 
         View mView;
+
 
         public FindMentorViewHolder(View itemView) {
             super(itemView);
@@ -161,6 +161,6 @@ public class Ireland_Fragment extends Fragment {
             TextView mySkill2 = (TextView) mView.findViewById(R.id.searchMentorBio2);
             mySkill2.setText(skill2);
         }
-    }
 
+    }
 }

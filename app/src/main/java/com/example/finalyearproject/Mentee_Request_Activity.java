@@ -33,10 +33,10 @@ public class Mentee_Request_Activity extends AppCompatActivity {
 
         allUsersDatabaseRef = FirebaseDatabase.getInstance().getReference().child("users");
 
-        mtoolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mtoolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Mentee Requests");
+       // mtoolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(mtoolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setTitle("Mentee Requests");
 
         MenteeRef = FirebaseDatabase.getInstance().getReference().child("MentorshipRequests");
 
@@ -82,7 +82,7 @@ public class Mentee_Request_Activity extends AppCompatActivity {
 
                             findMentorViewHolder.setName(mentee.getName());
                             findMentorViewHolder.setLanguage(mentee.getLanguage());
-                            //findMentorViewHolder.setLocation(mentee.getLocation());
+                            findMentorViewHolder.setLocation(mentee.getLocation());
                             findMentorViewHolder.setCollege(mentee.getCollege());
                             findMentorViewHolder.setCourse(mentee.getCourse());
 
