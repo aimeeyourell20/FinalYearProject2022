@@ -152,6 +152,7 @@ public class MeetingRequest extends AppCompatActivity {
                     String mentors = mentor.getText().toString();
                     String mentees = mentee.getText().toString();
 
+
                     Calendar calFordDate = Calendar.getInstance();
                     SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-yyyy");
                     saveCurrentDate = currentDate.format(calFordDate.getTime());
@@ -172,6 +173,7 @@ public class MeetingRequest extends AppCompatActivity {
                     //meeting.put("meetingDate", date);
                     meeting.put("meetingMentor", mentors);
                     meeting.put("meetingMentee", mentees);
+                    meeting.put("date", saveCurrentDate);
 
 
                     Map messageBodyDetails = new HashMap();

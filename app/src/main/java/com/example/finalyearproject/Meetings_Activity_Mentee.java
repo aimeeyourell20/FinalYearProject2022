@@ -90,4 +90,10 @@ public class Meetings_Activity_Mentee extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this,MenteeMainActivity.class));
+    }
 }

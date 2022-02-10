@@ -82,6 +82,25 @@
         <item>Nearly Finished</item>
         <item>Completed</item>
     </string-array>
+
+    <string-array name="industry">
+        <item>Please select your industry</item>
+        <item>Aerospace</item>
+        <item>Agriculture/Animals</item>
+        <item>Business</item>
+        <item>Computer and Technology</item>
+        <item>Construction</item>
+        <item>Education</item>
+        <item>Entertainment</item>
+        <item>Fashion</item>
+        <item>Food/Beverage</item>
+        <item>Healthcare</item>
+        <item>Hospitality</item>
+        <item>Media</item>
+        <item>Telecommunications</item>
+        <item>STEM</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

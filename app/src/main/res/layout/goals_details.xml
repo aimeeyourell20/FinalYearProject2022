@@ -33,6 +33,42 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Mentors Name"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/goalMentorsName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mentor Name"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mentees Name"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/goalMenteesName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mentees Name"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Goal Title"
                 android:textAlignment="textStart"
                 android:textColor="#000"
@@ -66,6 +102,24 @@
             android:textAlignment="textStart"
             android:textColor="#000"
             android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Goal Start Date"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/goalStartDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Yesterday"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textSize="18sp"/>
 
             <TextView
                 android:layout_width="match_parent"

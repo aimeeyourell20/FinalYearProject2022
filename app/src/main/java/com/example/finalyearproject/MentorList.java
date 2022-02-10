@@ -10,8 +10,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -74,12 +76,15 @@ public class MentorList extends AppCompatActivity {
                             final String location = snapshot.child("location").getValue().toString();
                             final String college = snapshot.child("college").getValue().toString();
                             final String course = snapshot.child("course").getValue().toString();
+                            final String photo = snapshot.child("profileimage").getValue().toString();
+                            Glide.with(getApplicationContext()).load(photo).into(menteeFriendHolder.setProfileimage(photo));
 
                             menteeFriendHolder.setCollege(college);
                             menteeFriendHolder.setName(name);
                             menteeFriendHolder.setLanguage(language);
                             menteeFriendHolder.setLocation(location);
                             menteeFriendHolder.setCourse(course);
+                            menteeFriendHolder.setProfileimage(photo);
 
                             menteeFriendHolder.mView.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -177,6 +182,13 @@ public class MentorList extends AppCompatActivity {
         public void setDate(String date) {
             TextView myDate = (TextView) mView.findViewById(R.id.searchMenteeStatus);
             myDate.setText("Mentorship since:" + date);
+        }
+
+        public ImageView setProfileimage(String profileimage){
+
+            ImageView myPhoto = (ImageView) mView.findViewById(R.id.searchMenteeProfilePicture);
+
+            return myPhoto;
         }
 
     }

@@ -22,6 +22,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +34,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Mentee_Resume extends AppCompatActivity {
 
@@ -43,6 +47,11 @@ public class Mentee_Resume extends AppCompatActivity {
     private String currentUser;
     private LinearLayout layout;
     private Bitmap bitmap;
+    private DatabaseReference RootRef;
+    private String messageSenderID;
+    private String messageReceiverID1;
+    private String menteeReceiverID1;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +60,11 @@ public class Mentee_Resume extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser().getUid();
-        dr = FirebaseDatabase.getInstance().getReference().child("users").child(currentUser);
+        dr = FirebaseDatabase.getInstance().getReference().child("CV").child(currentUser);
+
+        RootRef = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+        messageSenderID = mAuth.getCurrentUser().getUid();
 
         mname = findViewById(R.id.name);
         mskills = findViewById(R.id.interestSkills);

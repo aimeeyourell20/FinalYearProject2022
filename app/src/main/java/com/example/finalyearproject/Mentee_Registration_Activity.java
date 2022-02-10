@@ -143,6 +143,7 @@ public class  Mentee_Registration_Activity extends AppCompatActivity {
                     mentee.put("goals", "To learn about computers");
                     mentee.put("type", "Mentee");
                     mentee.put("profileimage", "");
+                    mentee.put("industry", "");
 
 
                     dr.updateChildren(mentee).addOnCompleteListener(new OnCompleteListener() {

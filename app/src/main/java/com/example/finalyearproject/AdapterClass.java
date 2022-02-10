@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,9 +20,11 @@ import com.example.finalyearproject.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class AdapterClass  extends RecyclerView.Adapter<AdapterClass.ViewHolder>{
+public class AdapterClass  extends RecyclerView.Adapter<AdapterClass.ViewHolder> {
 
     private Context context;
     private List<FindMentor> userList;
@@ -70,10 +74,11 @@ public class AdapterClass  extends RecyclerView.Adapter<AdapterClass.ViewHolder>
             name   = itemView.findViewById(R.id.searchMentorName);
             bio   = itemView.findViewById(R.id.searchMentorBio1);
             location   = itemView.findViewById(R.id.searchMentorLocation);
-            language   = itemView.findViewById(R.id.searchMentorLanguage);
+            language   = itemView.findViewById(R.id.searchMentorIndustry);
 
 
 
         }
     }
+
 }

@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.finalyearproject.fragments.Search;
+import com.example.finalyearproject.Industry_Fragments.SearchIndustryFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -104,7 +104,7 @@ public class Mentee_Profile_Activity extends AppCompatActivity {
         findMentor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Mentee_Profile_Activity.this,  Search.class);
+                Intent i = new Intent(Mentee_Profile_Activity.this,  SearchIndustryFragment.class);
                 startActivity(i);
             }
         });

@@ -176,15 +176,15 @@
 
 
                     <ImageView
-                        android:id="@+id/reports"
+                        android:id="@+id/meeting"
                         android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/reports"/>
+                        android:src="@drawable/meeting"
+                        android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Reports"
+                        android:text="Meetings"
                         android:textSize="18sp"
                         android:layout_marginTop="12dp"/>
 
@@ -210,21 +210,23 @@
 
 
                     <ImageView
-                        android:id="@+id/meeting"
+                        android:id="@+id/reports"
                         android:layout_width="80dp"
-                        android:src="@drawable/meeting"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/reports"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Meetings"
+                        android:text="Reports"
                         android:textSize="18sp"
                         android:layout_marginTop="12dp"/>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"

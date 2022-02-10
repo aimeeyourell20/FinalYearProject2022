@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Meeting_Model {
 
-    private String meetingDescription, meetingLocation, meetingMentor, meetingTitle, meetingMentee;
+    private String meetingDescription, meetingLocation, meetingMentor, meetingTitle, meetingMentee, Date;
 
 
 
@@ -51,5 +51,11 @@ public class Meeting_Model {
         this.meetingMentee = meetingMentee;
     }
 
+    public String getDate() {
+        return Date;
+    }
 
+    public void setDate(String date) {
+        Date = date;
+    }
 }

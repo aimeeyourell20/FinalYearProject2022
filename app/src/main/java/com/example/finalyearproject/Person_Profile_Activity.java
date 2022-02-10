@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,9 +25,9 @@ import java.util.Calendar;
 
 public class Person_Profile_Activity extends AppCompatActivity {
 
-    private TextView mname, mskills1,mskills2,mskills3, mlocation, mlanguage, mjobTitle, mbio, mindustry, mtype;
+    private TextView mname, mskills1, mlocation, mlanguage, mjobTitle, mbio, mindustry, mtype, mcompany;
     private Button SendFriendReqButton, DeclineFriendRequestButton;
-
+    private ImageView mprofile;
     private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef;
     private FirebaseAuth mAuth;
     private String senderUserId, CURRENT_STATE, saveCurrentDate;
@@ -67,9 +69,10 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     String industry = dataSnapshot.child("industry").getValue().toString();
                     String type = dataSnapshot.child("type").getValue().toString();
                     String skill1 = dataSnapshot.child("skill1").getValue().toString();
-                    String skill2 = dataSnapshot.child("skill2").getValue().toString();
-                    String language = dataSnapshot.child("language").getValue().toString();
                     String location = dataSnapshot.child("location").getValue().toString();
+                    String company = dataSnapshot.child("company").getValue().toString();
+                    String photo = dataSnapshot.child("profileimage").getValue().toString();
+                    Glide.with(getApplicationContext()).load(photo).into(mprofile);
 
 
                     mname.setText(name);
@@ -78,9 +81,8 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     mindustry.setText(industry);
                     mtype.setText(type);
                     mskills1.setText(skill1);
-                    mskills2.setText(skill2);
-                    mlanguage.setText(language);
                     mlocation.setText(location);
+                    mcompany.setText(company);
 
                     MaintananceofButtons();
                 }
@@ -365,12 +367,13 @@ public class Person_Profile_Activity extends AppCompatActivity {
         mname = findViewById(R.id.personname);
         mtype = findViewById(R.id.persontype);
         mskills1 = findViewById(R.id.personskills1);
-        mskills2 = findViewById(R.id.personskills2);
+        mcompany = findViewById(R.id.personcompany);
         mlanguage = findViewById(R.id.personlanguage);
         mlocation = findViewById(R.id.personlocation);
         mjobTitle = findViewById(R.id.personjobTitle);
         mbio = findViewById(R.id.personbio);
         mindustry = findViewById(R.id.personindustry);
+        mprofile = findViewById(R.id.profileImageProfile);
         SendFriendReqButton = (Button) findViewById(R.id.sendRequest);
         DeclineFriendRequestButton = (Button) findViewById(R.id.cancelRequest);
 

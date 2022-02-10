@@ -280,7 +280,8 @@ public class MentorMainActivity extends AppCompatActivity{
     }
 
     private void Goals() {
-        Toast.makeText(MentorMainActivity.this, "Goals", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(MentorMainActivity.this, Goals_Activity_Mentor.class);
+        startActivity(i);
     }
 
     private void Mentees() {

@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
         android:orientation="vertical"
         android:background="@drawable/gradient">
 
@@ -20,7 +20,8 @@
             android:layout_marginTop="20dp"
             android:textAlignment="center"
             android:layout_marginBottom="28dp"
-            android:textSize="32sp"
+            android:textSize="22sp"
+            android:textStyle="bold"
             android:text="Add Goal"/>
         <View
             android:layout_width="match_parent"
@@ -40,20 +41,38 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="-10dp">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/mentor"
+                android:layout_width="355dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:textSize="18sp"
                 android:text="Mentors Name"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/mentee"
+                android:layout_width="match_parent"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="My Name"
                 android:layout_marginBottom="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/mentorsName"
@@ -62,9 +81,23 @@
                 android:textColor="#0352DA"
                 android:layout_height="55dp"
                 android:background="@drawable/goals_task"
-                android:inputType="text"/>
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:text="Mentors Name"/>
+
+            <TextView
+                android:id="@+id/menteesName"
+                android:layout_width="match_parent"
+                android:paddingLeft="12dp"
+                android:textColor="#0352DA"
+                android:layout_height="55dp"
+                android:background="@drawable/goals_task"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:text="Mentees Name"/>
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -142,8 +175,7 @@
                 android:textColor="#0352DA"
                 android:layout_height="55dp"
                 android:background="@drawable/goals_task"
-                android:hint="31/01/2022"
-                android:inputType="datetime"/>
+                android:hint="31/01/2022"/>
 
         </LinearLayout>
     </LinearLayout>

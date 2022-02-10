@@ -5,19 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.Argentina_Fragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/projectstxt"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/search_box_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Communication Motivation"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,11 +12,10 @@
 
 
 
-    <Button
+    <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/search_people_friends_button1"
-        android:layout_marginTop="60dp"
         android:layout_weight="1"
         android:text="Search"/>
 

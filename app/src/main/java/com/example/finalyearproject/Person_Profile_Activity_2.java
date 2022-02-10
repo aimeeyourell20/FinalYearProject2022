@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +29,7 @@ public class Person_Profile_Activity_2 extends AppCompatActivity {
     private Button SendFriendReqButton, DeclineFriendRequestButton;
     private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef;
     private FirebaseAuth mAuth;
+    private ImageView mprofile;
     private String senderUserId, CURRENT_STATE, saveCurrentDate;
     private String receiverUserId = "";
 
@@ -70,6 +73,9 @@ public class Person_Profile_Activity_2 extends AppCompatActivity {
                     String course = dataSnapshot.child("course").getValue().toString();
                     String occupation = dataSnapshot.child("occupation").getValue().toString();
                     String goals = dataSnapshot.child("goals").getValue().toString();
+                    String photo = dataSnapshot.child("profileimage").getValue().toString();
+                    Glide.with(getApplicationContext()).load(photo).into(mprofile);
+
 
 
                     mname.setText("Fullname " + name);
@@ -372,6 +378,7 @@ public class Person_Profile_Activity_2 extends AppCompatActivity {
         mcourse = findViewById(R.id.personcourse);
         moccupation = findViewById(R.id.personoccupation);
         mgoals = findViewById(R.id.persongoals);
+        mprofile = findViewById(R.id.profileImageProfile);
         SendFriendReqButton = (Button) findViewById(R.id.sendRequest);
         DeclineFriendRequestButton = (Button) findViewById(R.id.cancelRequest);
 

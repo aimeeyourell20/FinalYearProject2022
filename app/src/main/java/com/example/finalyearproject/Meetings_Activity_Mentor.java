@@ -92,5 +92,11 @@ public class Meetings_Activity_Mentor extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this,MentorMainActivity.class));
+    }
+
 
 }

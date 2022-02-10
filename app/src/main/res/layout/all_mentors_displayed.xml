@@ -29,7 +29,7 @@
                 android:orientation="vertical"
                 android:layout_margin="6dp">
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <ImageView
                     android:id="@+id/searchMentorProfilePicture"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
@@ -81,10 +81,21 @@
                     android:textSize="20sp"
                     android:textStyle="bold"/>
                 <TextView
-                    android:id="@+id/searchMentorBio2"
+                    android:id="@+id/searchMentorIndustry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mentor Skill2"
+                    android:text="Mentor Industry"
+                    android:textAlignment="textStart"
+                    android:layout_marginLeft="100dp"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/searchMentorCompany"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentor Company"
                     android:textAlignment="textStart"
                     android:layout_marginLeft="100dp"
                     android:textColor="#000"
@@ -102,16 +113,6 @@
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
-                <TextView
-                    android:id="@+id/searchMentorLanguage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mentor Language"
-                    android:textAlignment="textStart"
-                    android:layout_marginLeft="100dp"
-                    android:textColor="#000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"/>
 
 
 

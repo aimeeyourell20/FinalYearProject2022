@@ -71,17 +71,17 @@ public class Request_Meeting_Activity extends AppCompatActivity {
                         if(snapshot.exists()){
                             final String name = snapshot.child("name").getValue().toString();
                             final String skills1 = snapshot.child("skill1").getValue().toString();
-                            final String skills2 = snapshot.child("skill2").getValue().toString();
-                            final String language = snapshot.child("language").getValue().toString();
+                            final String company = snapshot.child("company").getValue().toString();
+                            final String industry = snapshot.child("industry").getValue().toString();
                             final String location = snapshot.child("location").getValue().toString();
                             final String type = snapshot.child("type").getValue().toString();
 
                             menteeFriendHolder.setType(type);
                             menteeFriendHolder.setName(name);
-                            menteeFriendHolder.setLanguage(language);
+                            menteeFriendHolder.setCompany(company);
                             menteeFriendHolder.setLocation(location);
                             menteeFriendHolder.setSkills1(skills1);
-                            menteeFriendHolder.setSkills2(skills2);
+                            menteeFriendHolder.setIndustry(industry);
 
                             menteeFriendHolder.mView.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -155,10 +155,10 @@ public class Request_Meeting_Activity extends AppCompatActivity {
             myLocation.setText(location);
         }
 
-        public void setLanguage(String language) {
+        public void setIndustry(String industry) {
 
-            TextView myLanguage = (TextView) mView.findViewById(R.id.searchMentorLanguage);
-            myLanguage.setText(language);
+            TextView myIndustry = (TextView) mView.findViewById(R.id.searchMentorIndustry);
+            myIndustry.setText(industry);
         }
 
         public void setSkills1(String skills1) {
@@ -166,10 +166,10 @@ public class Request_Meeting_Activity extends AppCompatActivity {
             TextView mySkills1 = (TextView) mView.findViewById(R.id.searchMentorBio1);
             mySkills1.setText(skills1);
         }
-        public void setSkills2(String skills2) {
+        public void setCompany(String company) {
 
-            TextView mySkills2 = (TextView) mView.findViewById(R.id.searchMentorBio2);
-            mySkills2.setText(skills2);
+            TextView myCompany = (TextView) mView.findViewById(R.id.searchMentorCompany);
+            myCompany.setText(company);
         }
 
 

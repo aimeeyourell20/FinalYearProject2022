@@ -31,6 +31,11 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
     private Button mUpdateCV;
     private DatabaseReference dr;
     private String currentUser;
+    private DatabaseReference RootRef, user_message_key;
+    private String messageSenderID;
+    private String messageReceiverID1;
+    private String menteeReceiverID1;
+    private FirebaseAuth mAuth;
 
     private FirebaseAuth firebaseAuth;
 
@@ -42,6 +47,13 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser().getUid();
         dr = FirebaseDatabase.getInstance().getReference().child("users").child(currentUser);
+
+
+        RootRef = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+        messageSenderID = mAuth.getCurrentUser().getUid();
+
+        user_message_key = RootRef.child("CV").child(messageSenderID);
 
         mname = findViewById(R.id.name);
         mskills = findViewById(R.id.interestSkills);
@@ -140,7 +152,7 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
         MenteeMap.put("projects", projects);
 
 
-        dr.updateChildren(MenteeMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        user_message_key.updateChildren(MenteeMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 

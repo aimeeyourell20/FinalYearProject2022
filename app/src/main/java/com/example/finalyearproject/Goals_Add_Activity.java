@@ -33,7 +33,7 @@ import java.util.Map;
 public class Goals_Add_Activity extends AppCompatActivity {
 
     private EditText title, date, description;
-    private TextView mentor;
+    private TextView mentor, mentee;
     private Button request, cancel, calendar;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference dr, UsersRef, MenteeRef;
@@ -59,9 +59,13 @@ public class Goals_Add_Activity extends AppCompatActivity {
         date = findViewById(R.id.editGoalsDate);
         description = findViewById(R.id.editGoalsDescription);
         mentor = findViewById(R.id.mentorsName);
+        mentee = findViewById(R.id.menteesName);
         //mentee = findViewById(R.id.meetingMentee);
         request = findViewById(R.id.createGoalButton);
         cancel = findViewById(R.id.cancelGoalButton);
+
+        MenteeRef = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -71,6 +75,22 @@ public class Goals_Add_Activity extends AppCompatActivity {
                 messageReceiverID1 = (String) extras.get("mentorid");
             }
         }
+
+        MenteeRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String name = snapshot.child("name").getValue().toString();
+                    mentee.setText(name);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 
@@ -115,6 +135,7 @@ public class Goals_Add_Activity extends AppCompatActivity {
                     String dates = date.getText().toString();
                     String descriptions = description.getText().toString();
                     String mentors = mentor.getText().toString();
+                    String mentees = mentee.getText().toString();
 
 
                     Calendar calFordDate = Calendar.getInstance();
@@ -133,6 +154,8 @@ public class Goals_Add_Activity extends AppCompatActivity {
                     meeting.put("goalsDescription", descriptions);
                     meeting.put("goalsDate", dates);
                     meeting.put("goalsMentor", mentors);
+                    meeting.put("goalsMentee", mentees);
+                    meeting.put("goalsStartDate", saveCurrentDate);
 
 
                     Map messageBodyDetails = new HashMap();
@@ -146,7 +169,8 @@ public class Goals_Add_Activity extends AppCompatActivity {
                             if (task.isSuccessful()) {
 
                                 Toast.makeText(Goals_Add_Activity.this, "Meeting info successfully added", Toast.LENGTH_SHORT).show();
-                                startActivity(intent);
+                                Intent i = new Intent(Goals_Add_Activity.this, Goals_Activity_Mentee.class);
+                                startActivity(i);
                             } else {
                                 Toast.makeText(Goals_Add_Activity.this, "Error", Toast.LENGTH_SHORT).show();
                             }

@@ -55,6 +55,8 @@ public class Meetings_Adapter extends RecyclerView.Adapter<Meetings_Adapter.Meet
         holder.meetingMentor.setText(meeting_model.getMeetingMentor());
         holder.meetingTitle.setText(meeting_model.getMeetingTitle());
         holder.meetingMentee.setText(meeting_model.getMeetingMentee());
+        holder.meetingDate.setText(meeting_model.getDate());
+
 
 
         final String getMeetingDescription = meeting_model.getMeetingDescription();
@@ -105,7 +107,7 @@ public class Meetings_Adapter extends RecyclerView.Adapter<Meetings_Adapter.Meet
 
     class MeetingsViewHolder extends RecyclerView.ViewHolder{
 
-        TextView meetingDescription,meetingLocation,meetingMentor, meetingTitle, meetingMentee;
+        TextView meetingDescription,meetingLocation,meetingMentor, meetingTitle, meetingMentee, meetingDate;
 
 
 
@@ -117,6 +119,7 @@ public class Meetings_Adapter extends RecyclerView.Adapter<Meetings_Adapter.Meet
             meetingMentor = itemView.findViewById(R.id.searchMentorName);
             meetingTitle = itemView.findViewById(R.id.titleMeeting);
             meetingMentee = itemView.findViewById(R.id.searchMenteeName);
+            meetingDate = itemView.findViewById(R.id.searchMentorDate);
 
         }
     }

@@ -53,6 +53,9 @@ public class Goals_Adapter extends RecyclerView.Adapter<Goals_Adapter.GoalsViewH
         holder.goalsTitle.setText(goals_model.getGoalsTitle());
         holder.goalsDescription.setText(goals_model.getGoalsDescription());
         holder.goalsDate.setText(goals_model.getGoalsDate());
+        holder.goalsStartDate.setText(goals_model.getGoalsStartDate());
+        holder.goalMenteeName.setText(goals_model.getGoalsMentee());
+        holder.goalMentorName.setText(goals_model.getGoalsMentor());
         //holder.key.setText(goals_model.getKey());
 
 
@@ -74,7 +77,7 @@ public class Goals_Adapter extends RecyclerView.Adapter<Goals_Adapter.GoalsViewH
 
     class GoalsViewHolder extends RecyclerView.ViewHolder{
 
-        TextView goalsTitle,goalsDescription,goalsDate, key;
+        TextView goalsTitle,goalsDescription,goalsDate, key, goalsStartDate, goalMentorName, goalMenteeName;
         TextView status;
 
 
@@ -84,6 +87,9 @@ public class Goals_Adapter extends RecyclerView.Adapter<Goals_Adapter.GoalsViewH
             goalsTitle = itemView.findViewById(R.id.goalTitle);
             goalsDescription = itemView.findViewById(R.id.goalDescription);
             goalsDate = itemView.findViewById(R.id.goalDate);
+            goalsStartDate = itemView.findViewById(R.id.goalStartDate);
+            goalMentorName = itemView.findViewById(R.id.goalMentorsName);
+            goalMenteeName = itemView.findViewById(R.id.goalMenteesName);
 
         }
     }

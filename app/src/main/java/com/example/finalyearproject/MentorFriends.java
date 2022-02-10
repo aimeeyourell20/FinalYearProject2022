@@ -25,7 +25,7 @@ import java.util.Calendar;
 
 public class MentorFriends extends AppCompatActivity {
 
-    private TextView mname, mskills, mlocation, mlanguage, mtype, mcollege, mcourse, moccupation, mgoals;
+    private TextView mname, mskills, mlocation, mlanguage, mtype, mcollege, mcourse, mindustry, mgoals;
     private Button SendFriendReqButton, DeclineFriendRequestButton;
     private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef;
     private FirebaseAuth mAuth;
@@ -49,7 +49,7 @@ public class MentorFriends extends AppCompatActivity {
         mlocation = findViewById(R.id.personlocation);
         mcollege = findViewById(R.id.personcollege);
         mcourse = findViewById(R.id.personcourse);
-        moccupation = findViewById(R.id.personoccupation);
+        mindustry = findViewById(R.id.personIndustry);
         mgoals = findViewById(R.id.persongoals);
         mprofile = findViewById(R.id.profileImageProfile);
         SendFriendReqButton = (Button) findViewById(R.id.sendRequest);
@@ -83,20 +83,20 @@ public class MentorFriends extends AppCompatActivity {
                     String location = dataSnapshot.child("location").getValue().toString();
                     String college = dataSnapshot.child("college").getValue().toString();
                     String course = dataSnapshot.child("course").getValue().toString();
-                    String occupation = dataSnapshot.child("occupation").getValue().toString();
+                    String industry = dataSnapshot.child("industry").getValue().toString();
                     String goals = dataSnapshot.child("goals").getValue().toString();
                     String photo = dataSnapshot.child("profileimage").getValue().toString();
 
 
-                    mname.setText("Fullname " + name);
-                    mtype.setText("Type " + type);
-                    mskills.setText("Skills " + skills);
-                    mlanguage.setText("Language " + language);
-                    mlocation.setText("Location " + location);
-                    mcourse.setText("Course " + course);
-                    mcollege.setText("College " + college);
-                    moccupation.setText("Occupation " + occupation);
-                    mgoals.setText("Goals " + goals);
+                    mname.setText(name);
+                    mtype.setText(type);
+                    mskills.setText(skills);
+                    mlanguage.setText(language);
+                    mlocation.setText(location);
+                    mcourse.setText(course);
+                    mcollege.setText(college);
+                    mindustry.setText(industry);
+                    mgoals.setText(goals);
                     Glide.with(getApplicationContext()).load(photo).into(mprofile);
 
 

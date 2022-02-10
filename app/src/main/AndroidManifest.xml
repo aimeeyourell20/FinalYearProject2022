@@ -24,6 +24,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalYearProject">
         <activity
+            android:name=".Mentee_View_Resumes"
+            android:exported="true" />
+        <activity
+            android:name=".Mentee_Add_Resume"
+            android:exported="true" />
+        <activity
+            android:name=".Mentee_Resume_Options"
+            android:exported="true" />
+        <activity
+            android:name=".fragments.AddMentor"
+            android:exported="true" />
+        <activity
+            android:name=".Industry_Fragments.SearchIndustryFragment"
+            android:exported="true" />
+        <activity
             android:name=".Goals_Add_Activity"
             android:exported="true" />
         <activity

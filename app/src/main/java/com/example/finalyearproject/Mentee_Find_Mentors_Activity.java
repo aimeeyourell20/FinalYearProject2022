@@ -236,10 +236,10 @@ public class Mentee_Find_Mentors_Activity extends AppCompatActivity {
 
                                                 findMentorViewHolder.setType(findMentor.getType());
                                                 findMentorViewHolder.setName(findMentor.getName());
-                                                findMentorViewHolder.setLanguage(findMentor.getLanguage());
+                                                findMentorViewHolder.setCompany(findMentor.getCompany());
                                                 findMentorViewHolder.setLocation(findMentor.getLocation());
-                                                findMentorViewHolder.setSkill1(findMentor.getSkill1());
-                                                findMentorViewHolder.setSkill2(findMentor.getSkill2());
+                                                findMentorViewHolder.setSkills1(findMentor.getSkill1());
+                                                findMentorViewHolder.setIndustry(findMentor.getIndustry());
 
                                                 findMentorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                                         @Override
@@ -283,10 +283,10 @@ public class Mentee_Find_Mentors_Activity extends AppCompatActivity {
 
                                                 findMentorViewHolder.setType(findMentor.getType());
                                                 findMentorViewHolder.setName(findMentor.getName());
-                                                findMentorViewHolder.setLanguage(findMentor.getLanguage());
+                                                findMentorViewHolder.setCompany(findMentor.getCompany());
                                                 findMentorViewHolder.setLocation(findMentor.getLocation());
-                                                findMentorViewHolder.setSkill1(findMentor.getSkill1());
-                                                findMentorViewHolder.setSkill2(findMentor.getSkill2());
+                                                findMentorViewHolder.setSkills1(findMentor.getSkill1());
+                                                findMentorViewHolder.setIndustry(findMentor.getIndustry());
 
                                                 findMentorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                                         @Override
@@ -336,23 +336,23 @@ public class Mentee_Find_Mentors_Activity extends AppCompatActivity {
                         myLocation.setText(location);
                 }
 
-                public void setLanguage(String language) {
+                public void setIndustry(String industry) {
 
-                        TextView myLanguage = (TextView) mView.findViewById(R.id.searchMentorLanguage);
-                        myLanguage.setText(language);
+                        TextView myIndustry = (TextView) mView.findViewById(R.id.searchMentorIndustry);
+                        myIndustry.setText(industry);
                 }
 
-                public void setSkill1(String skill1) {
+                public void setSkills1(String skills1) {
 
-                        TextView mySkill1 = (TextView) mView.findViewById(R.id.searchMentorBio1);
-                        mySkill1.setText(skill1);
+                        TextView mySkills1 = (TextView) mView.findViewById(R.id.searchMentorBio1);
+                        mySkills1.setText(skills1);
+                }
+                public void setCompany(String company) {
+
+                        TextView myCompany = (TextView) mView.findViewById(R.id.searchMentorCompany);
+                        myCompany.setText(company);
                 }
 
-                public void setSkill2(String skill2) {
-
-                        TextView mySkill2 = (TextView) mView.findViewById(R.id.searchMentorBio2);
-                        mySkill2.setText(skill2);
-                }
 
 
         }

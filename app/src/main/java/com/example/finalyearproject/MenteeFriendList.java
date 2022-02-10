@@ -8,9 +8,11 @@ public class MenteeFriendList {
 
     }
 
-    public MenteeFriendList(String date) {
+    public MenteeFriendList(String date, String profileimage) {
         this.date = date;
+        this.profileimage = profileimage;
     }
+
 
     public String getDate() {
         return date;
@@ -18,5 +20,13 @@ public class MenteeFriendList {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getProfileimage() {
+        return profileimage;
+    }
+
+    public void setProfileimage(String profileimage) {
+        this.profileimage = profileimage;
     }
 }

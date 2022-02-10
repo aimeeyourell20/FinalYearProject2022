@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.finalyearproject.fragments.Search;
+import com.example.finalyearproject.Industry_Fragments.SearchIndustryFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -299,12 +299,12 @@ public class MenteeMainActivity extends AppCompatActivity{
     }
 
     private void Search() {
-        Intent i = new Intent(MenteeMainActivity.this, Search.class);
+        Intent i = new Intent(MenteeMainActivity.this, SearchIndustryFragment.class);
         startActivity(i);
     }
 
     private void Mentee_Resume() {
-        Intent i = new Intent(MenteeMainActivity.this, Mentee_Resume.class);
+        Intent i = new Intent(MenteeMainActivity.this, Mentee_Resume_Options.class);
         startActivity(i);
     }
 
