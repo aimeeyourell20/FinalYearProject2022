@@ -32,7 +32,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class MenteeMainActivity extends AppCompatActivity{
 
-    private ImageView mentors, findMentor, settings, goals, career, cv, profile, logout, meeting;
+    private ImageView mentors, findMentor, settings, goals, career, cv, profile, logout, meeting, chatbot;
     private TextView profileName, type;
     private DatabaseReference dr;
     private DatabaseReference user;
@@ -65,6 +65,7 @@ public class MenteeMainActivity extends AppCompatActivity{
         type = findViewById(R.id.type);
         logout = findViewById(R.id.logout);
         meeting = findViewById(R.id.meeting);
+        chatbot = findViewById(R.id.chatbot);
 
 
 
@@ -155,6 +156,13 @@ public class MenteeMainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Meeting();
+            }
+        });
+
+        chatbot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChatBot();
             }
         });
 
@@ -320,6 +328,12 @@ public class MenteeMainActivity extends AppCompatActivity{
 
     private void RateMentor() {
         Intent i = new Intent(MenteeMainActivity.this, Rating_Activity.class);
+        startActivity(i);
+
+    }
+
+    private void ChatBot() {
+        Intent i = new Intent(MenteeMainActivity.this, ChatbotKotlin.class);
         startActivity(i);
 
     }

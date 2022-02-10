@@ -116,6 +116,7 @@
         <entry key="app/src/main/res/layout/all_mentees_displayed.xml" value="0.2935185185185185" />
         <entry key="app/src/main/res/layout/all_mentors_displayed.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/all_mentors_fragment.xml" value="0.17447916666666666" />
+        <entry key="app/src/main/res/layout/chatbotkotlin.xml" value="0.2364102564102564" />
         <entry key="app/src/main/res/layout/dummy.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dummyview.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/fragment_France_.xml" value="0.22447916666666667" />
@@ -187,6 +188,7 @@
         <entry key="app/src/main/res/layout/ireland.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/layout_child.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/layout_parent.xml" value="0.17777777777777778" />
+        <entry key="app/src/main/res/layout/listitem_chat.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/message_layout.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/message_mentor_bar.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/resume_details.xml" value="0.24010416666666667" />
