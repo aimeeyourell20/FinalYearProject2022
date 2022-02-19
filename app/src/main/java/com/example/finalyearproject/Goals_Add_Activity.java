@@ -120,7 +120,7 @@ public class Goals_Add_Activity extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Goals_Add_Activity.this, MentorMainActivity.class);
+                Intent i = new Intent(Goals_Add_Activity.this, MenteeMainActivity.class);
                 startActivity(i);
             }
         });

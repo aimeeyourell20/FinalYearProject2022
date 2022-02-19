@@ -32,6 +32,7 @@ public class Person_Profile_Activity_2 extends AppCompatActivity {
     private ImageView mprofile;
     private String senderUserId, CURRENT_STATE, saveCurrentDate;
     private String receiverUserId = "";
+    private ImageView mHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,15 @@ public class Person_Profile_Activity_2 extends AppCompatActivity {
                 //messageReceiverName = (String) extras.get("name");
             }
         }
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Person_Profile_Activity_2.this, MentorMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         //receiverUserId = getIntent().getExtras().get("menteeid").toString();
         UsersRef = FirebaseDatabase.getInstance().getReference().child("users");

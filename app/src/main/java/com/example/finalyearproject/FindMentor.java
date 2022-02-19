@@ -1,5 +1,7 @@
 package com.example.finalyearproject;
 
+import com.google.firebase.database.DataSnapshot;
+
 import java.io.Serializable;
 
 public class FindMentor implements Serializable{
@@ -27,6 +29,7 @@ public class FindMentor implements Serializable{
         this.photo = photo;
 
     }
+
 
     public String getType() {
         return type;

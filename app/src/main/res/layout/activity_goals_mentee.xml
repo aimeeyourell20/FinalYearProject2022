@@ -6,24 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".Goals_Activity_Mentee">
 
-    <TextView
-        android:id="@+id/goalsList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:text="Goals"/>
+    <RelativeLayout
+        android:layout_width="385dp"
+        android:layout_height="689dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#FFF">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/goalsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/goalsList"
-        android:layout_margin="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:text="Goals"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/home" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/goalsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp" />
+
+    </RelativeLayout>
 
 
 

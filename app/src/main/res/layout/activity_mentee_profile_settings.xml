@@ -82,14 +82,14 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Spinner
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/locationSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:background="#fff"
                 android:entries="@array/location"
-                android:gravity="center"/>
+                android:textAlignment="viewEnd"
+                app:hintText="Location"/>
         </LinearLayout>
 
         <LinearLayout
@@ -111,15 +111,14 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/langauge"
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/languageSpinner"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Language"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:entries="@array/language"
                 android:textAlignment="viewEnd"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                app:hintText="Language"/>
         </LinearLayout>
 
         <LinearLayout
@@ -141,15 +140,14 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/skills"
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/skills1Spinner"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Skills"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:entries="@array/skills"
                 android:textAlignment="viewEnd"
-                android:textColor="@color/black"
-                android:textSize="16sp"/>
+                app:hintText="Skills"/>
         </LinearLayout>
 
         <LinearLayout
@@ -171,14 +169,14 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Spinner
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/industrySpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:background="#fff"
                 android:entries="@array/industry"
-                android:gravity="center"/>
+                android:textAlignment="viewEnd"
+                app:hintText="Industry"/>
         </LinearLayout>
 
         <LinearLayout

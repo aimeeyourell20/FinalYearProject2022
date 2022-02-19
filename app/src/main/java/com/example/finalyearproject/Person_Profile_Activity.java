@@ -28,10 +28,11 @@ public class Person_Profile_Activity extends AppCompatActivity {
     private TextView mname, mskills1, mlocation, mlanguage, mjobTitle, mbio, mindustry, mtype, mcompany;
     private Button SendFriendReqButton, DeclineFriendRequestButton;
     private ImageView mprofile;
-    private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef;
+    private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef, Notification;
     private FirebaseAuth mAuth;
     private String senderUserId, CURRENT_STATE, saveCurrentDate;
     private String receiverUserId = "";
+    private ImageView mHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,17 @@ public class Person_Profile_Activity extends AppCompatActivity {
                 //messageReceiverName = (String) extras.get("name");
             }
         }
+
+        mHome = findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Person_Profile_Activity.this, MenteeMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         //receiverUserId = getIntent().getExtras().get("mentorid").toString();
         UsersRef = FirebaseDatabase.getInstance().getReference().child("users");

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,6 +57,7 @@ public class Message_Mentor extends AppCompatActivity
     private final List<MentorMessages> messagesList = new ArrayList<>();
     private LinearLayoutManager linearLayoutManager;
     private MentorMessageAdapter messageAdapter;
+    private ImageView mHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -79,9 +81,20 @@ public class Message_Mentor extends AppCompatActivity
             }
         }
 
+        mHome = findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Message_Mentor.this, MentorMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
 
-       // messageReceiverID = getIntent().getExtras().get("mentorid").toString();
+
+        // messageReceiverID = getIntent().getExtras().get("mentorid").toString();
         //messageReceiverName = getIntent().getExtras().get("name").toString();
 
         IntializeFields();

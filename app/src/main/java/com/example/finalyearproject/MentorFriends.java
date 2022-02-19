@@ -26,6 +26,7 @@ import java.util.Calendar;
 public class MentorFriends extends AppCompatActivity {
 
     private TextView mname, mskills, mlocation, mlanguage, mtype, mcollege, mcourse, mindustry, mgoals;
+    private ImageView mHome;
     private Button SendFriendReqButton, DeclineFriendRequestButton;
     private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef;
     private FirebaseAuth mAuth;
@@ -65,6 +66,18 @@ public class MentorFriends extends AppCompatActivity {
                 //messageReceiverName = (String) extras.get("name");
             }
         }
+
+        mHome = findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MentorFriends.this, MentorMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
 
         //receiverUserId = getIntent().getExtras().get("menteeid").toString();
         UsersRef = FirebaseDatabase.getInstance().getReference().child("users");

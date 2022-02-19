@@ -39,8 +39,8 @@ import java.util.HashMap;
 public class Profile_Settings_Mentee_Activity extends AppCompatActivity {
 
     private Toolbar mtoolbar;
-    private EditText mskills, mlanguage, moccupation, mcollege, mgoals, mcourse;
-    private Spinner mlocation, mindustry;
+    private EditText  moccupation, mcollege, mgoals, mcourse;
+    private Spinner mlocation, mindustry, mskills, mlanguage;
     private Button mupdateMentee;
     private TextView mtype, mname;
     private DatabaseReference dr;
@@ -65,8 +65,8 @@ public class Profile_Settings_Mentee_Activity extends AppCompatActivity {
 
         mname = findViewById(R.id.profileNameTxt);
         mtype = findViewById(R.id.typeProfileTxt);
-        mskills = findViewById(R.id.skills);
-        mlanguage = findViewById(R.id.langauge);
+        mskills = findViewById(R.id.skills1Spinner);
+        mlanguage = findViewById(R.id.languageSpinner);
         mlocation = findViewById(R.id.locationSpinner);
         mindustry = findViewById(R.id.industrySpinner);
         mcollege = findViewById(R.id.college);
@@ -109,8 +109,8 @@ public class Profile_Settings_Mentee_Activity extends AppCompatActivity {
                     mindustry.setSelected(Boolean.parseBoolean(industry));
                     mcourse.setText(course);
                     mtype.setText(type);
-                    mskills.setText(skill1);
-                    mlanguage.setText(language);
+                    mskills.setSelected(Boolean.parseBoolean(skill1));
+                    mlanguage.setSelected(Boolean.parseBoolean(language));
                     mlocation.setSelected(Boolean.parseBoolean(location));
 
                 }
@@ -138,8 +138,8 @@ public class Profile_Settings_Mentee_Activity extends AppCompatActivity {
         String college = mcollege.getText().toString();
         String industry = mindustry.getSelectedItem().toString();
         String course = mcourse.getText().toString();
-        String skill1 = mskills.getText().toString();
-        String language = mlanguage.getText().toString();
+        String skill1 = mskills.getSelectedItem().toString();
+        String language = mlanguage.getSelectedItem().toString();
         String location = mlocation.getSelectedItem().toString();
         String type = mtype.getText().toString();
 
@@ -154,12 +154,6 @@ public class Profile_Settings_Mentee_Activity extends AppCompatActivity {
         }
         if(TextUtils.isEmpty(course)){
             mcourse.setError("Course can not be left blank");
-        }
-        if(TextUtils.isEmpty(skill1)){
-            mskills.setError("Skills can not be left blank");
-        }
-        if(TextUtils.isEmpty(language)){
-            mlanguage.setError("Language can not be left blank");
         }
         else{
             UpdateMentee(name, goals, college, course, skill1, language, location, type, industry);

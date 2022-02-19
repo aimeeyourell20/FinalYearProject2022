@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,6 +44,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Message_Mentee extends AppCompatActivity
 {
+
+
     private Toolbar ChattoolBar;
     private ImageButton SendMessageButton, SendImagefileButton;
     private EditText userMessageInput;
@@ -57,6 +62,7 @@ public class Message_Mentee extends AppCompatActivity
     private final List<MentorMessages> messagesList = new ArrayList<>();
     private LinearLayoutManager linearLayoutManager;
     private MentorMessageAdapter messageAdapter;
+    private ImageView mHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -82,6 +88,17 @@ public class Message_Mentee extends AppCompatActivity
         //messageReceiverID1 = getIntent().getExtras().get("menteeid").toString();
         //messageReceiverName = getIntent().getExtras().get("name").toString();
 
+        mHome = findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent i = new Intent(Message_Mentee.this, MentorMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
         IntializeFields();
 
         DisplayReceiverInfo();
@@ -93,6 +110,7 @@ public class Message_Mentee extends AppCompatActivity
             {
                 SendMessage();
             }
+
         });
 
         FetchMessages();
@@ -176,6 +194,7 @@ public class Message_Mentee extends AppCompatActivity
             messageBodyDetails.put(message_sender_ref + "/" + message_push_id , messageTextBody);
             messageBodyDetails.put(message_receiver_ref + "/" + message_push_id , messageTextBody);
 
+
             RootRef.updateChildren(messageBodyDetails).addOnCompleteListener(new OnCompleteListener()
             {
                 @Override
@@ -185,6 +204,20 @@ public class Message_Mentee extends AppCompatActivity
                     {
                         Toast.makeText(Message_Mentee.this, "Message Sent Successfully.", Toast.LENGTH_SHORT).show();
                         userMessageInput.setText("");
+
+                        String textContent ="This is a notification example";
+
+                        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),
+                                "MESSSAGE_NOTFICATION")
+                                .setSmallIcon(R.drawable.notification)
+                                .setContentTitle("Notification" + messageSenderID.toString())
+                                .setContentText(textContent)
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+                        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
+
+
+                        notificationManager.notify(101, builder.build());
                     }
                     else
                     {

@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +31,7 @@ public class Goals_Activity_Mentor extends AppCompatActivity {
     private final ArrayList<Goals_Model> goals_models  = new ArrayList<>();
     private Goals_Adapter goals_adapter;
     private LinearLayoutManager linearLayoutManager;
+    private ImageView mHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,18 @@ public class Goals_Activity_Mentor extends AppCompatActivity {
         }
 
         FetchMessages();
+
+        mHome = findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Goals_Activity_Mentor.this, MentorMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
     }
 
     private void FetchMessages() {

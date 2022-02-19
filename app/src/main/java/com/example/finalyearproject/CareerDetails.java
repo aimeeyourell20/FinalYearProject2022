@@ -12,9 +12,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CareerDetails extends AppCompatActivity {
+
+    private ImageView mHome;
 
 
     @Override
@@ -41,6 +45,18 @@ public class CareerDetails extends AppCompatActivity {
         mCompanyName.setText(companyName);
         mJobLocation.setText(jobLocation);
         mJobDescription.setText(jobDescription);
-        
+
+        mHome = findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(CareerDetails.this, MenteeMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+
     }
 }

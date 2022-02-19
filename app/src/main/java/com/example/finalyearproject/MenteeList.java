@@ -28,6 +28,7 @@ public class MenteeList extends AppCompatActivity {
     private DatabaseReference MenteeRef,MentorRef;
     private FirebaseAuth firebaseAuth;
     private String menteeOnline;
+    private ImageView mHome;
 
 
     @Override
@@ -46,6 +47,17 @@ public class MenteeList extends AppCompatActivity {
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
         menteeRecyclerView.setLayoutManager(linearLayoutManager);
+
+        mHome = findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MenteeList.this, MenteeMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         DisplayAllMentees();
 

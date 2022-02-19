@@ -39,8 +39,8 @@ import java.util.HashMap;
 public class Profile_Settings_Mentor_Activity extends AppCompatActivity {
 
     private Toolbar mtoolbar;
-    private EditText  mskill1,mskill2, mlanguage, mjobTitle, mbio, mcompany;
-    private Spinner mlocation, mindustry;
+    private EditText mjobTitle, mbio, mcompany;
+    private Spinner mlocation, mindustry, mlanguage, mskill1, mskill2;
     private TextView mname, mtype;
     private Button mupdateMentor;
     private DatabaseReference dr;
@@ -64,9 +64,9 @@ public class Profile_Settings_Mentor_Activity extends AppCompatActivity {
 
         mname = findViewById(R.id.profileNameTxt);
         mtype = findViewById(R.id.typeProfileTxt);
-        mskill1 = findViewById(R.id.skills1);
-        mskill2 = findViewById(R.id.skills2);
-        mlanguage = findViewById(R.id.langauge);
+        mskill1 = findViewById(R.id.skills1Spinner);
+        mskill2 = findViewById(R.id.skills2Spinner);
+        mlanguage = findViewById(R.id.languageSpinner);
         mlocation = findViewById(R.id.locationSpinner);
         mjobTitle = findViewById(R.id.jobTitle);
         mbio = findViewById(R.id.bio);
@@ -109,9 +109,9 @@ public class Profile_Settings_Mentor_Activity extends AppCompatActivity {
                     mjobTitle.setText(jobTitle);
                     mindustry.setSelected(Boolean.parseBoolean(industry));
                     mtype.setText(type);
-                    mskill1.setText(skill1);
-                    mskill2.setText(skill2);
-                    mlanguage.setText(language);
+                    mskill1.setSelected(Boolean.parseBoolean(skill1));
+                    mskill2.setSelected(Boolean.parseBoolean(skill2));
+                    mlanguage.setSelected(Boolean.parseBoolean(language));
                     mcompany.setText(company);
                     mlocation.setSelected(Boolean.parseBoolean(location));
 
@@ -140,9 +140,9 @@ public class Profile_Settings_Mentor_Activity extends AppCompatActivity {
         String bio = mbio.getText().toString();
         String jobtitle = mjobTitle.getText().toString();
         String industry = mindustry.getSelectedItem().toString();
-        String skill1 = mskill1.getText().toString();
-        String skill2 = mskill2.getText().toString();
-        String language = mlanguage.getText().toString();
+        String skill1 = mskill1.getSelectedItem().toString();
+        String skill2 = mskill2.getSelectedItem().toString();
+        String language = mlanguage.getSelectedItem().toString();
         String location = mlocation.getSelectedItem().toString();
         String type = mtype.getText().toString();
 
@@ -154,12 +154,6 @@ public class Profile_Settings_Mentor_Activity extends AppCompatActivity {
         }
         if(TextUtils.isEmpty(jobtitle)){
             mjobTitle.setError("Job title can not be left blank");
-        }
-        if(TextUtils.isEmpty(skill1)){
-            mskill1.setError("Skills can not be left blank");
-        }
-        if(TextUtils.isEmpty(language)){
-            mlanguage.setError("Language can not be left blank");
         }
         else{
             UpdateMentee(name, bio, jobtitle,industry, skill1, skill2,language, location, type, company);

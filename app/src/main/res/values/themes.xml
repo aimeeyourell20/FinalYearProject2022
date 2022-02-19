@@ -18,4 +18,6 @@
             <item name="boxStrokeColor">#fff</item>
             <item name="boxStrokeWidth">2dp</item>
         </style>
+
+
 </resources>

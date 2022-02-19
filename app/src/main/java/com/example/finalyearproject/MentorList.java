@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActionBar;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,6 +30,7 @@ public class MentorList extends AppCompatActivity {
     private DatabaseReference MenteeRef,MentorRef;
     private FirebaseAuth firebaseAuth;
     private String menteeOnline;
+    private ImageView mHome;
 
 
     @Override
@@ -40,7 +43,6 @@ public class MentorList extends AppCompatActivity {
         MenteeRef = FirebaseDatabase.getInstance().getReference().child("Mentorship").child(menteeOnline);
         MentorRef = FirebaseDatabase.getInstance().getReference().child("users");
 
-
         menteeRecyclerView = findViewById(R.id.menteeRecyclerView1);
         menteeRecyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -50,7 +52,19 @@ public class MentorList extends AppCompatActivity {
 
         DisplayAllMentees();
 
+        mHome = findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MentorList.this, MentorMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
     }
+
 
     private void DisplayAllMentees() {
 
@@ -64,7 +78,7 @@ public class MentorList extends AppCompatActivity {
             @Override
             protected void populateViewHolder(MenteeFriendHolder menteeFriendHolder, MenteeFriendList menteeFriendList, int i) {
 
-                menteeFriendHolder.setDate(menteeFriendList.getDate());
+                //menteeFriendHolder.setDate(menteeFriendList.getDate());
                 final String users = getRef(i).getKey();
                 MentorRef.child(users).addValueEventListener(new ValueEventListener() {
                     @Override
@@ -179,10 +193,6 @@ public class MentorList extends AppCompatActivity {
             myCourse.setText(course);
         }
 
-        public void setDate(String date) {
-            TextView myDate = (TextView) mView.findViewById(R.id.searchMenteeStatus);
-            myDate.setText("Mentorship since:" + date);
-        }
 
         public ImageView setProfileimage(String profileimage){
 

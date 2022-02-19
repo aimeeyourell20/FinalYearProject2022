@@ -30,6 +30,7 @@ public class Login_Activity extends AppCompatActivity {
     private Button mloginButton;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
+    private DatabaseReference users;
     private Boolean emailAddressCheckers;
 
     @Override
@@ -44,6 +45,8 @@ public class Login_Activity extends AppCompatActivity {
         mforgotPassword = findViewById(R.id.forgotPassword);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        users = FirebaseDatabase.getInstance().getReference().child("users");
 
         mnoAccount.setOnClickListener(new View.OnClickListener()
         {
@@ -115,6 +118,7 @@ public class Login_Activity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task)
                         {
                             if (task.isSuccessful()) {
+
                                 FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
                                 String RegisteredUserID = currentUser.getUid();
                                 DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("users").child(RegisteredUserID);

@@ -5,10 +5,32 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string-array name="skills">
-        <item>Please select your 1st main skill</item>
+        <item>Active Listening</item>
+        <item>Adaptability</item>
+        <item>Attention to Detail</item>
+        <item>Collaboration</item>
         <item>Communication</item>
-        <item>Leadership</item>
+        <item>Computer Skills</item>
         <item>Creativity</item>
+        <item>Critical Thinking</item>
+        <item>Customer Service</item>
+        <item>Decision Making</item>
+        <item>Empathy</item>
+        <item>Flexibility</item>
+        <item>Interpersonal Skills</item>
+        <item>Leadership</item>
+        <item>Management Skills</item>
+        <item>Multitasking</item>
+        <item>Organisational</item>
+        <item>People Skills</item>
+        <item>Positivity</item>
+        <item>Problem Solving</item>
+        <item>Responsibility</item>
+        <item>Self-Motivation</item>
+        <item>Teamwork</item>
+        <item>Time Management</item>
+        <item>Transferable Skills</item>
+        <item>Work Ethic</item>
     </string-array>
     <string-array name="skills2">
         <item>Please select your 2nd main skill</item>
@@ -25,7 +47,6 @@
     </string-array>
 
     <string-array name="location">
-        <item>Please select your location</item>
         <item>Argentina</item>
         <item>Australia</item>
         <item>Austria</item>
@@ -68,15 +89,53 @@
         <item>United States</item>
     </string-array>
 
+
+
     <string-array name="language">
-        <item>Please select your preferred language</item>
+        <item>Albanian</item>
+        <item>Arabic</item>
+        <item>Bulgarian</item>
+        <item>Czech</item>
+        <item>Chinese</item>
+        <item>Croatian</item>
+        <item>Danish</item>
+        <item>Dutch</item>
         <item>English</item>
+        <item>Estonian</item>
+        <item>Finnish</item>
+        <item>French</item>
         <item>German</item>
+        <item>Greek</item>
+        <item>Hebrew</item>
+        <item>Hindi</item>
+        <item>Hungarian</item>
+        <item>Icelandic</item>
+        <item>Indonesian</item>
+        <item>Italian</item>
+        <item>Japanese</item>
+        <item>Korean</item>
+        <item>Latvian</item>
+        <item>Lithuanian</item>
+        <item>Macedonian</item>
+        <item>Maltese</item>
+        <item>Norwegian</item>
+        <item>Polish</item>
+        <item>Portuguese</item>
+        <item>Romanian</item>
+        <item>Russian</item>
+        <item>Slovak</item>
+        <item>Slovenian</item>
+        <item>Somali</item>
         <item>Spanish</item>
+        <item>Swedish</item>
+        <item>Tagalog-Filipino</item>
+        <item>Thai</item>
+        <item>Turkish</item>
+        <item>Vietnamese</item>
+        <item>Welsh</item>
     </string-array>
 
     <string-array name="status">
-        <item>Please select your goal status</item>
         <item>Only started</item>
         <item>Making Progress</item>
         <item>Nearly Finished</item>
@@ -84,7 +143,23 @@
     </string-array>
 
     <string-array name="industry">
-        <item>Please select your industry</item>
+        <item>Aerospace</item>
+        <item>Agriculture/Animals</item>
+        <item>Business</item>
+        <item>Computer and Technology</item>
+        <item>Construction</item>
+        <item>Education</item>
+        <item>Entertainment</item>
+        <item>Fashion</item>
+        <item>Food/Beverage</item>
+        <item>Healthcare</item>
+        <item>Hospitality</item>
+        <item>Media</item>
+        <item>Telecommunications</item>
+        <item>STEM</item>
+    </string-array>
+
+    <string-array name="company">
         <item>Aerospace</item>
         <item>Agriculture/Animals</item>
         <item>Business</item>
