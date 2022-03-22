@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.finalyearproject.Industry_Fragments.SearchIndustryFragment;
+import com.example.finalyearproject.LocationReports.Mentee_Reports;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -32,7 +33,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class MenteeMainActivity extends AppCompatActivity{
 
-    private ImageView mentors, findMentor, settings, goals, career, cv, profile, logout, meeting, chatbot;
+    private ImageView mentors, findMentor, settings, goals, career, cv, profile, logout, meeting, chatbot, reports;
     private TextView profileName, type;
     private DatabaseReference dr;
     private DatabaseReference user;
@@ -66,6 +67,7 @@ public class MenteeMainActivity extends AppCompatActivity{
         logout = findViewById(R.id.logout);
         meeting = findViewById(R.id.meeting);
         chatbot = findViewById(R.id.chatbot);
+        reports = findViewById(R.id.reports);
 
 
 
@@ -163,6 +165,13 @@ public class MenteeMainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 ChatBot();
+            }
+        });
+
+        reports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Reports();
             }
         });
 
@@ -346,6 +355,12 @@ public class MenteeMainActivity extends AppCompatActivity{
 
     private void Meeting() {
         Intent i = new Intent(MenteeMainActivity.this, Meetings_Activity_Mentee.class);
+        startActivity(i);
+        finish();
+    }
+
+    private void Reports() {
+        Intent i = new Intent(MenteeMainActivity.this, Mentee_Reports.class);
         startActivity(i);
         finish();
     }

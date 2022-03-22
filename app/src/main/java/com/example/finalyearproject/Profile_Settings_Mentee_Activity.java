@@ -168,8 +168,12 @@ public class Profile_Settings_Mentee_Activity extends AppCompatActivity {
         MenteeMap.put("goals", goals);
         MenteeMap.put("college", college);
         MenteeMap.put("industry", industry);
+        MenteeMap.put("industry2", industry);
+        MenteeMap.put("industry3", "");
         MenteeMap.put("course", course);
         MenteeMap.put("skill1", skill1);
+        MenteeMap.put("skill4", skill1);
+        MenteeMap.put("skill3", "");
         MenteeMap.put("language", language);
         MenteeMap.put("location", location);
         MenteeMap.put("search", type + skill1 + industry);

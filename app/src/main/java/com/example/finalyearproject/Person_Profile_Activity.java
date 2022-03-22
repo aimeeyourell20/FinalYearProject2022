@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,11 +30,13 @@ public class Person_Profile_Activity extends AppCompatActivity {
     private TextView mname, mskills1, mlocation, mlanguage, mjobTitle, mbio, mindustry, mtype, mcompany;
     private Button SendFriendReqButton, DeclineFriendRequestButton;
     private ImageView mprofile;
-    private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef, Notification;
+    private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef, RootRef, Rating;
     private FirebaseAuth mAuth;
     private String senderUserId, CURRENT_STATE, saveCurrentDate;
     private String receiverUserId = "";
+    private String rating ="";
     private ImageView mHome;
+    private RatingBar mRatingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,8 @@ public class Person_Profile_Activity extends AppCompatActivity {
         UsersRef = FirebaseDatabase.getInstance().getReference().child("users");
         FriendsRequestRef = FirebaseDatabase.getInstance().getReference().child("MentorshipRequests");
         FriendsRef = FirebaseDatabase.getInstance().getReference().child("Mentorship");
+        RootRef = FirebaseDatabase.getInstance().getReference().child("users");
+        Rating = FirebaseDatabase.getInstance().getReference();
 
         IntializeFields();
 
@@ -86,7 +92,6 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     String photo = dataSnapshot.child("profileimage").getValue().toString();
                     Glide.with(getApplicationContext()).load(photo).into(mprofile);
 
-
                     mname.setText(name);
                     mbio.setText(bio);
                     mjobTitle.setText(jobTitle);
@@ -96,8 +101,20 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     mlocation.setText(location);
                     mcompany.setText(company);
 
+
+
                     MaintananceofButtons();
                 }
+
+                if(dataSnapshot.hasChild("Rating")){
+                    rating = dataSnapshot.child("Rating").child(senderUserId).child("rating").getValue().toString();
+                    mRatingBar.setRating(Float.parseFloat(rating));
+                }
+                else{
+                    RootRef.child(receiverUserId).child("Rating").child(senderUserId).child("rating").setValue("0");
+                    mRatingBar.setRating(Float.parseFloat("0"));
+                }
+
             }
 
             @Override
@@ -169,6 +186,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
 
                                                 DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                 DeclineFriendRequestButton.setEnabled(false);
+                                                mRatingBar.setVisibility(View.INVISIBLE);
                                             }
                                         }
                                     });
@@ -222,6 +240,8 @@ public class Person_Profile_Activity extends AppCompatActivity {
 
                                                                                         DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                                                         DeclineFriendRequestButton.setEnabled(false);
+
+
                                                                                     }
                                                                                 }
                                                                             });
@@ -231,9 +251,27 @@ public class Person_Profile_Activity extends AppCompatActivity {
                                             }
                                         }
                                     });
-                        }
+
+                            }
+
+
                     }
                 });
+    }
+
+    private void RateMentor() {
+
+        mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                RootRef.child(receiverUserId).child(senderUserId).child("rating").push();
+                CURRENT_STATE = "mentorship";
+                mRatingBar.setVisibility(View.VISIBLE);
+                //DatabaseReference Rating = FirebaseDatabase.getInstance().getReference().child("users").child(receiverUserId).child("Rating");
+                RootRef.child(receiverUserId).child("Rating").child(senderUserId).child("rating").setValue(v);
+            }
+        });
+
     }
 
     private void CancelFriendrequest() {
@@ -261,6 +299,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
 
                                                 DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                 DeclineFriendRequestButton.setEnabled(false);
+                                                mRatingBar.setVisibility(View.INVISIBLE);
                                             }
                                         }
                                     });
@@ -322,6 +361,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
 
                                                 DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                 DeclineFriendRequestButton.setEnabled(false);
+
                                             }
                                         }
 
@@ -366,6 +406,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
 
                                                 DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                 DeclineFriendRequestButton.setEnabled(false);
+                                                mRatingBar.setVisibility(View.INVISIBLE);
                                             }
                                         }
                                     });
@@ -373,6 +414,8 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     }
                 });
     }
+
+
 
     private void IntializeFields()
     {
@@ -388,6 +431,9 @@ public class Person_Profile_Activity extends AppCompatActivity {
         mprofile = findViewById(R.id.profileImageProfile);
         SendFriendReqButton = (Button) findViewById(R.id.sendRequest);
         DeclineFriendRequestButton = (Button) findViewById(R.id.cancelRequest);
+        mRatingBar = findViewById(R.id.ratingBar);
+
+        RateMentor();
 
         CURRENT_STATE = "not_mentorship";
     }

@@ -6,17 +6,24 @@ public class Jobs {
     private String job_location;
     private String job_description;
     private String company_name;
-    private String url;
+    private String link;
+    private String id;
+    private String description;
 
 
 
-    public Jobs( String job_title, String job_location, String url, String job_description, String company_name) {
+    public Jobs( String job_title, String job_location, String company_name, String description, String id) {
         this.job_title = job_title;
         this.job_location = job_location;
-        this.url = url;
-        this.job_description = job_description;
         this.company_name = company_name;
+        this.description = description;
+        this.id = id;
 
+    }
+
+    public Jobs(String description) {
+
+        this.description = description;
     }
 
     public String getJob_title() {
@@ -51,12 +58,27 @@ public class Jobs {
         this.company_name = company_name;
     }
 
-    public String getUrl() {
-        return url;
+    public String getLink() {
+        return link;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setLink(String link) {
+        this.link = link;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String description() {
+        return description;
+    }
+
+    public void description(String description) {
+        this.description = description;
+    }
 }

@@ -27,13 +27,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/requestForm"/>
 
-    <EditText
-        android:id="@+id/meetingLocation"
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/meetingLocationSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Meeting Location"
-        android:ems="10"
+        android:layout_height="50dp"
+        android:background="#fff"
+        android:entries="@array/meetingLocation"
+        android:textAlignment="viewStart"
+        app:hintText="Meeting Location"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/meetingTitle"/>
@@ -47,7 +48,7 @@
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meetingLocation"/>
+        app:layout_constraintTop_toBottomOf="@+id/meetingLocationSpinner"/>
 
 
     <EditText

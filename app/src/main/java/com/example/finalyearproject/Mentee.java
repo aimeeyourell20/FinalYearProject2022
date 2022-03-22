@@ -4,7 +4,7 @@ import android.widget.Spinner;
 
 public class Mentee {
 
-    public String type, name, goals, language, skills, college, course, occupation;
+    public String type, name, goals, language, skills, college, course, occupation, photo;
     public String location;
 
     public Mentee()
@@ -12,7 +12,7 @@ public class Mentee {
 
     }
 
-    public Mentee(String type, String name, String goals, String language, String skills, String college, String course, String occupation, String location) {
+    public Mentee(String type, String name, String goals, String language, String skills, String college, String course, String occupation, String location, String photo) {
         this.type = type;
         this.name = name;
         this.goals = goals;
@@ -22,6 +22,7 @@ public class Mentee {
         this.course = course;
         this.occupation = occupation;
         this.location = location;
+        this.photo = photo;
     }
 
     public String getType() {
@@ -94,5 +95,13 @@ public class Mentee {
 
     public void setOccupation(String occupation) {
         this.occupation = occupation;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

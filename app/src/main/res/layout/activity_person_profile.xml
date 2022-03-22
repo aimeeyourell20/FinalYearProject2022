@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Skills 1:"
+                android:text="Skills:"
                 android:textColor="#6dd5ed"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -247,6 +247,15 @@
                 android:textSize="16sp" />
         </LinearLayout>
 
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:visibility="gone"
+            android:stepSize="1"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -260,7 +269,7 @@
                 android:id="@+id/sendRequest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
+                android:layout_marginLeft="60dp"
                 android:text="Send Mentor Request"
                 android:gravity="center"/>
         </LinearLayout>

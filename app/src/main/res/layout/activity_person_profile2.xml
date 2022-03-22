@@ -28,8 +28,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Type"
+        android:fontFamily="@font/boogaloo"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,8 +42,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Profile Name"
+        android:fontFamily="@font/boogaloo"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/profile_image" />
+        tools:srcCompat="@drawable/profile_image"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -87,8 +89,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Occupation:"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -96,9 +99,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
 
@@ -117,8 +121,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Location:"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -126,9 +131,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -146,8 +152,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Language:"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -155,9 +162,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -175,8 +183,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Skill to improve:"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -184,9 +193,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -204,8 +214,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="College:"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -213,9 +224,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -233,8 +245,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Course:"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -242,9 +255,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -262,8 +276,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Goals:"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -271,9 +286,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
 
@@ -290,8 +306,8 @@
                 android:id="@+id/cancelRequest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/teal_200"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="55dp"
+                android:fontFamily="@font/boogaloo"
                 android:gravity="center"
                 android:text="Cancel Mentor Request" />
         </LinearLayout>
@@ -300,7 +316,8 @@
             android:id="@+id/sendRequest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
+            android:fontFamily="@font/boogaloo"
+            android:layout_gravity="center"
             android:gravity="center"/>
 
 

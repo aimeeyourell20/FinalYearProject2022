@@ -13,10 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.finalyearproject.FindMentor;
+import com.example.finalyearproject.LocationReports.IndustryMentorReportChartBar;
+import com.example.finalyearproject.LocationReports.SkillsMentorReportChartBar;
+import com.example.finalyearproject.MenteeMainActivity;
 import com.example.finalyearproject.Person_Profile_Activity;
 import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -35,7 +39,8 @@ public class Media_Fragment extends Fragment {
     private DatabaseReference dr;
     private Button SkillsButton, CompanyButton;
     private EditText SearchInputText1;
-
+    String searchBoxInput1;
+    private ImageView mHome;
 
     public Media_Fragment() {
         // Required empty public constructor
@@ -57,11 +62,23 @@ public class Media_Fragment extends Fragment {
         CompanyButton = (Button) View.findViewById(R.id.companyButton);
         SearchInputText1 = (EditText) View.findViewById(R.id.search_box_input);
 
+        mHome = View.findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), MenteeMainActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+        skill(searchBoxInput1);
         SkillsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String searchBoxInput1 = SearchInputText1.getText().toString();
+                searchBoxInput1 = SearchInputText1.getText().toString();
                 skill(searchBoxInput1);
 
 

@@ -168,13 +168,15 @@ public class Profile_Settings_Mentor_Activity extends AppCompatActivity {
         MentorMap.put("bio", goals);
         MentorMap.put("jobType", jobTitle);
         MentorMap.put("industry", industry);
+        MentorMap.put("industry3", industry);
+        MentorMap.put("industry2", "");
         MentorMap.put("skill1", skill1);
         MentorMap.put("skill2", skill2);
+        MentorMap.put("skill3", skill1);
+        MentorMap.put("skill4", "");
         MentorMap.put("language", language);
         MentorMap.put("company", company);
         MentorMap.put("location", location);
-        MentorMap.put("all1", skill1 + " " + skill2);
-        MentorMap.put("all2", skill2 + " " + skill1);
         MentorMap.put("search", type + skill1 + industry);
         MentorMap.put("search1", type + skill1);
 

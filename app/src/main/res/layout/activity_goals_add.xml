@@ -178,16 +178,46 @@
                 android:hint="31/01/2022"/>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Goal Progress"
+                android:layout_marginBottom="10dp"/>
+
+            <Spinner
+                android:id="@+id/goalProgressSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:background="#fff"
+                android:entries="@array/goalProgress"/>
+
+        </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="horizontal">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/createGoalButton"
-        android:layout_width="match_parent"
+        android:layout_width="160dp"
         android:layout_height="55dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/button_background"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
         android:textSize="22sp"
         android:text="Create Goal"
         android:textColor="@color/white"
@@ -195,15 +225,16 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cancelGoalButton"
-        android:layout_width="match_parent"
+        android:layout_width="160dp"
         android:layout_height="55dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:textSize="22sp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/button_background2"
         android:text="Cancel"
+        android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textAllCaps="false"/>
+        android:textSize="22sp" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

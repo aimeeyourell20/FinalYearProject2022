@@ -11,7 +11,9 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,16 +35,15 @@ import java.util.Map;
 public class Goals_Add_Activity extends AppCompatActivity {
 
     private EditText title, date, description;
+    private Spinner status;
     private TextView mentor, mentee;
     private Button request, cancel, calendar;
-    private FirebaseAuth firebaseAuth;
     private DatabaseReference dr, UsersRef, MenteeRef;
     private String receiverUserId = "";
     private String saveCurrentDate;
     private DatabaseReference RootRef;
     private String messageSenderID;
-    private String messageReceiverID1;
-    private String menteeReceiverID1;
+    private String messageReceiverID1 = "";
     private FirebaseAuth mAuth;
 
     @Override
@@ -63,6 +64,10 @@ public class Goals_Add_Activity extends AppCompatActivity {
         //mentee = findViewById(R.id.meetingMentee);
         request = findViewById(R.id.createGoalButton);
         cancel = findViewById(R.id.cancelGoalButton);
+        status = findViewById(R.id.goalProgressSpinner);
+
+
+
 
         MenteeRef = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
@@ -136,6 +141,10 @@ public class Goals_Add_Activity extends AppCompatActivity {
                     String descriptions = description.getText().toString();
                     String mentors = mentor.getText().toString();
                     String mentees = mentee.getText().toString();
+                    String statuses = status.getSelectedItem().toString();
+                    String id = RootRef.push().getKey();
+
+
 
 
                     Calendar calFordDate = Calendar.getInstance();
@@ -147,7 +156,8 @@ public class Goals_Add_Activity extends AppCompatActivity {
 
 //                    String currentUser = firebaseAuth.getCurrentUser().getUid();
                     //dr = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("Meeting").child(receiverUserId).push();
-                    DatabaseReference user_message_key = RootRef.child("Goals").child(messageSenderID).child(messageSenderID).child(messageReceiverID1).push();
+                    DatabaseReference user_message_key = RootRef.child("Goals").child(messageSenderID).child(messageReceiverID1).child(id).push();
+                    String key = user_message_key.getKey();
                     String message_push_id = user_message_key.getKey();
                     Map meeting = new HashMap();
                     meeting.put("goalsTitle", titles);
@@ -155,7 +165,13 @@ public class Goals_Add_Activity extends AppCompatActivity {
                     meeting.put("goalsDate", dates);
                     meeting.put("goalsMentor", mentors);
                     meeting.put("goalsMentee", mentees);
+                    meeting.put("status", statuses);
                     meeting.put("goalsStartDate", saveCurrentDate);
+                    meeting.put("goalsid", key);
+                    meeting.put("goalsmentorid", messageReceiverID1);
+
+
+
 
 
                     Map messageBodyDetails = new HashMap();

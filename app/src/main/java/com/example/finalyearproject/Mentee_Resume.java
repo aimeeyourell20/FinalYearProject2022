@@ -92,17 +92,6 @@ public class Mentee_Resume extends AppCompatActivity {
             }
         });
 
-
-        mEditCV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Mentee_Resume.this, Mentee_Edit_Resume.class);
-                startActivity(i);
-            }
-        });
-
-        
-
         dr.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

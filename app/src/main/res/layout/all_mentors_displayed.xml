@@ -33,7 +33,7 @@
                     android:id="@+id/searchMentorProfilePicture"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_marginLeft="12dp"
+                    android:layout_marginLeft="70dp"
                     android:src="@drawable/profile_image"/>
 
 
@@ -42,7 +42,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Status"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/boogaloo"
                     android:textAlignment="textStart"
                     android:textColor="#000"
                     android:textSize="20sp"
@@ -53,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Type"
-                    android:layout_marginLeft="100dp"
+                    android:fontFamily="@font/boogaloo"
                     android:textAlignment="textStart"
                     android:textColor="#000"
                     android:textSize="20sp"
@@ -65,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:text="Mentor fullname"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="100dp"
+                    android:fontFamily="@font/boogaloo"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
@@ -76,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:text="Mentor Skill1"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="100dp"
+                    android:fontFamily="@font/boogaloo"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
@@ -86,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:text="Mentor Industry"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="100dp"
+                    android:fontFamily="@font/boogaloo"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
@@ -97,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:text="Mentor Company"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="100dp"
+                    android:fontFamily="@font/boogaloo"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
@@ -108,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:text="Mentor Location"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="100dp"
+                    android:fontFamily="@font/boogaloo"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold"/>

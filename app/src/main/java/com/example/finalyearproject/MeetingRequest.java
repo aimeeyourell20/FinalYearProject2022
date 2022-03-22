@@ -12,6 +12,7 @@ import android.provider.CalendarContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +33,8 @@ import java.util.Map;
 
 public class MeetingRequest extends AppCompatActivity {
 
-    private EditText title, location, description, mentor, mentee;
+    private EditText title, description, mentor, mentee;
+    private Spinner location;
     private TextView date;
     private Button request, cancel, calendar;
     private FirebaseAuth firebaseAuth;
@@ -56,7 +58,7 @@ public class MeetingRequest extends AppCompatActivity {
         messageSenderID = mAuth.getCurrentUser().getUid();
 
         title = findViewById(R.id.meetingTitle);
-        location = findViewById(R.id.meetingLocation);
+        location = findViewById(R.id.meetingLocationSpinner);
         description = findViewById(R.id.meetingDescription);
         mentor = findViewById(R.id.meetingMentor);
         mentee = findViewById(R.id.meetingMentee);
@@ -115,7 +117,7 @@ public class MeetingRequest extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MeetingRequest.this, MentorMainActivity.class);
+                Intent i = new Intent(MeetingRequest.this, MenteeMainActivity.class);
                 startActivity(i);
             }
         });
@@ -123,7 +125,7 @@ public class MeetingRequest extends AppCompatActivity {
         request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!title.getText().toString().isEmpty() && !location.getText().toString().isEmpty() && !description.getText().toString().isEmpty()
+                if(!title.getText().toString().isEmpty() && !location.getSelectedItem().toString().isEmpty() && !description.getText().toString().isEmpty()
                         && !mentor.getText().toString().isEmpty()  && !mentee.getText().toString().isEmpty()){
 
                     Calendar beginTime = Calendar.getInstance();
@@ -140,14 +142,14 @@ public class MeetingRequest extends AppCompatActivity {
                             .putExtra(EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
                             .putExtra(CalendarContract.Events.TITLE, title.getText().toString())
                             .putExtra(CalendarContract.Events.DESCRIPTION, description.getText().toString())
-                            .putExtra(CalendarContract.Events.EVENT_LOCATION, location.getText().toString())
+                            .putExtra(CalendarContract.Events.EVENT_LOCATION, location.getSelectedItem().toString())
                             .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY)
                             .putExtra(Intent.EXTRA_EMAIL, mentor.getText().toString());
 
 
 
                     String titles = title.getText().toString();
-                    String locations = location.getText().toString();
+                    String locations = location.getSelectedItem().toString();
                     String descriptions = description.getText().toString();
                     String mentors = mentor.getText().toString();
                     String mentees = mentee.getText().toString();

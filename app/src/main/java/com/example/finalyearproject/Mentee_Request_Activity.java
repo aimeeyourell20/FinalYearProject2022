@@ -1,5 +1,6 @@
 package com.example.finalyearproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,12 +11,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Mentee_Request_Activity extends AppCompatActivity {
 
@@ -25,20 +32,19 @@ public class Mentee_Request_Activity extends AppCompatActivity {
     private DatabaseReference MenteeRef,MentorRef;
     private ImageButton SearchButton;
     private EditText SearchInputText;
+    private FirebaseAuth mAuth;
+    private String senderUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mentee_request);
 
+        mAuth = FirebaseAuth.getInstance();
+        senderUserId = mAuth.getCurrentUser().getUid();
+
         allUsersDatabaseRef = FirebaseDatabase.getInstance().getReference().child("users");
-
-       // mtoolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(mtoolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //getSupportActionBar().setTitle("Mentee Requests");
-
-        MenteeRef = FirebaseDatabase.getInstance().getReference().child("MentorshipRequests");
+        MenteeRef = FirebaseDatabase.getInstance().getReference().child("MentorshipRequests").child(senderUserId);
 
 
 
@@ -46,48 +52,45 @@ public class Mentee_Request_Activity extends AppCompatActivity {
         SearchResultList.setHasFixedSize(true);
         SearchResultList.setLayoutManager(new LinearLayoutManager(this));
 
-        SearchButton = (ImageButton) findViewById(R.id.search_people_friends_button);
-        SearchInputText = (EditText) findViewById(R.id.search_box_input);
-
-        SearchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String searchBoxInput = SearchInputText.getText().toString();
-                SearchPeopleAndFriends(searchBoxInput);
-            }
-        });
+        SearchPeopleAndFriends();
     }
 
-    private void SearchPeopleAndFriends(String searchBoxInput) {
+    private void SearchPeopleAndFriends() {
 
-        Query searchPeopleAndFriendsQuery = allUsersDatabaseRef.orderByChild("name")
-                .startAt(searchBoxInput).endAt(searchBoxInput + "\uf8ff");
+        Query searchPeopleAndFriendsQuery = MenteeRef;
         FirebaseRecyclerAdapter<Mentee, Mentee_Request_Activity.FindMentorViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Mentee, Mentee_Request_Activity.FindMentorViewHolder>(
                         Mentee.class,
                         R.layout.all_mentees_displayed,
                         Mentee_Request_Activity.FindMentorViewHolder.class,
-                        searchPeopleAndFriendsQuery
+                        MenteeRef
+
 
                 ) {
                     @Override
                     protected void populateViewHolder(FindMentorViewHolder findMentorViewHolder, Mentee mentee, int i) {
-                        if(mentee.getType().equals("Mentor")){
-                            findMentorViewHolder.itemView.setVisibility(View.GONE);
-                            findMentorViewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
-                        }
-                        else {
+
+                        final String user_id = getRef(i).getKey();
+
+                        allUsersDatabaseRef.child(user_id).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                String name = snapshot.child("name").getValue().toString();
+                                String language = snapshot.child("language").getValue().toString();
+                                String location = snapshot.child("location").getValue().toString();
+                                String college = snapshot.child("college").getValue().toString();
+                                String course = snapshot.child("course").getValue().toString();
+                                String photo = snapshot.child("profileimage").getValue().toString();
+                                Glide.with(getApplicationContext()).load(photo).into(findMentorViewHolder.setPhoto(photo));
+
+                                findMentorViewHolder.setName(name);
+                                findMentorViewHolder.setLanguage(language);
+                                findMentorViewHolder.setLocation(location);
+                                findMentorViewHolder.setCollege(college);
+                                findMentorViewHolder.setCourse(course);
 
 
-                            findMentorViewHolder.setName(mentee.getName());
-                            findMentorViewHolder.setLanguage(mentee.getLanguage());
-                            findMentorViewHolder.setLocation(mentee.getLocation());
-                            findMentorViewHolder.setCollege(mentee.getCollege());
-                            findMentorViewHolder.setCourse(mentee.getCourse());
-
-
-                            findMentorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                                findMentorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     String menteeid = getRef(i).getKey();
@@ -95,12 +98,16 @@ public class Mentee_Request_Activity extends AppCompatActivity {
                                     Intent i = new Intent(Mentee_Request_Activity.this, Person_Profile_Activity_2.class);
                                     i.putExtra("menteeid", menteeid);
                                     startActivity(i);
+                                    }
+                                });
+                            }
 
-                                }
-                            });
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                         }
-
-                    }
                 };
 
         SearchResultList.setAdapter(firebaseRecyclerAdapter);
@@ -147,6 +154,11 @@ public class Mentee_Request_Activity extends AppCompatActivity {
         public void setCourse(String course) {
             TextView myCourse = (TextView) mView.findViewById(R.id.searchMenteeCourse);
             myCourse.setText(course);
+        }
+
+        public ImageView setPhoto(String photo) {
+            ImageView myPhoto = (ImageView) mView.findViewById(R.id.searchMenteeProfilePicture);
+            return myPhoto;
         }
 
 

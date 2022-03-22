@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.finalyearproject.LocationReports.Mentor_Reports;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -30,8 +32,8 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class Mentor_Profile_Activity extends AppCompatActivity {
 
-    private TextView mname, mskills, mlocation, mlanguage, moccupation, mjobTitle, mbio, mindustry, mtype,mskills2;
-    private ImageView reports, mentees, settings;
+    private TextView mname, mskills, mlocation, mlanguage, mjobTitle, mbio, mindustry, mtype,mskills2;
+    private ImageView reports, mentees, settings, profile;
     private Button home;
     private DatabaseReference dr;
     private FirebaseAuth firebaseAuth;
@@ -61,6 +63,7 @@ public class Mentor_Profile_Activity extends AppCompatActivity {
         reports = findViewById(R.id.reportsProfile);
         settings = findViewById(R.id.editProfile);
         home = findViewById(R.id.home);
+        profile = findViewById(R.id.profileImageProfile);
 
         dr.addValueEventListener(new ValueEventListener() {
             @Override
@@ -75,6 +78,8 @@ public class Mentor_Profile_Activity extends AppCompatActivity {
                     String skills2 = snapshot.child("skill2").getValue().toString();
                     String language = snapshot.child("language").getValue().toString();
                     String location = snapshot.child("location").getValue().toString();
+                    String photo = snapshot.child("profileimage").getValue().toString();
+                    Glide.with(getApplicationContext()).load(photo).into(profile);
 
 
                     mname.setText(name);
@@ -99,8 +104,8 @@ public class Mentor_Profile_Activity extends AppCompatActivity {
         reports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Mentor_Profile_Activity.this, "Reports", Toast.LENGTH_SHORT).show();
-            }
+                Intent i = new Intent(Mentor_Profile_Activity.this, Mentor_Reports.class);
+                startActivity(i);            }
         });
 
         mentees.setOnClickListener(new View.OnClickListener() {

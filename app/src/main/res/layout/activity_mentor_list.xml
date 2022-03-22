@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
     tools:context=".MentorList">
 
 
@@ -14,15 +13,16 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:background="#FFF">
+        android:background="@drawable/boarders_blue">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp"
             android:text="Mentees"
+            android:fontFamily="@font/boogaloo"
             android:textColor="@color/black"
-            android:textSize="22sp" />
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/home"
@@ -31,17 +31,19 @@
             android:layout_alignParentLeft="true"
             android:layout_marginRight="20dp"
             android:src="@drawable/home" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/menteeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="70dp"
+            android:background="@color/blue"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp" />
+
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/menteeRecyclerView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="#FB8C00" />
 
 </RelativeLayout>

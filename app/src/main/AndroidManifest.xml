@@ -25,22 +25,148 @@
         android:theme="@style/Theme.FinalYearProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".LocationReports.Mentor_Rating_Board"
+            android:exported="true" />
+        <activity
+            android:name=".Mentee_PDF"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.GoalsReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".Skills.Active_Listening"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.IndustryReportMenuMentor"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.SkillsReportMenuMentor"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.Mentee_Reports"
+            android:exported="true" />
+        <activity
+            android:name=".DisplayMentees"
+            android:exported="true" />
+        <activity
+            android:name=".MoreCareerDetails"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.SkillsReportMenu"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.IndustryMenteeReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.IndustryMenteeReportChartPie"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.MeetingsReportChartPie"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.MeetingsReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.MeetingsReportMenu"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.IndustryMentorReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.IndustryReportMenu"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.EuropeReportChartPie"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.EuropeReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.EuropeReportMenu"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.SouthAmericaReportChartPie"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.SouthAmericaReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.SouthAmericaReportMenu"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.AustraliaReportChartPie"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.AustraliaReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.AustraliaReportMenu"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.NorthAmericaReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.NorthAmericanReportChartPie"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.NorthAmericaReportMenu"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.MiddleEastReportChartPie"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.MiddleEastReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.MiddleEastReportMenu"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.AsiaReportMenu"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.AsiaReportChartPie"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.AsiaReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.IndustryReportChartRadar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.MentorshipReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.MentorshipReportMenu"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.SkillsMenteeReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".LocationReports.HorizontalBarCharts"
+            android:exported="true" />
+        <activity
+            android:name=".Goals_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Goal_Edit"
+            android:exported="true" />
+        <activity
             android:name=".CollegeReportChart"
             android:exported="true" />
         <activity
-            android:name=".SkillsReportChart"
+            android:name=".LocationReports.SkillsMentorReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".IndustryReportChart"
+            android:name=".LocationReports.IndustryMentorReportChartPie"
             android:exported="true" />
         <activity
-            android:name=".LocationReportChart"
+            android:name=".LocationReports.LocationReportChart"
             android:exported="true" />
         <activity
-            android:name=".Mentor_Reports"
+            android:name=".LocationReports.Mentor_Reports"
             android:exported="true" />
         <activity
-            android:name=".MentorshipReportChart"
+            android:name=".LocationReports.MentorshipReportChartPie"
             android:exported="true" />
         <activity
             android:name=".CompanyReportChart"
@@ -205,6 +331,10 @@
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

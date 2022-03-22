@@ -45,12 +45,12 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ExampleViewHolde
 
         String job_title = currentItem.getJob_title();
         String job_location = currentItem.getJob_location();
-        String job_description = currentItem.getJob_description();
+        String id = currentItem.getId();
         String company_name = currentItem.getCompany_name();
 
 
         holder.mTextViewCreator.setText(job_title);
-        holder.mtext_view_description.setText(job_description);
+//        holder.mtext_view_description.setText(id);
         holder.mtext_view_downloads.setText(job_location);
         holder.mtext_view_type.setText(company_name);
     }
@@ -71,7 +71,6 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ExampleViewHolde
             super(itemView);
             mtext_view_downloads = itemView.findViewById(R.id.text_view_downloads);
             mTextViewCreator = itemView.findViewById(R.id.text_view_creator);
-            mtext_view_description = itemView.findViewById(R.id.text_view_description);
             mtext_view_type = itemView.findViewById(R.id.text_view_type);
 
             itemView.setOnClickListener(new View.OnClickListener() {

@@ -51,7 +51,7 @@ public class Mentee_Add_Resume extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         messageSenderID = mAuth.getCurrentUser().getUid();
 
-        user_message_key = RootRef.child("CV").child(messageSenderID).push();
+        //user_message_key = RootRef.child("CV").child(messageSenderID).push();
 
         mname = findViewById(R.id.name);
         mskills = findViewById(R.id.interestSkills);
@@ -128,18 +128,21 @@ public class Mentee_Add_Resume extends AppCompatActivity {
                 String description = mDescription.getText().toString();
                 String hobbies = mHobbies.getText().toString();
                 String projects = mProjects.getText().toString();
-                UpdateMentee(name, graduationYear, college, bio, course, skills, role, company,startDate, endDate, description, hobbies, projects);
+                String id = RootRef.push().getKey();
+                UpdateMentee(name, graduationYear, college, bio, course, skills, role, company,startDate, endDate, description, hobbies, projects, id);
             }
         });
 
     }
 
-    private void UpdateMentee(String name, String graduationYear, String college, String bio, String course, String skills, String role, String company, String startDate, String endDate, String description, String hobbies, String projects) {
+    private void UpdateMentee(String name, String graduationYear, String college, String bio, String course, String skills, String role, String company, String startDate, String endDate, String description, String hobbies, String projects, String id) {
 
         Calendar calFordDate = Calendar.getInstance();
         SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-yyyy");
         saveCurrentDate = currentDate.format(calFordDate.getTime());
 
+        DatabaseReference user_message_key = RootRef.child("CV").child(messageSenderID).push();
+        String key = user_message_key.getKey();
 
         HashMap<String, Object> MenteeMap = new HashMap<>();
         MenteeMap.put("name", name);
@@ -156,6 +159,7 @@ public class Mentee_Add_Resume extends AppCompatActivity {
         MenteeMap.put("hobbies", hobbies);
         MenteeMap.put("projects", projects);
         MenteeMap.put("date", saveCurrentDate);
+        MenteeMap.put("resumeid", key );
 
 
 

@@ -4,7 +4,6 @@
     android:layout_margin="11dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="21dp"
-    android:background="@drawable/gradient2"
     android:gravity="center_vertical"
     android:layout_height="wrap_content">
 
@@ -30,13 +29,21 @@
             android:orientation="vertical"
             android:layout_margin="6dp">
 
+            <ImageView
+                android:id="@+id/searchMenteeProfilePicture"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:src="@drawable/goals" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mentors Name"
                 android:textAlignment="textStart"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -44,17 +51,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mentor Name"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="textStart"
                 android:textColor="#000"
-                android:textSize="18sp"/>
+                android:textSize="21sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mentees Name"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="textStart"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -62,35 +71,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mentees Name"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="textStart"
                 android:textColor="#000"
-                android:textSize="18sp"/>
+                android:textSize="21sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Goal Title"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="textStart"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/goalTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/boogaloo"
             android:text="Work on communication"
             android:textAlignment="textStart"
             android:textColor="#000"
-            android:textSize="18sp"/>
+            android:textSize="21sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Goal Description"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="textStart"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"/>
 
 
@@ -98,36 +111,40 @@
             android:id="@+id/goalDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/boogaloo"
             android:text="By practising my presentation skills"
             android:textAlignment="textStart"
             android:textColor="#000"
-            android:textSize="18sp"/>
+            android:textSize="21sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Goal Start Date"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="textStart"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/goalStartDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/boogaloo"
                 android:text="Yesterday"
                 android:textAlignment="textStart"
                 android:textColor="#000"
-                android:textSize="18sp"/>
+                android:textSize="21sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Goal Due Date"
                 android:textAlignment="textStart"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"/>
 
         <TextView
@@ -135,41 +152,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tomorrow"
+            android:fontFamily="@font/boogaloo"
             android:textAlignment="textStart"
             android:textColor="#000"
-            android:textSize="18sp"/>
+            android:textSize="21sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Goal Status"
+                android:text="Goal Progress"
                 android:textAlignment="textStart"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/spinnerStatus"
+                android:id="@+id/goalProgressSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Only started"
+                android:text="Only Started"
                 android:textAlignment="textStart"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#000"
-                android:textSize="18sp"/>
+                android:textSize="21sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Check if goal is complete"
-                android:textAlignment="textStart"
-                android:textColor="#000"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
 
-            <CheckBox
-                android:id="@+id/goal_is_done"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
     </LinearLayout>
     </ScrollView>

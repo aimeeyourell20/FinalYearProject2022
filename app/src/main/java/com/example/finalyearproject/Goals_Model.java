@@ -1,23 +1,26 @@
 package com.example.finalyearproject;
 
-import android.widget.Spinner;
-
 public class Goals_Model {
 
-    String goalsTitle, goalsDescription, goalsDate, key, goalsStartDate, goalsMentee, goalsMentor;
+    String goalsTitle, goalsDescription, goalsDate, goalsid, goalsStartDate, goalsMentee, goalsMentor, status, goalsmentorid;
 
 
     public Goals_Model() {
     }
 
-    public Goals_Model(String goalsTitle, String goalsDescription, String goalsDate, String key, String goalsStartDate, String goalsMentee, String goalsMentor) {
+    public Goals_Model(String goalsTitle, String goalsDescription, String goalsDate, String goalsid, String goalsStartDate, String goalsMentee, String goalsMentor, String status, String goalsmentorid) {
         this.goalsTitle = goalsTitle;
         this.goalsDescription = goalsDescription;
         this.goalsDate = goalsDate;
-        this.key = key;
+        this.goalsid = goalsid;
         this.goalsStartDate = goalsStartDate;
         this.goalsMentee = goalsMentee;
         this.goalsMentor = goalsMentor;
+        this.status = status;
+        this.goalsmentorid = goalsmentorid;
+    }
+
+    public Goals_Model(String mTask, String mDescription, String id, String mdate) {
     }
 
     public String getGoalsTitle() {
@@ -44,12 +47,12 @@ public class Goals_Model {
         this.goalsDate = goalsDate;
     }
 
-    public String getKey() {
-        return key;
+    public String getGoalsid() {
+        return goalsid;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setGoalsid(String goalsid) {
+        this.goalsid = goalsid;
     }
 
     public String getGoalsStartDate() {
@@ -74,5 +77,21 @@ public class Goals_Model {
 
     public void setGoalsMentor(String goalsMentor) {
         this.goalsMentor = goalsMentor;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getGoalsmentorid() {
+        return goalsmentorid;
+    }
+
+    public void setGoalsmentorid(String goalsmentorid) {
+        this.goalsmentorid = goalsmentorid;
     }
 }

@@ -5,10 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".Industry_Fragments.Entertainment_Fragment">
 
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/back" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/projectstxt"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
         android:layout_height="wrap_content">
 
         <EditText
@@ -26,17 +35,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/skillButton"
-            android:layout_marginTop="60dp"
+            android:background="@drawable/goals_button"
+            android:layout_marginTop="100dp"
             android:layout_weight="1"
             android:text="Skill Search"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/companyButton"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/goals_button_2"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:text="Company Search"/>
+
 
     </LinearLayout>
 
@@ -47,7 +60,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="130dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp" />
+
 </RelativeLayout>

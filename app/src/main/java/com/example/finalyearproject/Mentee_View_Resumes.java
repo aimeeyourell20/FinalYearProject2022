@@ -35,7 +35,7 @@ public class Mentee_View_Resumes extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         messageSenderID = mAuth.getCurrentUser().getUid();
 
-        RootRef = FirebaseDatabase.getInstance().getReference();
+        RootRef = FirebaseDatabase.getInstance().getReference("CV").child(messageSenderID);
 
         resume_adapter = new Resume_Adapter(resume_models);
         resumeRecyclerView = (RecyclerView) findViewById(R.id.resumeRecyclerView);
@@ -48,7 +48,7 @@ public class Mentee_View_Resumes extends AppCompatActivity {
 
     private void FetchResumes() {
 
-        RootRef.child("CV").child(FirebaseAuth.getInstance().getUid()).addValueEventListener(new ValueEventListener() {
+        RootRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -75,4 +75,8 @@ public class Mentee_View_Resumes extends AppCompatActivity {
         });
 
     }
+
+
+
+
 }

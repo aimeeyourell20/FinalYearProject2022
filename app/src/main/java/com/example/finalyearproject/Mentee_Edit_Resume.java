@@ -31,12 +31,7 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
     private Button mUpdateCV;
     private DatabaseReference dr;
     private String currentUser;
-    private DatabaseReference RootRef, user_message_key;
-    private String messageSenderID;
-    private String messageReceiverID1;
-    private String menteeReceiverID1;
-    private FirebaseAuth mAuth;
-
+    private String resume_id = "";
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -46,14 +41,6 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser().getUid();
-        dr = FirebaseDatabase.getInstance().getReference().child("users").child(currentUser);
-
-
-        RootRef = FirebaseDatabase.getInstance().getReference();
-        mAuth = FirebaseAuth.getInstance();
-        messageSenderID = mAuth.getCurrentUser().getUid();
-
-        user_message_key = RootRef.child("CV").child(messageSenderID);
 
         mname = findViewById(R.id.name);
         mskills = findViewById(R.id.interestSkills);
@@ -71,10 +58,19 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
         mUpdateCV = findViewById(R.id.updateCV);
 
 
+        Intent i = getIntent();
+        resume_id = i.getStringExtra("resume_id");
+
+        dr = FirebaseDatabase.getInstance().getReference().child("CV").child(currentUser).child(resume_id);
+
+
+
         dr.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+
+
+
                     String name = snapshot.child("name").getValue().toString();
                     String skills = snapshot.child("skill1").getValue().toString();
                     String college = snapshot.child("college").getValue().toString();
@@ -88,6 +84,7 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
                     String description = snapshot.child("description").getValue().toString();
                     String hobbies = snapshot.child("hobbies").getValue().toString();
                     String projects = snapshot.child("projects").getValue().toString();
+                    resume_id = snapshot.child("resumeid").getValue().toString();
 
 
                     mname.setText(name);
@@ -104,8 +101,11 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
                     mHobbies.setText(hobbies);
                     mProjects.setText(projects);
 
+
+
+
                 }
-            }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -152,7 +152,7 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
         MenteeMap.put("projects", projects);
 
 
-        user_message_key.updateChildren(MenteeMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        dr.updateChildren(MenteeMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 
@@ -167,7 +167,7 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
     }
 
     private void SendMenteeMainActivity() {
-        Intent i = new Intent(Mentee_Edit_Resume.this, MenteeMainActivity.class);
+        Intent i = new Intent(Mentee_Edit_Resume.this, Mentee_Resume_Options.class);
         startActivity(i);
         finish();
     }

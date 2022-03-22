@@ -12,15 +12,17 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:background="#FFF">
+        android:background="@drawable/boarders_blue">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp"
             android:text="Meetings"
+            android:textAlignment="center"
+            android:fontFamily="@font/boogaloo"
             android:textColor="@color/black"
-            android:textSize="22sp" />
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/home"
@@ -35,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
+            android:background="@color/blue"
             android:layout_marginStart="15dp"
             android:layout_marginTop="70dp"
             android:layout_marginEnd="15dp"

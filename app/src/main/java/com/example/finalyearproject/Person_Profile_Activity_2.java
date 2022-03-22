@@ -42,6 +42,7 @@ public class Person_Profile_Activity_2 extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         senderUserId = mAuth.getCurrentUser().getUid();
+        mHome = findViewById(R.id.home);
 
 
         Intent intent = getIntent();
@@ -88,15 +89,15 @@ public class Person_Profile_Activity_2 extends AppCompatActivity {
 
 
 
-                    mname.setText("Fullname " + name);
-                    mtype.setText("Type " + type);
-                    mskills.setText("Skills " + skills);
-                    mlanguage.setText("Language " + language);
-                    mlocation.setText("Location " + location);
-                    mcourse.setText("Course " + course);
-                    mcollege.setText("College " + college);
-                    moccupation.setText("Occupation " + occupation);
-                    mgoals.setText("Goals " + goals);
+                    mname.setText(name);
+                    mtype.setText(type);
+                    mskills.setText(skills);
+                    mlanguage.setText(language);
+                    mlocation.setText(location);
+                    mcourse.setText(course);
+                    mcollege.setText(college);
+                    moccupation.setText(occupation);
+                    mgoals.setText(goals);
 
                     MaintananceofButtons();
 
@@ -169,7 +170,7 @@ public class Person_Profile_Activity_2 extends AppCompatActivity {
                                                 SendFriendReqButton.setEnabled(true);
                                                 CURRENT_STATE = "not_mentorship";
                                                 SendFriendReqButton.setText("Send Mentorship Request");
-
+                                                SendFriendReqButton.setVisibility(View.INVISIBLE);
                                                 DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                 DeclineFriendRequestButton.setEnabled(false);
                                             }
@@ -316,23 +317,25 @@ public class Person_Profile_Activity_2 extends AppCompatActivity {
                                     .addListenerForSingleValueEvent(new ValueEventListener()
                                     {
                                         @Override
-                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-                                        {
-                                            if(dataSnapshot.hasChild(receiverUserId))
-                                            {
-                                                CURRENT_STATE = "mentorship";
-                                                SendFriendReqButton.setText("Cancel Mentorship");
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                if (dataSnapshot.hasChild(receiverUserId)) {
+                                                    CURRENT_STATE = "mentorship";
+                                                    SendFriendReqButton.setText("Cancel Mentorship");
+                                                    SendFriendReqButton.setVisibility(View.INVISIBLE);
 
-                                                DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
-                                                DeclineFriendRequestButton.setEnabled(false);
+                                                    DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
+                                                    DeclineFriendRequestButton.setEnabled(false);
+
+                                                }
                                             }
-                                        }
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError databaseError)
-                                        {
+                                            @Override
+                                            public void onCancelled (@NonNull DatabaseError
+                                            databaseError)
+                                            {
 
-                                        }
+                                            }
+
                                     });
                         }
                     }

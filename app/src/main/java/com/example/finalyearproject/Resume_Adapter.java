@@ -1,9 +1,11 @@
 package com.example.finalyearproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -60,7 +62,28 @@ public class Resume_Adapter extends RecyclerView.Adapter<Resume_Adapter.ResumeVi
         holder.projects.setText(resume_model.getProjects());
         holder.date.setText(resume_model.getDate());
 
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Resume_Model resume_id = resume_models.get(position);
+                Intent i = new Intent(context, Mentee_Edit_Resume.class);
+                i.putExtra("resume_id", resume_id.getResumeid());
+                context.startActivity(i);
+            }
+        });
+
+        holder.save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Resume_Model resume_id = resume_models.get(position);
+                Intent i = new Intent(context, Mentee_PDF.class);
+                i.putExtra("resume_id", resume_id.getResumeid());
+                context.startActivity(i);
+            }
+        });
+
     }
+
 
 
 
@@ -74,7 +97,7 @@ public class Resume_Adapter extends RecyclerView.Adapter<Resume_Adapter.ResumeVi
     class ResumeViewHolder extends RecyclerView.ViewHolder{
 
         TextView name, bio, company, role, start, end, description, college, course, year, skills, hobbies, projects, grades, date;
-
+        Button edit, save;
 
 
         public ResumeViewHolder(@NonNull View itemView) {
@@ -95,6 +118,8 @@ public class Resume_Adapter extends RecyclerView.Adapter<Resume_Adapter.ResumeVi
             projects = itemView.findViewById(R.id.interestProjects);
             grades = itemView.findViewById(R.id.collegeGrades);
             date = itemView.findViewById(R.id.date);
+            edit = itemView.findViewById(R.id.editCV);
+            save = itemView.findViewById(R.id.pdfCV);
 
         }
     }

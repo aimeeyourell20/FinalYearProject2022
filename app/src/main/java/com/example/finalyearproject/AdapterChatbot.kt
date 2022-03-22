@@ -15,11 +15,11 @@ class AdapterChatbot : RecyclerView.Adapter<AdapterChatbot.MyViewHolder>() {
         fun bind(chat: ChatModel) = with(itemView) {
             if (!chat.isBot) {
                 //To access txtchat components directly, we have to add kotlin plugin, now we can call components directly
-                txtChat.setBackgroundColor(Color.WHITE)
+                txtChat.setBackgroundColor(Color.GRAY)
                 txtChat.setTextColor(Color.BLACK)
                 txtChat.text = chat.chat
             } else {
-                txtChat.setBackgroundColor(Color.CYAN)
+                txtChat.setBackgroundColor(Color.TRANSPARENT)
                 txtChat.setTextColor(Color.BLACK)
                 txtChat.text = chat.chat
             }

@@ -47,7 +47,7 @@ public class Meetings_Adapter extends RecyclerView.Adapter<Meetings_Adapter.Meet
     @Override
     public void onBindViewHolder(@NonNull Meetings_Adapter.MeetingsViewHolder holder, int position) {
 
-        //String messageSenderID = mAuth.getCurrentUser().getUid();
+
         Meeting_Model meeting_model = meeting_models.get(position);
 
         holder.meetingDescription.setText(meeting_model.getMeetingDescription());
@@ -58,41 +58,6 @@ public class Meetings_Adapter extends RecyclerView.Adapter<Meetings_Adapter.Meet
         holder.meetingDate.setText(meeting_model.getDate());
 
 
-
-        final String getMeetingDescription = meeting_model.getMeetingDescription();
-        final String getMeetingLocation = meeting_model.getMeetingLocation();
-        final String getMeetingMentor = meeting_model.getMeetingMentor();
-        final String getMeetingTitle = meeting_model.getMeetingTitle();
-
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                CharSequence options[] = new CharSequence[]{
-                        "Add Goal"
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Select an option");
-
-                builder.setItems(options, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        if(i == 0){
-
-                            //Intent intent = new Intent(context, Add_Goal.class);
-                            //context.startActivity(intent);
-
-                        }
-
-                    }
-                });
-
-                builder.show();
-            }
-        });
 
     }
 
