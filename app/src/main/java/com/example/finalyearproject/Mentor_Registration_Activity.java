@@ -130,7 +130,7 @@ public class Mentor_Registration_Activity extends AppCompatActivity {
                     mentee.put("location", "location");
                     mentee.put("language", "language");
                     mentee.put("bio", "Really interested in computers");
-                    mentee.put("jobTitle", "Customer Service");
+                    mentee.put("jobType", "Customer Service");
                     mentee.put("industry", "Tech");
                     mentee.put("company", "SAP");
                     mentee.put("type", "Mentor");

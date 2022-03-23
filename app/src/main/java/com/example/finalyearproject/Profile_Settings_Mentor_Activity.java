@@ -162,11 +162,11 @@ public class Profile_Settings_Mentor_Activity extends AppCompatActivity {
 
     }
 
-    private void UpdateMentee(String name, String goals, String jobTitle, String industry, String skill1,String skill2,String language, String location, String type, String company) {
+    private void UpdateMentee(String name, String bio, String jobtitle, String industry, String skill1,String skill2,String language, String location, String type, String company) {
         HashMap<String, Object> MentorMap = new HashMap<>();
         MentorMap.put("name", name);
-        MentorMap.put("bio", goals);
-        MentorMap.put("jobType", jobTitle);
+        MentorMap.put("bio", bio);
+        MentorMap.put("jobType", jobtitle);
         MentorMap.put("industry", industry);
         MentorMap.put("industry3", industry);
         MentorMap.put("industry2", "");

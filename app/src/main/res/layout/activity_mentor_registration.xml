@@ -44,10 +44,10 @@
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:text="     Mentor Registration"
+                android:text="Mentor Registration"
                 android:textColor="#000"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -69,15 +69,6 @@
                 android:layout_marginTop="11dp"
                 android:layout_marginBottom="21dp"
                 android:orientation="vertical">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile_image"
-                    android:layout_width="112dp"
-                    android:layout_height="74dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/profileimage"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"

@@ -71,7 +71,7 @@ public class Mentor_Profile_Activity extends AppCompatActivity {
                 if (snapshot.exists()) {
                     String name = snapshot.child("name").getValue().toString();
                     String bio = snapshot.child("bio").getValue().toString();
-                    String jobTitle = snapshot.child("jobTitle").getValue().toString();
+                    String jobTitle = snapshot.child("jobType").getValue().toString();
                     String industry = snapshot.child("industry").getValue().toString();
                     String type = snapshot.child("type").getValue().toString();
                     String skills = snapshot.child("skill1").getValue().toString();
