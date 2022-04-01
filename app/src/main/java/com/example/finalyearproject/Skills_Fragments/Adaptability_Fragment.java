@@ -15,10 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.finalyearproject.FindMentor;
-import com.example.finalyearproject.Industry_Fragments.Education_Fragment;
-import com.example.finalyearproject.LocationReports.SkillsMentorReportChartBar;
-import com.example.finalyearproject.MenteeMainActivity;
+import com.example.finalyearproject.Models.FindMentor;
+import com.example.finalyearproject.Reports.SkillsMentorReportChartBar;
 import com.example.finalyearproject.Person_Profile_Activity;
 import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -45,7 +43,7 @@ public class Adaptability_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View = inflater.inflate(R.layout.fragment_adaptability_, container, false);
+        View = inflater.inflate(R.layout.skills_fragment_layout, container, false);
 
         RecyclerView = (androidx.recyclerview.widget.RecyclerView) View.findViewById(R.id.RecyclerView);
         RecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

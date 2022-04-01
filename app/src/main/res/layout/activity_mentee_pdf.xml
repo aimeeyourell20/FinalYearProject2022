@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    tools:context=".Mentee_PDF"
+    tools:context=".Mentees.Mentee_PDF"
     android:background="@color/white"
     android:layout_height="match_parent">
 

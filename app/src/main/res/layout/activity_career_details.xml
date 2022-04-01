@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/boards_orange"
-    tools:context=".CareerDetails">
+    tools:context=".API.CareerDetails">
 
     <LinearLayout
         android:layout_width="match_parent"

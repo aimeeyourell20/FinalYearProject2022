@@ -29,7 +29,8 @@
         android:layout_marginTop="8dp"
         android:text="Type"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:fontFamily="@font/boogaloo"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +43,8 @@
         android:layout_marginTop="8dp"
         android:text="Profile Name"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:fontFamily="@font/boogaloo"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,8 +90,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Location:"
+                android:fontFamily="@font/boogaloo"
+                android:textSize="20sp"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -100,7 +103,8 @@
                 android:text="Location"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:fontFamily="@font/boogaloo"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -119,7 +123,8 @@
                 android:layout_weight="1"
                 android:text="Language:"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:fontFamily="@font/boogaloo"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -130,7 +135,8 @@
                 android:text="Language"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:fontFamily="@font/boogaloo"
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -149,7 +155,8 @@
                 android:layout_weight="1"
                 android:text="Skills to improve:"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:fontFamily="@font/boogaloo"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -160,7 +167,8 @@
                 android:text="Skill 1"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:fontFamily="@font/boogaloo"
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -179,7 +187,8 @@
                 android:layout_weight="1"
                 android:text="College:"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:fontFamily="@font/boogaloo"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -190,7 +199,8 @@
                 android:text="College"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:fontFamily="@font/boogaloo"
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -209,7 +219,8 @@
                 android:layout_weight="1"
                 android:text="Course:"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:fontFamily="@font/boogaloo"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -220,7 +231,8 @@
                 android:text="Course"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:fontFamily="@font/boogaloo"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -239,7 +251,8 @@
                 android:layout_weight="1"
                 android:text="Industry of interest:"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:fontFamily="@font/boogaloo"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -250,7 +263,8 @@
                 android:text="Industry"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:fontFamily="@font/boogaloo"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -269,7 +283,8 @@
                 android:layout_weight="1"
                 android:text="Goals:"
                 android:textColor="#6dd5ed"
-                android:textSize="18sp"
+                android:fontFamily="@font/boogaloo"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -280,7 +295,8 @@
                 android:text="Goals"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:fontFamily="@font/boogaloo"
+                android:textSize="18sp" />
         </LinearLayout>
 
 

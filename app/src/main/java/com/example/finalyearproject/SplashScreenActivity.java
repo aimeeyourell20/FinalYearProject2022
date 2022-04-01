@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    private ImageView mimageView;
-    private TextView mtextView1, mtextView2;
+    private ImageView mImageView;
+    private TextView mTextView1, mTextView2;
 
     Animation top_animation, bottom_animation;
 
@@ -25,16 +25,16 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
 
-        mimageView = findViewById(R.id.imageview);
-        mtextView1 = findViewById(R.id.textView1);
-        mtextView2 = findViewById(R.id.textView2);
+        mImageView = findViewById(R.id.imageview);
+        mTextView1 = findViewById(R.id.textView1);
+        mTextView2 = findViewById(R.id.textView2);
 
         top_animation = AnimationUtils.loadAnimation(this,R.anim.top_animation);
         bottom_animation = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
-        mimageView.setAnimation(top_animation);
-        mtextView1.setAnimation(bottom_animation);
-        mtextView2.setAnimation(bottom_animation);
+        mImageView.setAnimation(top_animation);
+        mTextView1.setAnimation(bottom_animation);
+        mTextView2.setAnimation(bottom_animation);
 
         int SPLASH_SCREEN = 4300;
 

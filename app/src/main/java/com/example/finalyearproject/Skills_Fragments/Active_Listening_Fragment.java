@@ -15,11 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.finalyearproject.FindMentor;
-import com.example.finalyearproject.LocationReports.SkillsMentorReportChartBar;
-import com.example.finalyearproject.Meetings_Activity_Mentee;
-import com.example.finalyearproject.MenteeMainActivity;
-import com.example.finalyearproject.Skills_Fragments.Active_Listening_Fragment;
+import com.example.finalyearproject.Models.FindMentor;
+import com.example.finalyearproject.Reports.SkillsMentorReportChartBar;
 import com.example.finalyearproject.Person_Profile_Activity;
 import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -46,9 +43,9 @@ public class Active_Listening_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View = inflater.inflate(R.layout.fragment_active__listening_, container, false);
+        View = inflater.inflate(R.layout.skills_fragment_layout, container, false);
 
-        RecyclerView = (RecyclerView) View.findViewById(R.id.RecyclerView1);
+        RecyclerView = (RecyclerView) View.findViewById(R.id.RecyclerView);
         RecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         dr = FirebaseDatabase.getInstance().getReference().child("users");

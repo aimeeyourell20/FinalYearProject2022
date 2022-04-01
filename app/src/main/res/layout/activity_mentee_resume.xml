@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    tools:context=".Mentee_Edit_Resume"
+    tools:context=".Mentees.Mentee_Edit_Resume"
     android:background="@color/white"
     android:layout_height="match_parent">
 

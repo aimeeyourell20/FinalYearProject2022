@@ -43,7 +43,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter slogan"
+            android:text="PrePair to be paired"
             android:textColor="#000"
             android:gravity="center"
             android:textStyle="bold"

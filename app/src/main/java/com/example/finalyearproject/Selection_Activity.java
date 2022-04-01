@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.finalyearproject.Mentees.Mentee_Registration_Activity;
+import com.example.finalyearproject.Mentor.Mentor_Registration_Activity;
+
 public class Selection_Activity extends AppCompatActivity {
 
     //Contains signup and login buttons
-
     Button mMenteeButton, mMentorButton;
 
     @Override

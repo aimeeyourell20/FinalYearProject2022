@@ -7,7 +7,7 @@
     android:layout_margin="10dp"
     android:layout_marginBottom="10dp"
     android:background="#80D8FF"
-    tools:context=".Mentor_Profile_Activity"
+    tools:context=".Mentor.Mentor_Profile_Activity"
     android:elevation="5dp">
 
 

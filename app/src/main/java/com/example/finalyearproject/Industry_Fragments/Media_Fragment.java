@@ -3,7 +3,6 @@ package com.example.finalyearproject.Industry_Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,20 +15,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.example.finalyearproject.FindMentor;
-import com.example.finalyearproject.LocationReports.IndustryMentorReportChartBar;
-import com.example.finalyearproject.LocationReports.SkillsMentorReportChartBar;
-import com.example.finalyearproject.MenteeMainActivity;
+import com.example.finalyearproject.Models.FindMentor;
+import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.example.finalyearproject.Person_Profile_Activity;
 import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 
 public class Media_Fragment extends Fragment {
@@ -51,7 +44,7 @@ public class Media_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View = inflater.inflate(R.layout.fragment_media_, container, false);
+        View = inflater.inflate(R.layout.industry_fragment_layout, container, false);
 
         RecyclerView = (RecyclerView) View.findViewById(R.id.RecyclerView);
         RecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

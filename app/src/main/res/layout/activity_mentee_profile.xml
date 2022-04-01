@@ -7,7 +7,7 @@
     android:layout_margin="10dp"
     android:layout_marginBottom="10dp"
     android:background="#80D8FF"
-    tools:context=".Mentee_Profile_Activity"
+    tools:context=".Mentees.Mentee_Profile_Activity"
     android:elevation="5dp">
 
 

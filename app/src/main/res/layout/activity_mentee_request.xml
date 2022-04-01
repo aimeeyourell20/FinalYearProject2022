@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".Mentee_Request_Activity"
+    tools:context=".Mentor.Mentee_Request_Activity"
     android:orientation="vertical">
 
      <RelativeLayout

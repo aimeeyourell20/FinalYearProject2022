@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Message_Mentee">
+    tools:context=".Mentees.Message_Mentee">
 
     <include
         android:id="@+id/messageMentorToolbar"
@@ -30,7 +30,7 @@
 
         <EditText
             android:id="@+id/messageMentorMessage"
-            android:layout_width="370dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="Write message"
             android:padding="15dp"/>

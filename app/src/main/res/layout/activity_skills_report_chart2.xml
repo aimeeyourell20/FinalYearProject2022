@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LocationReports.SkillsMenteeReportChartBar">
+    tools:context=".Reports.SkillsMenteeReportChartBar">
 
     <ImageView
         android:id="@+id/home"

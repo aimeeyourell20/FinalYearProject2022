@@ -64,6 +64,11 @@
         <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_career_details.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_career_options.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/activity_career_options_mentee.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/activity_college_details.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/activity_college_options.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/activity_company_details.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/activity_company_information.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_country_search_class.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_display_mentees.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_edit_goal.xml" value="0.24010416666666667" />
@@ -90,6 +95,7 @@
         <entry key="app/src/main/res/layout/activity_industry_report_menu.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_industry_report_menu_mentor.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_location_report_chart.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/activity_location_report_chart_mentee.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_login_mentor.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_login_registration.xml" value="0.23802083333333332" />
@@ -108,7 +114,7 @@
         <entry key="app/src/main/res/layout/activity_mentee_goals.xml" value="0.17777777777777778" />
         <entry key="app/src/main/res/layout/activity_mentee_list.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_mentee_login.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_mentee_main.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/layout/activity_mentee_main.xml" value="0.23025263427671758" />
         <entry key="app/src/main/res/layout/activity_mentee_pdf.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_mentee_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_mentee_profile_picture.xml" value="0.17" />
@@ -135,13 +141,14 @@
         <entry key="app/src/main/res/layout/activity_mentor_reports.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_mentorship_report_chart_bar.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_mentorship_report_menu.xml" value="0.24010416666666667" />
-        <entry key="app/src/main/res/layout/activity_message_mentee.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_message_mentee.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_message_mentor.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_middle_east.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_middle_east_report_chart_bar.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_middle_east_report_chart_pie.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_more_career_details.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_more_info.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/layout/activity_north_america_report_chart_bar.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/layout/activity_north_america_report_menu.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_north_american_report_chart_pie.xml" value="0.20092592592592592" />
         <entry key="app/src/main/res/layout/activity_person_profile.xml" value="0.22" />
@@ -153,6 +160,7 @@
         <entry key="app/src/main/res/layout/activity_recommended_mentors.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_request_meeting.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_selection.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_selection2.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_setup_mentee.xml" value="0.3098958333333333" />
@@ -173,6 +181,9 @@
         <entry key="app/src/main/res/layout/all_mentors_fragment.xml" value="0.17447916666666666" />
         <entry key="app/src/main/res/layout/barchart.xml" value="0.2351851851851852" />
         <entry key="app/src/main/res/layout/chatbotkotlin.xml" value="0.2364102564102564" />
+        <entry key="app/src/main/res/layout/collegeheaders.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/companyheaders.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/country_fragment_layout.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/dummy.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dummyview.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/fragment_France_.xml" value="0.22447916666666667" />
@@ -189,6 +200,7 @@
         <entry key="app/src/main/res/layout/fragment_bulgaria_.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/fragment_business.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_canada_.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/layout/fragment_chile_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_china_.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/fragment_collaboration_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_columbia_.xml" value="0.22447916666666667" />
@@ -214,6 +226,7 @@
         <entry key="app/src/main/res/layout/fragment_france_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_germany_.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/fragment_greece_.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/layout/fragment_greenland_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_healthcare_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_hospitality_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_hungry_.xml" value="0.22447916666666667" />
@@ -230,6 +243,7 @@
         <entry key="app/src/main/res/layout/fragment_malaysia_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_managment__skills_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_media_.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/fragment_mexico.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_mexico_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_multitasking_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_netherlands_.xml" value="0.24010416666666667" />
@@ -238,6 +252,8 @@
         <entry key="app/src/main/res/layout/fragment_organisational_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_pakistan_.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/fragment_people__skills_.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/fragment_peru.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/fragment_peru_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_poland_.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/fragment_portugal_.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/fragment_positivty_.xml" value="0.24010416666666667" />
@@ -257,6 +273,7 @@
         <entry key="app/src/main/res/layout/fragment_time__management_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_transferable__skills_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_turkey_.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/layout/fragment_united__states_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_unitedkingdom_.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/fragment_unitedstates_.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/fragment_work__ethic_.xml" value="0.22604166666666667" />
@@ -266,6 +283,7 @@
         <entry key="app/src/main/res/layout/header.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/headline_items.xml" value="0.33" />
         <entry key="app/src/main/res/layout/include_post_text.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/industry_fragment_layout.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/input_file.xml" value="0.25" />
         <entry key="app/src/main/res/layout/ireland.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/layout_child.xml" value="0.24010416666666667" />
@@ -275,6 +293,7 @@
         <entry key="app/src/main/res/layout/message_mentor_bar.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/resume_details.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/search.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/skills_fragment_layout.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/user_display_activity.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.3098958333333333" />

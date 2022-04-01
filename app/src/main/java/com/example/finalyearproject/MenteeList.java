@@ -14,6 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.finalyearproject.Mentees.Goals_Add_Activity;
+import com.example.finalyearproject.Mentees.MeetingRequest;
+import com.example.finalyearproject.Mentees.MenteeMainActivity;
+import com.example.finalyearproject.Mentor.Message_Mentor;
+import com.example.finalyearproject.Models.MentorFriendlist;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -24,10 +29,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MenteeList extends AppCompatActivity {
 
-    private RecyclerView menteeRecyclerView;
-    private DatabaseReference MenteeRef,MentorRef;
+    private RecyclerView mMenteeRecyclerView;
+    private DatabaseReference MentorshipRef,RootRef;
     private FirebaseAuth firebaseAuth;
-    private String menteeOnline;
+    private String MenteeOnline;
     private ImageView mHome;
 
 
@@ -37,16 +42,19 @@ public class MenteeList extends AppCompatActivity {
         setContentView(R.layout.activity_mentee_list);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        menteeOnline = firebaseAuth.getCurrentUser().getUid();
-        MenteeRef = FirebaseDatabase.getInstance().getReference().child("Mentorship").child(menteeOnline);
-        MentorRef = FirebaseDatabase.getInstance().getReference().child("users");
+        MenteeOnline = firebaseAuth.getCurrentUser().getUid();
+        //Goes into mentorship child and finds the current users unique id
+        MentorshipRef = FirebaseDatabase.getInstance().getReference().child("Mentorship").child(MenteeOnline);
+        //Goes into users child
+        RootRef = FirebaseDatabase.getInstance().getReference().child("users");
 
-        menteeRecyclerView = findViewById(R.id.menteeRecyclerView);
-        menteeRecyclerView.setHasFixedSize(true);
+
+        mMenteeRecyclerView = findViewById(R.id.menteeRecyclerView);
+        mMenteeRecyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
-        menteeRecyclerView.setLayoutManager(linearLayoutManager);
+        mMenteeRecyclerView.setLayoutManager(linearLayoutManager);
 
         mHome = findViewById(R.id.home);
 
@@ -59,28 +67,31 @@ public class MenteeList extends AppCompatActivity {
             }
         });
 
-        DisplayAllMentees();
+        DisplayAllMentors();
 
     }
 
-    private void DisplayAllMentees() {
+    //Displays all mentors
+    private void DisplayAllMentors() {
 
         FirebaseRecyclerAdapter<MentorFriendlist, MenteeFriendHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<MentorFriendlist, MenteeFriendHolder>(
                 MentorFriendlist.class,
                 R.layout.all_mentors_displayed,
                 MenteeFriendHolder.class,
-                MenteeRef
+                MentorshipRef
 
         ) {
             @Override
             protected void populateViewHolder(MenteeFriendHolder menteeFriendHolder, MentorFriendlist menteeFriendList, int i) {
 
+                //Sets the mentorship date
                 menteeFriendHolder.setDate(menteeFriendList.getDate());
                 final String users = getRef(i).getKey();
-                MentorRef.child(users).addValueEventListener(new ValueEventListener() {
+                RootRef.child(users).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                        //Gets the mentors details
                         if(snapshot.exists()){
                             final String name = snapshot.child("name").getValue().toString();
                             final String skills1 = snapshot.child("skill1").getValue().toString();
@@ -91,6 +102,7 @@ public class MenteeList extends AppCompatActivity {
                             final String photo = snapshot.child("profileimage").getValue().toString();
                             Glide.with(getApplicationContext()).load(photo).into(menteeFriendHolder.setProfileimage(photo));
 
+                            //Sets mentors details
                             menteeFriendHolder.setType(type);
                             menteeFriendHolder.setName(name);
                             menteeFriendHolder.setCompany(company);
@@ -99,6 +111,7 @@ public class MenteeList extends AppCompatActivity {
                             menteeFriendHolder.setIndustry(industry);
                             menteeFriendHolder.setProfileimage(photo);
 
+                            //If mentor is clicked alert dialog pops up
                             menteeFriendHolder.mView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -168,7 +181,7 @@ public class MenteeList extends AppCompatActivity {
             }
         };
 
-        menteeRecyclerView.setAdapter(firebaseRecyclerAdapter);
+        mMenteeRecyclerView.setAdapter(firebaseRecyclerAdapter);
     }
 
     public static class MenteeFriendHolder extends RecyclerView.ViewHolder {

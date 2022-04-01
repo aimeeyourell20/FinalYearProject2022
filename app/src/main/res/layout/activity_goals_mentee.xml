@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Goals_Activity_Mentee">
+    tools:context=".Mentees.Goals_Activity_Mentee">
 
     <RelativeLayout
         android:layout_width="385dp"

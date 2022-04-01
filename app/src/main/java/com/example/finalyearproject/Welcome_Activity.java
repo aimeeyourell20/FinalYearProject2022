@@ -12,27 +12,18 @@ public class Welcome_Activity extends AppCompatActivity {
 
     //Contains signup and login buttons
 
-    private Button alreadyAccount, signup;
-    private TextView mmoreInfoButton;
+    private Button mAlreadyAccount, mSignup;
+    private TextView mMoreInfoButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        alreadyAccount = (Button) findViewById(R.id.loginButton);
-        signup = (Button) findViewById(R.id.registerButton);
-        mmoreInfoButton = findViewById(R.id.moreInfoButton);
+        mAlreadyAccount =    findViewById(R.id.loginButton);
+        mSignup =            findViewById(R.id.registerButton);
 
-        mmoreInfoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Welcome_Activity.this, MoreInfo_Activity.class);
-                startActivity(i);
-            }
-        });
-
-        alreadyAccount.setOnClickListener(new View.OnClickListener() {
+        mAlreadyAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -41,7 +32,7 @@ public class Welcome_Activity extends AppCompatActivity {
             }
         });
 
-        signup.setOnClickListener(new View.OnClickListener() {
+        mSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

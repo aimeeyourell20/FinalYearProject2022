@@ -36,7 +36,6 @@
                     android:layout_marginLeft="70dp"
                     android:src="@drawable/profile_image"/>
 
-
                 <TextView
                     android:id="@+id/searchMentorStatus"
                     android:layout_width="match_parent"

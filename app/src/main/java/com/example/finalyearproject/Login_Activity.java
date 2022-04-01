@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.finalyearproject.Mentees.MenteeMainActivity;
+import com.example.finalyearproject.Mentor.MentorMainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -25,12 +27,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Login_Activity extends AppCompatActivity {
 
-    private TextView mnoAccount, mforgotPassword;
+    private TextView mNoAccount, mForgotPassword;
     private TextInputEditText mLoginEmail, mLoginPassword;
-    private Button mloginButton;
+    private Button mLoginButton;
     private FirebaseAuth firebaseAuth;
-    private FirebaseUser firebaseUser;
-    private DatabaseReference users;
     private Boolean emailAddressCheckers;
 
     @Override
@@ -40,15 +40,13 @@ public class Login_Activity extends AppCompatActivity {
 
         mLoginEmail = findViewById(R.id.LoginEmail);
         mLoginPassword = findViewById(R.id.LoginPassword);
-        mloginButton = findViewById(R.id.LoginButton);
-        mnoAccount = findViewById(R.id.noAccount);
-        mforgotPassword = findViewById(R.id.forgotPassword);
+        mLoginButton = findViewById(R.id.LoginButton);
+        mNoAccount = findViewById(R.id.noAccount);
+        mForgotPassword = findViewById(R.id.forgotPassword);
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        users = FirebaseDatabase.getInstance().getReference().child("users");
-
-        mnoAccount.setOnClickListener(new View.OnClickListener()
+        //User will be brought to registration
+        mNoAccount.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -57,16 +55,17 @@ public class Login_Activity extends AppCompatActivity {
             }
         });
 
-       /* ForgetPasswordLink.setOnClickListener(new View.OnClickListener()
+        //User can reset password
+        mForgotPassword.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
+                startActivity(new Intent(Login_Activity.this, ResetPassword.class));
             }
-        });*/
+        });
 
-        mloginButton.setOnClickListener(new View.OnClickListener()
+        mLoginButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -75,19 +74,6 @@ public class Login_Activity extends AppCompatActivity {
             }
         });
     }
-
-   /* @Override
-    protected void onStart()
-    {
-        super.onStart();
-
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-
-        if(currentUser != null)
-        {
-            SendUserToMainActivity();
-        }
-    }*/
 
     private void AllowingUserToLogin()
     {
@@ -104,12 +90,6 @@ public class Login_Activity extends AppCompatActivity {
         }
         else
         {
-/*
-            loadingBar.setTitle("Login");
-            loadingBar.setMessage("Please wait, while we are allowing you to login into your new Account...");
-            loadingBar.setCanceledOnTouchOutside(true);
-            loadingBar.show();
-*/
 
             firebaseAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>()
@@ -119,61 +99,63 @@ public class Login_Activity extends AppCompatActivity {
                         {
                             if (task.isSuccessful()) {
 
-                                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                                String RegisteredUserID = currentUser.getUid();
-                                DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("users").child(RegisteredUserID);
-
-                                dr.addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        String type = snapshot.child("type").getValue().toString();
-
-                                        if (type.equals("Mentor")) {
-
-                                            Toast.makeText(Login_Activity.this, "Mentor log in successful", Toast.LENGTH_SHORT).show();
-                                            Intent i = new Intent(Login_Activity.this, MentorMainActivity.class);
-                                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                            startActivity(i);
-                                            finish();
-
-                                        } else if (type.equals("Mentee")) {
-
-                                            Toast.makeText(Login_Activity.this, "Mentee log in successful", Toast.LENGTH_SHORT).show();
-                                            Intent i = new Intent(Login_Activity.this, MenteeMainActivity.class);
-                                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                            startActivity(i);
-                                            finish();
-                                        }
-
-                                    }
-
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-                                });
-
+                                //Checks to ensure email is verified
+                                VerifyEmailAddress();
                             }
                             else
                             {
-                                String message = task.getException().getMessage();
-                                Toast.makeText(Login_Activity.this, "Error occured: " + message, Toast.LENGTH_SHORT).show();
-                                //loadingBar.dismiss();
+
+                                Toast.makeText(Login_Activity.this, "Error occurred " , Toast.LENGTH_SHORT).show();
+
                             }
                         }
                     });
         }
     }
 
-   /* private void VerifyEmailAddress()
+   private void VerifyEmailAddress()
     {
         FirebaseUser user = firebaseAuth.getCurrentUser();
         emailAddressCheckers = user.isEmailVerified();
 
+        //If email is verified continue
         if(emailAddressCheckers)
         {
-            SendUserToMainActivity();
+
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            String RegisteredUserID = currentUser.getUid();
+            DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("users").child(RegisteredUserID);
+
+            //Checks to see if user is a mentor or mentee
+            dr.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String type = snapshot.child("type").getValue().toString();
+
+                    if (type.equals("Mentor")) {
+
+                        Toast.makeText(Login_Activity.this, "Mentor log in successful", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(Login_Activity.this, MentorMainActivity.class);
+                        startActivity(i);
+                        finish();
+
+                    } else if (type.equals("Mentee")) {
+
+                        Toast.makeText(Login_Activity.this, "Mentee log in successful", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(Login_Activity.this, MenteeMainActivity.class);
+                        startActivity(i);
+                        finish();
+                    }
+
+                }
+
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
         }
         else
         {
@@ -181,14 +163,7 @@ public class Login_Activity extends AppCompatActivity {
             firebaseAuth.signOut();
         }
     }
-*/
-   /* private void SendUserToMainActivity()
-    {
-        Intent mainIntent = new Intent(Login_Activity.this, MentorMainActivity. class);
-        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(mainIntent);
-        finish();
-    }*/
+
 
     private void SendUserToRegisterActivity()
     {

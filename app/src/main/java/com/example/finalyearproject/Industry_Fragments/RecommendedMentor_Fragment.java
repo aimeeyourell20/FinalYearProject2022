@@ -14,8 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finalyearproject.AdapterClass;
-import com.example.finalyearproject.FindMentor;
+import com.example.finalyearproject.Adapters.AdapterClass;
+import com.example.finalyearproject.Models.FindMentor;
 import com.example.finalyearproject.Person_Profile_Activity;
 import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -34,7 +34,7 @@ public class RecommendedMentor_Fragment extends Fragment {
 
     private View View;
     private RecyclerView RecyclerView;
-    private DatabaseReference dr;
+    private DatabaseReference RootRef;
     private Button SearchButton;
     private EditText SearchInputText1;
     private AdapterClass adapterClass;
@@ -60,7 +60,7 @@ public class RecommendedMentor_Fragment extends Fragment {
         RecyclerView.setAdapter(adapterClass);
 
 
-        dr = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        RootRef = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         SearchButton = (Button) View.findViewById(R.id.search_people_friends_button1);
         SearchInputText1 = (EditText) View.findViewById(R.id.search_box_input);
@@ -77,12 +77,13 @@ public class RecommendedMentor_Fragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        dr.addValueEventListener(new ValueEventListener() {
+        RootRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String result;
                 String type = snapshot.child("type").getValue().toString();
 
+                //Only display mentors
                 if (type.equals("Mentor")) {
                     result = "Mentee";
                 } else {
@@ -91,11 +92,14 @@ public class RecommendedMentor_Fragment extends Fragment {
 
                 String skills = snapshot.child("skill1").getValue().toString();
 
-                String language = snapshot.child("industry").getValue().toString();
+                String industry = snapshot.child("industry").getValue().toString();
+
+                String location = snapshot.child("location").getValue().toString();
 
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users");
 
-                Query query = reference.orderByChild("search").equalTo(result + skills + language);
+                //Query to check if users are a match
+                Query query = reference.orderByChild("search").equalTo(result + skills + industry + location);
 
                 FirebaseRecyclerAdapter<FindMentor, FindMentorViewHolder> firebaseRecyclerAdapter =
                         new FirebaseRecyclerAdapter<FindMentor, FindMentorViewHolder>(
@@ -109,6 +113,7 @@ public class RecommendedMentor_Fragment extends Fragment {
                             protected void populateViewHolder(FindMentorViewHolder findMentorViewHolder, FindMentor findMentor, int i) {
 
 
+                                //Set mentors details
                                 findMentorViewHolder.setType(findMentor.getType());
                                 findMentorViewHolder.setName(findMentor.getName());
                                 findMentorViewHolder.setCompany(findMentor.getCompany());
@@ -121,8 +126,7 @@ public class RecommendedMentor_Fragment extends Fragment {
                                     @Override
                                     public void onClick(View view) {
                                         String mentorid = getRef(i).getKey();
-
-
+                                        //If profile is selected then show more profile information
                                         Intent i = new Intent(getActivity(), Person_Profile_Activity.class);
                                         i.putExtra("mentorid", mentorid);
                                         startActivity(i);

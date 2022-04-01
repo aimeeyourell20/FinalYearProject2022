@@ -1,102 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MeetingRequest">
+    android:orientation="vertical"
+    tools:context=".Mentees.MeetingRequest">
 
-    <TextView
-        android:id="@+id/requestForm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Request Meeting Form"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="vertical"
+        android:background="@drawable/gradient">
 
-    <EditText
-        android:id="@+id/meetingTitle"
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:layout_marginBottom="28dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/boogaloo"
+            android:textStyle="bold"
+            android:text="Meeting Request"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/gradient"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Meeting Title"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/requestForm"/>
+        android:paddingBottom="22dp"
+        android:paddingTop="22dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="-10dp">
 
-    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-        android:id="@+id/meetingLocationSpinner"
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Meeting Title"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:id="@+id/meetingTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Meeting Title"
+                android:ems="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/requestForm"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Meeting Location"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/meetingLocationSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#fff"
+                android:entries="@array/meetingLocation"
+                android:textAlignment="viewStart"
+                app:hintText="Meeting Location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meetingTitle"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Meeting Description"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:id="@+id/meetingDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Meeting Description"
+                android:ems="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meetingLocationSpinner"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Meeting Mentor"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/meetingMentor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Meeting Mentor"
+                android:ems="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meetingDescription"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Meeting Mentee"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/meetingMentee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Meeting Mentee"
+                android:ems="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meetingMentor"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#fff"
-        android:entries="@array/meetingLocation"
-        android:textAlignment="viewStart"
-        app:hintText="Meeting Location"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meetingTitle"/>
-
-    <EditText
-        android:id="@+id/meetingDescription"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Meeting Description"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meetingLocationSpinner"/>
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/meeting"
+            android:layout_width="160dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/goals_button"
+            android:textSize="22sp"
+            android:text="Request"
+            android:textColor="@color/white"
+            android:textAllCaps="false"/>
 
-    <EditText
-        android:id="@+id/meetingMentor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Meeting Mentor"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meetingDescription"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel"
+            android:layout_width="160dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/goals_button_2"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
 
-    <EditText
-        android:id="@+id/meetingMentee"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Meeting Mentee"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meetingMentor"/>
-
-
-    <Button
-        android:id="@+id/meeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Request Meeting"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meetingMentee"/>
-
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Cancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meeting"/>
-
-
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>

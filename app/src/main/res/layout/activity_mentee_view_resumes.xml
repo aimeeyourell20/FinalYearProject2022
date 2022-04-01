@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Mentee_View_Resumes">
+    tools:context=".Mentees.Mentee_View_Resumes">
 
     <TextView
         android:id="@+id/resumesList"

@@ -6,16 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ActionBar;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.finalyearproject.Mentees.Message_Mentee;
+import com.example.finalyearproject.Mentor.MentorMainActivity;
+import com.example.finalyearproject.Models.MenteeFriendList;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -43,7 +44,7 @@ public class MentorList extends AppCompatActivity {
         MenteeRef = FirebaseDatabase.getInstance().getReference().child("Mentorship").child(menteeOnline);
         MentorRef = FirebaseDatabase.getInstance().getReference().child("users");
 
-        menteeRecyclerView = findViewById(R.id.menteeRecyclerView1);
+        menteeRecyclerView = findViewById(R.id.menteeRecyclerView);
         menteeRecyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setReverseLayout(true);

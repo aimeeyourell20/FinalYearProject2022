@@ -7,7 +7,7 @@
     android:backgroundTint="#00ACC1"
     android:foregroundTint="#00ACC1"
     android:orientation="vertical"
-    tools:context=".Mentee_Find_Mentors_Activity">
+    tools:context=".Mentees.Mentee_Find_Mentors_Activity">
 
     <include
         android:id="@+id/toolbar"

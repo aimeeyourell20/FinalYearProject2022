@@ -25,222 +25,162 @@
         android:theme="@style/Theme.FinalYearProject"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".LocationReports.Mentor_Rating_Board"
+            android:name=".ResetPassword"
             android:exported="true" />
         <activity
-            android:name=".Mentee_PDF"
+            android:name=".API.CollegeDetails"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.GoalsReportChartBar"
+            android:name=".API.CollegeOptions"
             android:exported="true" />
         <activity
-            android:name=".Skills.Active_Listening"
+            android:name=".API.CompanyDetails"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.IndustryReportMenuMentor"
+            android:name=".API.CompanyInformation"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.SkillsReportMenuMentor"
+            android:name=".API.CareerOptionsMentee"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.Mentee_Reports"
+            android:name=".Reports.LocationReportChartMentee"
             android:exported="true" />
         <activity
-            android:name=".DisplayMentees"
+            android:name=".Mentees.Mentee_PDF"
             android:exported="true" />
         <activity
-            android:name=".MoreCareerDetails"
+            android:name=".Reports.GoalsReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.SkillsReportMenu"
+            android:name=".Reports.GoalsReportChartBarMentor"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.IndustryMenteeReportChartBar"
+            android:name=".Reports.Mentee_Reports"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.IndustryMenteeReportChartPie"
+            android:name=".Reports.IndustryMenteeReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.MeetingsReportChartPie"
+            android:name=".Reports.MeetingsReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.MeetingsReportChartBar"
+            android:name=".Reports.MeetingsReportChartBarMentor"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.MeetingsReportMenu"
+            android:name=".Reports.IndustryMentorReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.IndustryMentorReportChartBar"
+            android:name=".Reports.EuropeReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.IndustryReportMenu"
+            android:name=".Reports.EuropeReportChartBarMentor"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.EuropeReportChartPie"
+            android:name=".Reports.SouthAmericaReportChartPie"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.EuropeReportChartBar"
+            android:name=".Reports.SouthAmericaReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.EuropeReportMenu"
+            android:name=".Reports.AustraliaReportChartPie"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.SouthAmericaReportChartPie"
+            android:name=".Reports.AustraliaReportChartPieMentor"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.SouthAmericaReportChartBar"
+            android:name=".Reports.NorthAmericaReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.SouthAmericaReportMenu"
+            android:name=".Reports.NorthAmericanReportChartPie"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.AustraliaReportChartPie"
+            android:name=".Reports.MiddleEastReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.AustraliaReportChartBar"
+            android:name=".Reports.MiddleEastReportChartBarMentor"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.AustraliaReportMenu"
+            android:name=".Reports.AsiaReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.NorthAmericaReportChartBar"
+            android:name=".Reports.AsiaReportChartBarMentor"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.NorthAmericanReportChartPie"
+            android:name=".Reports.SkillsMenteeReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.NorthAmericaReportMenu"
+            android:name=".Mentees.Goal_Edit"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.MiddleEastReportChartPie"
+            android:name=".API.CollegeReportChart"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.MiddleEastReportChartBar"
+            android:name=".Reports.SkillsMentorReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.MiddleEastReportMenu"
+            android:name=".Reports.LocationReportChartMentor"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.AsiaReportMenu"
+            android:name=".Reports.Mentor_Reports"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.AsiaReportChartPie"
+            android:name=".Reports.MentorshipReportChartPie"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.AsiaReportChartBar"
+            android:name=".API.CompanyReportChart"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.IndustryReportChartRadar"
+            android:name=".Mentees.Mentee_View_Resumes"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.MentorshipReportChartBar"
+            android:name=".Mentees.Mentee_Add_Resume"
             android:exported="true" />
         <activity
-            android:name=".LocationReports.MentorshipReportMenu"
-            android:exported="true" />
-        <activity
-            android:name=".LocationReports.SkillsMenteeReportChartBar"
-            android:exported="true" />
-        <activity
-            android:name=".LocationReports.HorizontalBarCharts"
-            android:exported="true" />
-        <activity
-            android:name=".Goals_Activity"
-            android:exported="true" />
-        <activity
-            android:name=".Goal_Edit"
-            android:exported="true" />
-        <activity
-            android:name=".CollegeReportChart"
-            android:exported="true" />
-        <activity
-            android:name=".LocationReports.SkillsMentorReportChartBar"
-            android:exported="true" />
-        <activity
-            android:name=".LocationReports.IndustryMentorReportChartPie"
-            android:exported="true" />
-        <activity
-            android:name=".LocationReports.LocationReportChart"
-            android:exported="true" />
-        <activity
-            android:name=".LocationReports.Mentor_Reports"
-            android:exported="true" />
-        <activity
-            android:name=".LocationReports.MentorshipReportChartPie"
-            android:exported="true" />
-        <activity
-            android:name=".CompanyReportChart"
-            android:exported="true" />
-        <activity
-            android:name=".Mentee_View_Resumes"
-            android:exported="true" />
-        <activity
-            android:name=".Mentee_Add_Resume"
-            android:exported="true" />
-        <activity
-            android:name=".Mentee_Resume_Options"
+            android:name=".Mentees.Mentee_Resume_Options"
             android:exported="true" />
         <activity
             android:name=".Industry_Fragments.SearchIndustryFragment"
             android:exported="true" />
         <activity
-            android:name=".Goals_Add_Activity"
+            android:name=".Mentees.Goals_Add_Activity"
             android:exported="true" />
         <activity
-            android:name=".Goals_Activity_Mentor"
+            android:name=".Mentor.Goals_Activity_Mentor"
             android:exported="true" />
         <activity
-            android:name=".Goals_Activity_Mentee"
+            android:name=".Mentees.Goals_Activity_Mentee"
             android:exported="true" />
         <activity
-            android:name=".Meetings_Activity_Mentor"
+            android:name=".Mentor.Meetings_Activity_Mentor"
             android:exported="true" />
         <activity
-            android:name=".Meetings_Activity_Mentee"
+            android:name=".Mentees.Meetings_Activity_Mentee"
             android:exported="true" />
         <activity
-            android:name=".MenteeProfilePicture"
+            android:name=".Models.Meetings"
             android:exported="true" />
         <activity
-            android:name=".Meetings"
+            android:name=".Mentees.MeetingRequest"
             android:exported="true" />
         <activity
-            android:name=".RecommendedMentors"
-            android:exported="true" />
-        <activity
-            android:name=".MeetingRequest"
-            android:exported="true" />
-        <activity
-            android:name=".MenteeRequestMentor"
-            android:exported="true" />
-        <activity
-            android:name=".Request_Meeting_Activity"
-            android:exported="true" />
-        <activity
-            android:name=".CareerDetails"
+            android:name=".API.CareerDetails"
             android:exported="true" />
         <activity
             android:name=".MentorFriends"
             android:exported="true" />
         <activity
-            android:name=".Mentee_Edit_Resume"
+            android:name=".Mentees.Mentee_Edit_Resume"
             android:exported="true" />
         <activity
-            android:name=".Mentee_Resume"
+            android:name=".Mentees.Message_Mentee"
             android:exported="true" />
         <activity
-            android:name=".SkillsPage"
+            android:name=".API.CareerOptions"
             android:exported="true" />
         <activity
-            android:name=".Message_Mentee"
-            android:exported="true" />
-        <activity
-            android:name=".CareerOptions"
-            android:exported="true" />
-        <activity
-            android:name=".Message_Mentor"
+            android:name=".Mentor.Message_Mentor"
             android:exported="true"
-            android:parentActivityName=".MentorMainActivity" />
+            android:parentActivityName=".Mentor.MentorMainActivity" />
         <activity
             android:name=".MenteeList"
             android:exported="true" />
@@ -251,64 +191,39 @@
             android:name=".Person_Profile_Activity_2"
             android:exported="true" />
         <activity
-            android:name=".Mentee_Request_Activity"
+            android:name=".Mentor.Mentee_Request_Activity"
             android:exported="true" />
         <activity
             android:name=".Person_Profile_Activity"
             android:exported="true" />
         <activity
-            android:name=".Welcome_Activity_Screen"
+            android:name=".Mentor.Mentor_Profile_Activity"
             android:exported="true" />
         <activity
-            android:name=".Mentee_Find_Mentors_Activity"
+            android:name=".Mentees.Mentee_Profile_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Mentor.Profile_Settings_Mentor_Activity"
             android:exported="true"
-            android:parentActivityName=".MenteeMainActivity" />
+            android:parentActivityName=".Mentor.MentorMainActivity" />
         <activity
-            android:name=".Mentor_Profile_Activity"
-            android:exported="true" />
-        <activity
-            android:name=".Mentee_Profile_Activity"
-            android:exported="true" />
-        <activity
-            android:name=".Profile_Settings_Mentor_Activity"
+            android:name=".Mentees.Profile_Settings_Mentee_Activity"
             android:exported="true"
-            android:parentActivityName=".MentorMainActivity" />
+            android:parentActivityName=".Mentees.MenteeMainActivity" />
         <activity
-            android:name=".Profile_Settings_Mentee_Activity"
-            android:exported="true"
-            android:parentActivityName=".MenteeMainActivity" />
-        <activity
-            android:name=".Mentor_Registration_Activity_2"
+            android:name=".Mentees.MenteeMainActivity"
             android:exported="true" />
         <activity
-            android:name=".Mentor_Login_Activity"
-            android:exported="true" />
-        <activity
-            android:name=".Mentee_Login_Activity"
-            android:exported="true" />
-        <activity
-            android:name=".Rating_Activity"
-            android:exported="true" />
-        <activity
-            android:name=".MoreInfo_Activity"
-            android:exported="true" />
-        <activity
-            android:name=".MenteeMainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".MentorMainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".Selection_Activity_2"
+            android:name=".Mentor.MentorMainActivity"
             android:exported="true" />
         <activity
             android:name=".Welcome_Activity"
             android:exported="true" />
         <activity
-            android:name=".Mentee_Registration_Activity"
+            android:name=".Mentees.Mentee_Registration_Activity"
             android:exported="true" />
         <activity
-            android:name=".Mentor_Registration_Activity"
+            android:name=".Mentor.Mentor_Registration_Activity"
             android:exported="true" />
         <activity
             android:name=".Selection_Activity"
@@ -317,7 +232,7 @@
             android:name=".Login_Activity"
             android:exported="true" />
         <activity
-            android:name=".ChatbotKotlin"
+            android:name=".Kotlin.ChatbotKotlin"
             android:exported="true" />
         <activity
             android:name=".SplashScreenActivity"

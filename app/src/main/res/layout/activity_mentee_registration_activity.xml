@@ -6,7 +6,7 @@
     android:padding="21dp"
     android:gravity="center_vertical"
     android:background="#FB8C00"
-    tools:context=".Mentee_Registration_Activity">
+    tools:context=".Mentees.Mentee_Registration_Activity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
