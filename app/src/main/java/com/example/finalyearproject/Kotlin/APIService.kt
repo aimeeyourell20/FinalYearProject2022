@@ -5,9 +5,11 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface APIService {
+    //Denotes that the request body will use form URL encoding.
     @FormUrlEncoded
     @POST("chat")
-    fun chatWithTheBit(@Field("chatInput") chatText : String ): Call<ChatResponse>
+    fun chatBot(@Field("input") chatText : String ): Call<ChatResponse>
 }
 
-data class ChatResponse(val chatBotReply: String)
+//Holds the data
+data class ChatResponse(val reply: String)

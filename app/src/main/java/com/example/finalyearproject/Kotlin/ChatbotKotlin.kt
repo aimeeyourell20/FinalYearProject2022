@@ -11,44 +11,52 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+//This Class is used to prepare retrofit to make the call.
 
 class ChatbotKotlin : AppCompatActivity() {
-    private val adapterChatBot = AdapterChatbot()
+    private val ChatBotAdapter = AdapterChatbot()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.chatbotkotlin)
 
+        //We create a retrofit builder object that will contain the base url of the api,the converter Gson Converter
         val retrofit = Retrofit.Builder()
-                .baseUrl("http://192.168.0.143:5000/")
+                .baseUrl("http://172.20.10.3:5000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-        val apiService = retrofit.create(APIService::class.java)
+        val service = retrofit.create(APIService::class.java)
 
-        rvChatList.layoutManager = LinearLayoutManager(this)
-        rvChatList.adapter = adapterChatBot
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = ChatBotAdapter
 
-        btnSend.setOnClickListener {
-            if(etChat.text.isNullOrEmpty()){
+
+        //Press to send the message to the chatbot
+        sendButton.setOnClickListener {
+            //If text area is blank user will be notified to enter text
+            if(chat.text.isNullOrEmpty()){
                 Toast.makeText(this@ChatbotKotlin, "Please enter a text", Toast.LENGTH_LONG).show()
+                //Helps to link a listener with certain attributes
                 return@setOnClickListener
             }
 
-            adapterChatBot.addChatToList(ChatModel(etChat.text.toString()))
-            apiService.chatWithTheBit(etChat.text.toString()).enqueue(callBack)
-            etChat.text.clear()
+            ChatBotAdapter.addReply(Chat(chat.text.toString()))
+            service.chatBot(chat.text.toString()).enqueue(response)
+            chat.text.clear()
         }
     }
 
-    private val callBack = object  : Callback<ChatResponse>{
+    private val response = object  : Callback<ChatResponse>{
         override fun onResponse(call: Call<ChatResponse>, response: Response<ChatResponse>) {
+            //If successful then it will display an appropriate message to the user
             if(response.isSuccessful &&  response.body()!= null){
-                adapterChatBot.addChatToList(ChatModel(response.body()!!.chatBotReply, true))
+                ChatBotAdapter.addReply(Chat(response.body()!!.reply, true))
             }else{
+                //If unsuccessful user will be notified
                 Toast.makeText(this@ChatbotKotlin, "Something went wrong", Toast.LENGTH_LONG).show()
             }
         }
-
+        //Errors if unable to connect to API
         override fun onFailure(call: Call<ChatResponse>, t: Throwable) {
             Toast.makeText(this@ChatbotKotlin, "Error", Toast.LENGTH_LONG).show()
         }

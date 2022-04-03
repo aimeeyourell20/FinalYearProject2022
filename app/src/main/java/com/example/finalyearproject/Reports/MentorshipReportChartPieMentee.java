@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MentorshipReportChartPieMentor extends AppCompatActivity {
+public class MentorshipReportChartPieMentee extends AppCompatActivity {
 
     DatabaseReference Mentorship, TotalMentorships, TotalUsers;
     private ImageView mHome;
@@ -52,7 +52,7 @@ public class MentorshipReportChartPieMentor extends AppCompatActivity {
         mHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MentorshipReportChartPieMentor.this, Mentor_Reports.class);
+                Intent i = new Intent(MentorshipReportChartPieMentee.this, Mentee_Reports.class);
                 startActivity(i);
                 finish();
 
@@ -65,12 +65,12 @@ public class MentorshipReportChartPieMentor extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                int counter = (int) snapshot.getChildrenCount();
-                String userCounter = String.valueOf(counter);
+                        int counter = (int) snapshot.getChildrenCount();
+                        String userCounter = String.valueOf(counter);
 
-                mMentorship.setText(userCounter);
+                        mMentorship.setText(userCounter);
 
-            }
+                    }
 
 
 

@@ -7,7 +7,7 @@
     android:layout_margin="10dp"
     android:layout_marginBottom="10dp"
     android:background="#80D8FF"
-    tools:context=".Person_Profile_Activity"
+    tools:context=".Mentor_Profile"
     android:elevation="5dp">
 
     <ImageView
@@ -260,6 +260,15 @@
                 android:fontFamily="@font/boogaloo"
                 android:textSize="18sp" />
         </LinearLayout>
+
+        <RatingBar
+            android:id="@+id/RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:numStars="5"
+            android:isIndicator="true"
+            android:stepSize="1"/>
 
         <LinearLayout
             android:layout_width="match_parent"

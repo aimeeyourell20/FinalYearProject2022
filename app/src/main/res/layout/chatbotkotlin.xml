@@ -8,37 +8,37 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChatList"
-        android:layout_width="0dp"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/etChat"
+        app:layout_constraintBottom_toTopOf="@+id/chat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etChat"
+        android:id="@+id/chat"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:ems="10"
-        android:hint="Chat with bot"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="12"
+        android:hint="Enter message"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnSend"
+        app:layout_constraintEnd_toStartOf="@+id/sendButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnSend"
+        android:id="@+id/sendButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
         android:text="Send"
-        app:layout_constraintBottom_toBottomOf="@+id/etChat"
+        app:layout_constraintBottom_toBottomOf="@+id/chat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/etChat" />
+        app:layout_constraintTop_toTopOf="@+id/chat" />
 </androidx.constraintlayout.widget.ConstraintLayout>

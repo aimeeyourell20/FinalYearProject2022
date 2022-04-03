@@ -124,7 +124,10 @@
             android:name=".Reports.Mentor_Reports"
             android:exported="true" />
         <activity
-            android:name=".Reports.MentorshipReportChartPie"
+            android:name=".Reports.MentorshipReportChartPieMentee"
+            android:exported="true" />
+        <activity
+            android:name=".Reports.MentorshipReportChartPieMentor"
             android:exported="true" />
         <activity
             android:name=".API.CompanyReportChart"

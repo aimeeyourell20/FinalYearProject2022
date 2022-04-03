@@ -35,6 +35,8 @@ public class Person_Profile_Activity extends AppCompatActivity {
     private String senderUserId, CURRENT_STATE, saveCurrentDate;
     private String receiverUserId = "";
     private ImageView mHome;
+    private  RatingBar mRatingBar;
+    private String rating ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,8 @@ public class Person_Profile_Activity extends AppCompatActivity {
                 //messageReceiverName = (String) extras.get("name");
             }
         }
+
+        mRatingBar = findViewById(R.id.RatingBar);
 
         mHome = findViewById(R.id.home);
 
@@ -88,6 +92,15 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     String company = dataSnapshot.child("company").getValue().toString();
                     String photo = dataSnapshot.child("profileimage").getValue().toString();
                     Glide.with(getApplicationContext()).load(photo).into(mProfile);
+
+                    if(dataSnapshot.hasChild("Rating")){
+                        rating = dataSnapshot.child("Rating").child(senderUserId).child("rating").getValue().toString();
+                        mRatingBar.setRating(Float.parseFloat(rating));
+                    }
+                    else{
+                        RootRef.child(receiverUserId).child("Rating").child(senderUserId).child("rating").setValue("0");
+                        mRatingBar.setRating(Float.parseFloat("0"));
+                    }
 
                     mName.setText(name);
                     mBio.setText(bio);
@@ -174,6 +187,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
 
                                                 mDeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                 mDeclineFriendRequestButton.setEnabled(false);
+                                                mRatingBar.setIsIndicator(false);
                                             }
                                         }
                                     });
@@ -227,6 +241,14 @@ public class Person_Profile_Activity extends AppCompatActivity {
 
                                                                                         mDeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                                                         mDeclineFriendRequestButton.setEnabled(false);
+
+                                                                                        mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+                                                                                            @Override
+                                                                                            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                                                                                                RootRef.child(receiverUserId).child(senderUserId).child("rating").push();
+                                                                                                RootRef.child(receiverUserId).child("Rating").child(senderUserId).child("rating").setValue(v);
+                                                                                            }
+                                                                                        });
 
 
                                                                                     }
@@ -335,6 +357,15 @@ public class Person_Profile_Activity extends AppCompatActivity {
                                                 mDeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                 mDeclineFriendRequestButton.setEnabled(false);
 
+                                                mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+                                                    @Override
+                                                    public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                                                        RootRef.child(receiverUserId).child(senderUserId).child("rating").push();
+                                                        RootRef.child(receiverUserId).child("Rating").child(senderUserId).child("rating").setValue(v);
+                                                    }
+                                                });
+
+
                                             }
                                         }
 
@@ -389,6 +420,8 @@ public class Person_Profile_Activity extends AppCompatActivity {
 
 
 
+
+
     private void IntializeFields()
     {
         mName = findViewById(R.id.personname);
@@ -408,4 +441,6 @@ public class Person_Profile_Activity extends AppCompatActivity {
         //RateMentor();
         CURRENT_STATE = "not_mentorship";
     }
+
+
 }

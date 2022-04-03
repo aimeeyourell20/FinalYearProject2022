@@ -27,6 +27,7 @@
 
         <EditText
             android:id="@+id/jobtitle"
+            android:background="@drawable/boarders"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.finalyearproject.Mentees.MenteeMainActivity;
-import com.example.finalyearproject.Mentor.MentorMainActivity;
 import com.example.finalyearproject.R;
 
 public class Mentee_Reports extends AppCompatActivity {
@@ -41,7 +40,7 @@ public class Mentee_Reports extends AppCompatActivity {
         mentor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Mentee_Reports.this, MentorshipReportChartPie.class);
+                Intent i = new Intent(Mentee_Reports.this, MentorshipReportChartPieMentee.class);
                 startActivity(i);
             }
         });
