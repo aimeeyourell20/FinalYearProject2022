@@ -152,8 +152,7 @@
 
     <string-array name="status">
         <item>Only started</item>
-        <item>Making Progress</item>
-        <item>Nearly Finished</item>
+        <item>In Progress</item>
         <item>Completed</item>
     </string-array>
 

@@ -97,7 +97,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
                         rating = dataSnapshot.child("Rating").child(senderUserId).child("rating").getValue().toString();
                         mRatingBar.setRating(Float.parseFloat(rating));
                     }
-                    else{
+                    else {
                         RootRef.child(receiverUserId).child("Rating").child(senderUserId).child("rating").setValue("0");
                         mRatingBar.setRating(Float.parseFloat("0"));
                     }

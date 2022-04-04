@@ -1,64 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/home"
-
-        android:title="Home"/>
-
-    <item
-        android:id="@+id/sentEmail"
-        android:title="Mentors Email"/>
-    <item
-        android:id="@+id/compatible"
-        android:title="Home"/>
-
-    <item android:title="Skills">
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/communication"
-                    android:title="Communication"/>
-                <item
-                    android:id="@+id/creativity"
-                    android:title="Creativity"/>
-                <item
-                    android:id="@+id/leadership"
-                    android:title="Leadership"/>
-
-            </group>
-        </menu>
-    </item>
-
-    <item android:title="Actions">
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/profile"
-                    android:title="Profile"/>
-                <item
-                    android:id="@+id/notifications"
-                    android:title="Notifications"/>
-                <item
-                    android:id="@+id/logout"
-                    android:title="Log Out"/>
-
-            </group>
-        </menu>
-    </item>
-
-    <item android:title="Communicate">
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/about"
-                    android:title="About"/>
-                <item
-                    android:id="@+id/share"
-                    android:title="Share"/>
-
-            </group>
-        </menu>
-    </item>
+   <item android:id="@+id/search"
+       android:icon="@drawable/ic_baseline_search_24"
+       android:title="Search"
+       app:showAsAction="ifRoom|collapseActionView"
+       app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
 </menu>

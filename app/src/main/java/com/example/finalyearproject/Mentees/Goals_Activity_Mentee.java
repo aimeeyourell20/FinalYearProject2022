@@ -1,16 +1,26 @@
 package com.example.finalyearproject.Mentees;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import androidx.appcompat.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.finalyearproject.Adapters.Goals_Adapter;
@@ -21,9 +31,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Goals_Activity_Mentee extends AppCompatActivity {
     private DatabaseReference RootRef;
@@ -34,6 +46,7 @@ public class Goals_Activity_Mentee extends AppCompatActivity {
     private Goals_Adapter goals_adapter;
     private LinearLayoutManager linearLayoutManager;
     private ImageView mHome;
+    private SearchView mSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +61,9 @@ public class Goals_Activity_Mentee extends AppCompatActivity {
         linearLayoutManager = new LinearLayoutManager(this);
         menteeRecyclerView.setLayoutManager(linearLayoutManager);
         menteeRecyclerView.setAdapter(goals_adapter);
+        mSearchView = findViewById(R.id.search_box_input);
+
+
 
         //Gets mentees id
         Intent intent = getIntent();
@@ -74,29 +90,57 @@ public class Goals_Activity_Mentee extends AppCompatActivity {
 
 
     private void FetchGoals() {
-        RootRef.child("Goals").child(FirebaseAuth.getInstance().getUid()).child(menteeID).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+        if(RootRef != null) {
+            RootRef.child("Goals").child(FirebaseAuth.getInstance().getUid()).child(menteeID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                //Loops through to retrieve goals
-                for(DataSnapshot uniqueKeySnapshot : snapshot.getChildren()){
-                    for(DataSnapshot a : uniqueKeySnapshot.getChildren()) {
-                        Goals_Model g = a.getValue(Goals_Model.class);
-                        goals_models.add(g);
+                    //Loops through to retrieve goals
+                    for (DataSnapshot uniqueKeySnapshot : snapshot.getChildren()) {
+                        for (DataSnapshot a : uniqueKeySnapshot.getChildren()) {
+                            Goals_Model g = a.getValue(Goals_Model.class);
+                            goals_models.add(g);
+                        }
                     }
+
+                    goals_adapter = new Goals_Adapter(Goals_Activity_Mentee.this, goals_models);
+                    menteeRecyclerView.setAdapter(goals_adapter);
+                    goals_adapter.notifyDataSetChanged();
                 }
 
-                goals_adapter = new Goals_Adapter(Goals_Activity_Mentee.this, goals_models);
-                menteeRecyclerView.setAdapter(goals_adapter);
-                goals_adapter.notifyDataSetChanged();
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(Goals_Activity_Mentee.this, "Error", Toast.LENGTH_SHORT).show();
+                }
+
+            });
+        }
+        if(mSearchView != null){
+            mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    search(newText);
+                    return false;
+                }
+            });
+        }
+    }
+
+    private void search(String newText) {
+
+        ArrayList<Goals_Model> goals_modelsFull = new ArrayList<>();
+
+        for(Goals_Model g : goals_models){
+            if(g.getStatus().toLowerCase().contains(newText.toLowerCase()) || g.getGoalsMentor().toLowerCase().contains(newText.toLowerCase())){
+                goals_modelsFull.add(g);
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Goals_Activity_Mentee.this, "Error", Toast.LENGTH_SHORT).show();
-            }
-
-        });
-
+        }
+        goals_adapter = new Goals_Adapter(goals_modelsFull);
+        menteeRecyclerView.setAdapter(goals_adapter);
     }
 }

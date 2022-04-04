@@ -6,27 +6,34 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalyearproject.Mentees.Goal_Edit;
+import com.example.finalyearproject.Mentees.Goals_Activity_Mentee;
 import com.example.finalyearproject.Models.Goals_Model;
 import com.example.finalyearproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class Goals_Adapter extends RecyclerView.Adapter<Goals_Adapter.GoalsViewHolder> {
+public class Goals_Adapter extends RecyclerView.Adapter<Goals_Adapter.GoalsViewHolder> implements Filterable {
 
     Context context;
     ArrayList<Goals_Model> goals_models;
+    ArrayList<Goals_Model> goals_modelsFull;
 
     public Goals_Adapter (List<Goals_Model> goals_models)
     {
         this.goals_models = (ArrayList<Goals_Model>) goals_models;
+        goals_modelsFull = new ArrayList<>(goals_models);
+
 
     }
 
@@ -42,6 +49,8 @@ public class Goals_Adapter extends RecyclerView.Adapter<Goals_Adapter.GoalsViewH
 
         return new Goals_Adapter.GoalsViewHolder(V);
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull Goals_Adapter.GoalsViewHolder holder, int position) {
@@ -84,10 +93,51 @@ public class Goals_Adapter extends RecyclerView.Adapter<Goals_Adapter.GoalsViewH
 
 
 
+
     @Override
     public int getItemCount() {
         return goals_models.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return goalsFilter;
+    }
+
+    private final Filter goalsFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<Goals_Model> filterList = new ArrayList<>();
+
+            if(charSequence == null || charSequence.length() == 0){
+                filterList.addAll(goals_modelsFull);
+            }else {
+                String filter = charSequence.toString().toLowerCase().trim();
+
+                for(Goals_Model g : goals_modelsFull){
+                    if(g.getStatus().toLowerCase().contains(filter)){
+                        filterList.add(g);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filterList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+
+            goals_models.clear();
+            //goals_models.addAll((List)filterResults.values);
+            notifyDataSetChanged();
+
+        }
+    };
+
+
+
 
     class GoalsViewHolder extends RecyclerView.ViewHolder{
 
