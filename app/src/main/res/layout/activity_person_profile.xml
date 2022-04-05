@@ -50,6 +50,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImageProfile" />
 
+    <RatingBar
+        android:id="@+id/RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:isIndicator="true"
+        android:numStars="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/persontype"
+        android:stepSize="1.0" />
+
     <ImageView
         android:id="@+id/profileImageProfile"
         android:layout_width="94dp"
@@ -65,7 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="220dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/profilebackgroundwhite"
         android:orientation="vertical"
@@ -287,8 +301,9 @@
             android:fontFamily="@font/boogaloo"
             android:gravity="center"
             android:text="Cancel Mentor Request" />
-
     </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

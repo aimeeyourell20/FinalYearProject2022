@@ -92,15 +92,9 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     String company = dataSnapshot.child("company").getValue().toString();
                     String photo = dataSnapshot.child("profileimage").getValue().toString();
                     Glide.with(getApplicationContext()).load(photo).into(mProfile);
+                    String ratingBar = dataSnapshot.child("AverageRating").getValue().toString();
+                    mRatingBar.setRating(Float.parseFloat(ratingBar));
 
-                    if(dataSnapshot.hasChild("Rating")){
-                        rating = dataSnapshot.child("Rating").child(senderUserId).child("rating").getValue().toString();
-                        mRatingBar.setRating(Float.parseFloat(rating));
-                    }
-                    else {
-                        RootRef.child(receiverUserId).child("Rating").child(senderUserId).child("rating").setValue("0");
-                        mRatingBar.setRating(Float.parseFloat("0"));
-                    }
 
                     mName.setText(name);
                     mBio.setText(bio);

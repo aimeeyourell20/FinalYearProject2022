@@ -25,6 +25,12 @@
         android:theme="@style/Theme.FinalYearProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Reports.RatingReportChartBar"
+            android:exported="true" />
+        <activity
+            android:name=".Rating_Activity"
+            android:exported="true" />
+        <activity
             android:name=".ResetPassword"
             android:exported="true" />
         <activity
