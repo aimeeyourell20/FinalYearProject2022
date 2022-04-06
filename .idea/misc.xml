@@ -158,6 +158,7 @@
         <entry key="app/src/main/res/layout/activity_profile_settings.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_profile_settings_mentor.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_rating.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/layout/activity_rating_report_chart_bar.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_recommended_mentors.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_request_meeting.xml" value="0.22604166666666667" />
@@ -259,6 +260,7 @@
         <entry key="app/src/main/res/layout/fragment_portugal_.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/fragment_positivty_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_problem__solving_.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/fragment_rated__fragments.xml" value="0.22864583333333333" />
         <entry key="app/src/main/res/layout/fragment_recommendedmentor_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_responsibility_.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_romania_.xml" value="0.13177083333333334" />

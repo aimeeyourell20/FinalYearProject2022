@@ -20,34 +20,35 @@ public class IndustryFragmentAdapter extends FragmentStateAdapter {
 
         switch (position){
 
+            case 1: return new Rated_Fragments();
 
-            case 1: return new Aerospace_Fragment();
+            case 2: return new Aerospace_Fragment();
 
-            case 2: return new AgricultureAnimals_Fragment();
+            case 3: return new AgricultureAnimals_Fragment();
 
-            case 3: return new Business_Fragment();
+            case 4: return new Business_Fragment();
 
-            case 4: return new ComputerTechnology_Fragment();
+            case 5: return new ComputerTechnology_Fragment();
 
-            case 5: return new Construction_Fragment();
+            case 6: return new Construction_Fragment();
 
-            case 6: return new Education_Fragment();
+            case 7: return new Education_Fragment();
 
-            case 7: return new Entertainment_Fragment();
+            case 8: return new Entertainment_Fragment();
 
-            case 8: return new Fashion_Fragment();
+            case 9: return new Fashion_Fragment();
 
-            case 9: return new FoodBeverage_Fragment();
+            case 10: return new FoodBeverage_Fragment();
 
-            case 10: return new Healthcare_Fragment();
+            case 11: return new Healthcare_Fragment();
 
-            case 11: return new Hospitality_Fragment();
+            case 12: return new Hospitality_Fragment();
 
-            case 12: return new Media_Fragment();
+            case 13: return new Media_Fragment();
 
-            case 13: return new Telecommunication_Fragment();
+            case 14: return new Telecommunication_Fragment();
 
-            case 14: return new STEM_Fragment();
+            case 15: return new STEM_Fragment();
 
         }
 

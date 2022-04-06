@@ -29,6 +29,7 @@ public class SearchIndustryFragment extends AppCompatActivity {
         viewPager2.setAdapter(adapter);
 
         tabLayout.addTab(tabLayout.newTab().setText("Recommended Mentors"));
+        tabLayout.addTab(tabLayout.newTab().setText("Rated Mentors"));
         tabLayout.addTab(tabLayout.newTab().setText("Aerospace"));
         tabLayout.addTab(tabLayout.newTab().setText("Agriculture/Animals"));
         tabLayout.addTab(tabLayout.newTab().setText("Business"));

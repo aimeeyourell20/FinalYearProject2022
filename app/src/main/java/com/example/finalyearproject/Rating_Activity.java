@@ -76,15 +76,10 @@ public class Rating_Activity extends AppCompatActivity {
                 int average = 0;
                 Float rating;
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    // for (DataSnapshot a : ds.getChildren()) {
-                    // for (DataSnapshot b : a.getChildren()) {
-
-
-
 
                     rating = ds.child("rating").getValue(Float.class);
 
-                    Log.d(tag, "Rating" + ds.child("rating").getValue(Integer.class));
+                    //Log.d(tag, "Rating" + ds.child("rating").getValue(Integer.class));
 
                     total = (int) (total + rating);
                     count = count + 1;

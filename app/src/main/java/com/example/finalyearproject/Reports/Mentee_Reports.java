@@ -12,7 +12,7 @@ import com.example.finalyearproject.R;
 
 public class Mentee_Reports extends AppCompatActivity {
 
-    private ImageView mentor, industry, location, skills, meetings, home, rating;
+    private ImageView mentor, industry, location, skills, meetings, home, goals,rating ;
 
 
     @Override
@@ -26,7 +26,9 @@ public class Mentee_Reports extends AppCompatActivity {
         skills = findViewById(R.id.skills);
         meetings = findViewById(R.id.college);
         home = findViewById(R.id.home);
-        rating = findViewById(R.id.rating);
+        goals = findViewById(R.id.goals);
+        rating = findViewById(R.id.ratings);
+
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,10 +81,18 @@ public class Mentee_Reports extends AppCompatActivity {
             }
         });
 
-        rating.setOnClickListener(new View.OnClickListener() {
+        goals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Mentee_Reports.this, GoalsReportChartBar.class);
+                startActivity(i);
+            }
+        });
+
+        rating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Mentee_Reports.this, RatingReportChartBar.class);
                 startActivity(i);
             }
         });
