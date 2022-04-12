@@ -29,10 +29,11 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 public class MentorMainActivity extends AppCompatActivity{
 
     private ImageView mMentees, mRequests, mSettings, mReports, mGoals, mProfile, mLogout, mMeetings;
-    private TextView mProfileName, mType;
-    private DatabaseReference RootRef, MentorRef;
+    private TextView mProfileName, mType, mMentorships;
+    private DatabaseReference RootRef, MentorRef, Mentorships;
     private FirebaseAuth firebaseAuth;
     private static int PICK_IMAGE = 123;
+    private String currentUser;
 
 
     @Override
@@ -41,7 +42,9 @@ public class MentorMainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_mentor_main);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser().getUid();
         MentorRef = FirebaseDatabase.getInstance().getReference().child("users");
+        Mentorships = FirebaseDatabase.getInstance().getReference().child("Mentorship").child(currentUser);
 
         mMentees = findViewById(R.id.mentees);
         mRequests = findViewById(R.id.requests);
@@ -53,6 +56,22 @@ public class MentorMainActivity extends AppCompatActivity{
         mType = findViewById(R.id.type);
         mMeetings = findViewById(R.id.meeting);
         mLogout = findViewById(R.id.logout);
+        mMentorships = findViewById(R.id.mentorships);
+
+
+        Mentorships.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                int counter = (int) snapshot.getChildrenCount();
+                String userCounter = String.valueOf(counter);
+                mMentorships.setText("Current Ongoing Mentorships: " + userCounter);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 

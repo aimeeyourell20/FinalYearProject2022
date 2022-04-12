@@ -21,7 +21,7 @@
         android:id="@+id/projectstxt"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_marginTop="30dp"
+        android:layout_below="@+id/home"
         android:layout_height="wrap_content">
 
         <EditText

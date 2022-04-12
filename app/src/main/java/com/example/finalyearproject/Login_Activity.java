@@ -27,11 +27,14 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Login_Activity extends AppCompatActivity {
 
-    private TextView mNoAccount, mForgotPassword;
+    private TextView mNoAccount, mForgotPassword, mTotalMentorships, mTotalUsers;
     private TextInputEditText mLoginEmail, mLoginPassword;
     private Button mLoginButton;
     private FirebaseAuth firebaseAuth;
     private Boolean emailAddressCheckers;
+    private DatabaseReference TotalMentorships, TotalUsers;
+    int Mentor;
+    int Mentee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,11 @@ public class Login_Activity extends AppCompatActivity {
         mNoAccount = findViewById(R.id.noAccount);
         mForgotPassword = findViewById(R.id.forgotPassword);
         firebaseAuth = FirebaseAuth.getInstance();
+        mTotalMentorships = findViewById(R.id.totalMentorships);
+        mTotalUsers = findViewById(R.id.totalUsers);
+
+        TotalMentorships = FirebaseDatabase.getInstance().getReference().child("Mentorship");
+        TotalUsers = FirebaseDatabase.getInstance().getReference().child("users");
 
         //User will be brought to registration
         mNoAccount.setOnClickListener(new View.OnClickListener()
@@ -73,6 +81,50 @@ public class Login_Activity extends AppCompatActivity {
                 AllowingUserToLogin();
             }
         });
+
+        TotalMentorships.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                int counter = (int) snapshot.getChildrenCount();
+                String userCounter = String.valueOf(counter);
+
+                mTotalMentorships.setText(userCounter);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        TotalUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    switch(dataSnapshot.child("type").getValue(String.class)){ //This statement is seeing what "category" is.
+                        case "Mentor":
+                            ++Mentor;
+                            break;
+                        case "Mentee":
+                            ++Mentee;
+                            break;
+                    }
+                    int totalUsers = Mentor + Mentee;
+                    mTotalUsers.setText(String.valueOf(totalUsers));
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     private void AllowingUserToLogin()
@@ -113,7 +165,7 @@ public class Login_Activity extends AppCompatActivity {
         }
     }
 
-   private void VerifyEmailAddress()
+    private void VerifyEmailAddress()
     {
         FirebaseUser user = firebaseAuth.getCurrentUser();
         emailAddressCheckers = user.isEmailVerified();
@@ -170,4 +222,6 @@ public class Login_Activity extends AppCompatActivity {
         Intent registerIntent = new Intent(Login_Activity.this, Selection_Activity.class);
         startActivity(registerIntent);
     }
+
+
 }

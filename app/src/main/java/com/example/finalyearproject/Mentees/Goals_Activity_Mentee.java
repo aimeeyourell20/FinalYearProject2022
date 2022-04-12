@@ -1,29 +1,18 @@
 package com.example.finalyearproject.Mentees;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import androidx.appcompat.widget.SearchView;
 import android.widget.Toast;
 
-import com.example.finalyearproject.Adapters.Goals_Adapter;
+import com.example.finalyearproject.Adapters.Goals_Adapter_Mentee;
 import com.example.finalyearproject.Models.Goals_Model;
 import com.example.finalyearproject.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,11 +20,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Goals_Activity_Mentee extends AppCompatActivity {
     private DatabaseReference RootRef;
@@ -43,7 +30,7 @@ public class Goals_Activity_Mentee extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private RecyclerView menteeRecyclerView;
     private final ArrayList<Goals_Model> goals_models  = new ArrayList<>();
-    private Goals_Adapter goals_adapter;
+    private Goals_Adapter_Mentee goals_adapterMentee;
     private LinearLayoutManager linearLayoutManager;
     private ImageView mHome;
     private SearchView mSearchView;
@@ -56,11 +43,11 @@ public class Goals_Activity_Mentee extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         RootRef = FirebaseDatabase.getInstance().getReference();
 
-        goals_adapter = new Goals_Adapter(goals_models);
+        goals_adapterMentee = new Goals_Adapter_Mentee(goals_models);
         menteeRecyclerView = (RecyclerView) findViewById(R.id.goalsRecyclerView);
         linearLayoutManager = new LinearLayoutManager(this);
         menteeRecyclerView.setLayoutManager(linearLayoutManager);
-        menteeRecyclerView.setAdapter(goals_adapter);
+        menteeRecyclerView.setAdapter(goals_adapterMentee);
         mSearchView = findViewById(R.id.search_box_input);
 
 
@@ -103,9 +90,9 @@ public class Goals_Activity_Mentee extends AppCompatActivity {
                         }
                     }
 
-                    goals_adapter = new Goals_Adapter(Goals_Activity_Mentee.this, goals_models);
-                    menteeRecyclerView.setAdapter(goals_adapter);
-                    goals_adapter.notifyDataSetChanged();
+                    goals_adapterMentee = new Goals_Adapter_Mentee(Goals_Activity_Mentee.this, goals_models);
+                    menteeRecyclerView.setAdapter(goals_adapterMentee);
+                    goals_adapterMentee.notifyDataSetChanged();
                 }
 
                 @Override
@@ -140,7 +127,7 @@ public class Goals_Activity_Mentee extends AppCompatActivity {
                 goals_modelsFull.add(g);
             }
         }
-        goals_adapter = new Goals_Adapter(goals_modelsFull);
-        menteeRecyclerView.setAdapter(goals_adapter);
+        goals_adapterMentee = new Goals_Adapter_Mentee(goals_modelsFull);
+        menteeRecyclerView.setAdapter(goals_adapterMentee);
     }
 }

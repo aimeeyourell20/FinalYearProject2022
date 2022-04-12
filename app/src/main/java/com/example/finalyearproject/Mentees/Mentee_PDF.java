@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +51,7 @@ public class Mentee_PDF extends AppCompatActivity {
     private Bitmap bitmap;
     private String resume_id = "";
     private static final int PERMISSION_REQUEST_CODE = 200;
+    private ImageView mHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,15 @@ public class Mentee_PDF extends AppCompatActivity {
 
         RootRef = FirebaseDatabase.getInstance().getReference().child("CV").child(currentUser).child(resume_id);
 
-
+        mHome = findViewById(R.id.home);
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Mentee_PDF.this, Mentee_Resume_Options.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         mName = findViewById(R.id.name);
         mSkills = findViewById(R.id.interestSkills);

@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.finalyearproject.Adapters.Resume_Adapter;
@@ -28,6 +31,7 @@ public class Mentee_View_Resumes extends AppCompatActivity {
     private final ArrayList<Resume_Model> resume_models  = new ArrayList<>();
     private Resume_Adapter resume_adapter;
     private LinearLayoutManager linearLayoutManager;
+    private ImageView mHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,16 @@ public class Mentee_View_Resumes extends AppCompatActivity {
         messageSenderID = mAuth.getCurrentUser().getUid();
 
         RootRef = FirebaseDatabase.getInstance().getReference("CV").child(messageSenderID);
+
+        mHome = findViewById(R.id.home);
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Mentee_View_Resumes.this, MenteeMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         resume_adapter = new Resume_Adapter(resume_models);
         resumeRecyclerView = (RecyclerView) findViewById(R.id.resumeRecyclerView);

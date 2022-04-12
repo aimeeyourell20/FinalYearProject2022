@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.finalyearproject.Models.FindMentor;
 import com.example.finalyearproject.Person_Profile_Activity;
 import com.example.finalyearproject.R;
+import com.example.finalyearproject.Reports.LocationReportChartMentee;
 import com.example.finalyearproject.Reports.SkillsMentorReportChartBar;
 import com.example.finalyearproject.Skills_Fragments.Attention_To_Detail_Fragment;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -60,7 +61,7 @@ public class Argentina_Fragment extends Fragment {
         mHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), SkillsMentorReportChartBar.class);
+                Intent i = new Intent(getContext(), LocationReportChartMentee.class);
                 startActivity(i);
 
             }

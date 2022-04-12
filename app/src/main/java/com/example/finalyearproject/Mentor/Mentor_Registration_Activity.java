@@ -96,17 +96,23 @@ public class Mentor_Registration_Activity extends AppCompatActivity {
                     HashMap mentee = new HashMap();
                     mentee.put("name", name);
                     mentee.put("email", email);
-                    mentee.put("skill1", "Skill1");
-                    mentee.put("skill2", "Skill2");
-                    mentee.put("location", "location");
-                    mentee.put("language", "language");
-                    mentee.put("bio", "Really interested in computers");
-                    mentee.put("jobType", "Customer Service");
-                    mentee.put("industry", "Tech");
-                    mentee.put("company", "SAP");
+                    mentee.put("skill1", "");
+                    mentee.put("skill2", "");
+                    mentee.put("skill3", "");
+                    mentee.put("skill4", "");
+                    mentee.put("location", "");
+                    mentee.put("language", "");
+                    mentee.put("bio", "");
+                    mentee.put("jobType", "");
+                    mentee.put("industry", "");
+                    mentee.put("industry2", "");
+                    mentee.put("industry3", "");
+                    mentee.put("company", "");
                     mentee.put("type", "Mentor");
                     mentee.put("all1", "all1");
                     mentee.put("profileimage", "");
+                    mentee.put("AverageRating", 0);
+
 
 
                     RootRef.updateChildren(mentee).addOnCompleteListener(new OnCompleteListener() {

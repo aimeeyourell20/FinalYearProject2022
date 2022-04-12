@@ -12,7 +12,7 @@ import com.example.finalyearproject.R;
 
 public class Mentee_Reports extends AppCompatActivity {
 
-    private ImageView mentor, industry, location, skills, meetings, home, goals,rating ;
+    private ImageView  industry, location, skills, meetings, home, goals,rating ;
 
 
     @Override
@@ -20,7 +20,6 @@ public class Mentee_Reports extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mentee_reports);
 
-        mentor = findViewById(R.id.mentor);
         industry = findViewById(R.id.industry);
         location = findViewById(R.id.location);
         skills = findViewById(R.id.skills);
@@ -39,13 +38,6 @@ public class Mentee_Reports extends AppCompatActivity {
             }
         });
 
-        mentor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Mentee_Reports.this, MentorshipReportChartPieMentee.class);
-                startActivity(i);
-            }
-        });
 
         industry.setOnClickListener(new View.OnClickListener() {
             @Override

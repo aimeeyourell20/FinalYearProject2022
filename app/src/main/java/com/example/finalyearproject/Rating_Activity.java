@@ -51,6 +51,15 @@ public class Rating_Activity extends AppCompatActivity {
             }
         }
 
+        mRateMentorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Rating_Activity.this, MenteeMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
         RootRef = FirebaseDatabase.getInstance().getReference().child("users");
         RootRef1 = FirebaseDatabase.getInstance().getReference().child("users").child(mentorId);
 
@@ -60,33 +69,37 @@ public class Rating_Activity extends AppCompatActivity {
                 RootRef.child(mentorId).child("Rating").child(menteeId).child("rating").push();
                 RootRef.child(mentorId).child("Rating").child(menteeId).child("rating").setValue(v);
 
+
+
+
             }
         });
-
 
         final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("users").child(mentorId);
 
         Query mQueryMF = dbRef.child("Rating");
 
-        mQueryMF.addValueEventListener(new ValueEventListener() {
+
+        mQueryMF.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int total = 0;
                 int count = 0;
-                int average = 0;
-                Float rating;
+                float average = 0;
+                int rating;
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
-                    rating = ds.child("rating").getValue(Float.class);
+                    rating = ds.child("rating").getValue(Integer.class);
 
                     //Log.d(tag, "Rating" + ds.child("rating").getValue(Integer.class));
 
-                    total = (int) (total + rating);
+                    total = total + rating;
                     count = count + 1;
                     average = total / count;
 
                     final DatabaseReference newRef = dbRef;
                     newRef.child("AverageRating").setValue(average);
+
 
                 }
 
@@ -98,6 +111,7 @@ public class Rating_Activity extends AppCompatActivity {
                 throw databaseError.toException();
             }
         });
+
 
     }
 }

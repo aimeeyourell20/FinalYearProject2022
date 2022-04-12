@@ -2,13 +2,13 @@ package com.example.finalyearproject.Models;
 
 public class Goals_Model {
 
-    String goalsTitle, goalsDescription, goalsDate, goalsid, goalsStartDate, goalsMentee, goalsMentor, status, goalsmentorid;
+    String goalsTitle, goalsDescription, goalsDate, goalsid, goalsStartDate, goalsMentee, goalsMentor, status, goalsmentorid, goalsmenteeid;
 
 
     public Goals_Model() {
     }
 
-    public Goals_Model(String goalsTitle, String goalsDescription, String goalsDate, String goalsid, String goalsStartDate, String goalsMentee, String goalsMentor, String status, String goalsmentorid) {
+    public Goals_Model(String goalsTitle, String goalsDescription, String goalsDate, String goalsid, String goalsStartDate, String goalsMentee, String goalsMentor, String status, String goalsmentorid, String goalsmenteeid) {
         this.goalsTitle = goalsTitle;
         this.goalsDescription = goalsDescription;
         this.goalsDate = goalsDate;
@@ -18,6 +18,7 @@ public class Goals_Model {
         this.goalsMentor = goalsMentor;
         this.status = status;
         this.goalsmentorid = goalsmentorid;
+        this.goalsmenteeid = goalsmenteeid;
     }
 
     public Goals_Model(String mTask, String mDescription, String id, String mdate) {
@@ -93,5 +94,13 @@ public class Goals_Model {
 
     public void setGoalsmentorid(String goalsmentorid) {
         this.goalsmentorid = goalsmentorid;
+    }
+
+    public String getGoalsmenteeid() {
+        return goalsmenteeid;
+    }
+
+    public void setGoalsmenteeid(String goalsmenteeid) {
+        this.goalsmenteeid = goalsmenteeid;
     }
 }

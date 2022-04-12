@@ -118,12 +118,8 @@ public class MenteeList extends AppCompatActivity {
 
                                     CharSequence options[] = new CharSequence[]{
                                             name + " Profile",
-
-                                            "Send Message",
-
-                                            "Request Meeting",
-
-                                            "Add Goal"
+                                            
+                                            "Rate Mentor"
                                     };
 
                                     AlertDialog.Builder builder = new AlertDialog.Builder(MenteeList.this);
@@ -135,35 +131,19 @@ public class MenteeList extends AppCompatActivity {
 
                                             if(i == 0){
 
-                                                Intent intent = new Intent(MenteeList.this, Person_Profile_Activity.class);
+                                                Intent intent = new Intent(MenteeList.this, Mentor_Profile_Details_Activity.class);
                                                 intent.putExtra("mentorid", users);
                                                 startActivity(intent);
 
                                             }
+
                                             if(i == 1){
 
-                                                Intent intent = new Intent(MenteeList.this, Message_Mentor.class);
+                                                Intent intent = new Intent(MenteeList.this, Rating_Activity.class);
                                                 intent.putExtra("mentorid", users);
-                                                intent.putExtra("name", name);
+                                                intent.putExtra("menteeid", MenteeOnline);
                                                 startActivity(intent);
                                             }
-
-                                            if(i == 2){
-
-                                                Intent intent = new Intent(MenteeList.this, MeetingRequest.class);
-                                                intent.putExtra("mentorid", users);
-                                                intent.putExtra("name", name);
-                                                startActivity(intent);
-                                            }
-
-                                            if(i == 3){
-
-                                                Intent intent = new Intent(MenteeList.this, Goals_Add_Activity.class);
-                                                intent.putExtra("mentorid", users);
-                                                intent.putExtra("name", name);
-                                                startActivity(intent);
-                                            }
-
                                         }
                                     });
 

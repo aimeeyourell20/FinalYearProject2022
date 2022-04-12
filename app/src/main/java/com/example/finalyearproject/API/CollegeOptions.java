@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -21,6 +22,8 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.finalyearproject.Adapters.CollegeAdapter;
+import com.example.finalyearproject.Mentees.Meetings_Activity_Mentee;
+import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.example.finalyearproject.Models.College;
 import com.example.finalyearproject.R;
 
@@ -48,6 +51,7 @@ public class CollegeOptions extends AppCompatActivity implements CollegeAdapter.
     private RequestQueue mRequestQueue;
     private EditText search;
     private Button button, button2;
+    private ImageView mHome;
 
 
 
@@ -62,6 +66,16 @@ public class CollegeOptions extends AppCompatActivity implements CollegeAdapter.
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mExampleList = new ArrayList<>();
+
+        mHome = findViewById(R.id.home);
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(CollegeOptions.this, CareerOptionsMentee.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         search = findViewById(R.id.jobtitle);
         button = findViewById(R.id.searchButton);

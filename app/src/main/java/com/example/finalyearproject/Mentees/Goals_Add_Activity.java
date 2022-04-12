@@ -3,10 +3,12 @@ package com.example.finalyearproject.Mentees;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Goals_Add_Activity extends AppCompatActivity {
@@ -67,6 +70,36 @@ public class Goals_Add_Activity extends AppCompatActivity {
                 mentorID = (String) extras.get("mentorid");
             }
         }
+
+        Calendar calendar1 = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar1.set(Calendar.YEAR, i);
+                calendar1.set(Calendar.MONTH, i1);
+                calendar1.set(Calendar.DAY_OF_MONTH, i2);
+
+                calendar11();
+            }
+
+            private void calendar11() {
+
+                String format = "dd/MM/yy";
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.UK);
+
+                mDate.setText(simpleDateFormat.format(calendar1.getTime()));
+            }
+        };
+
+        mDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                new DatePickerDialog(Goals_Add_Activity.this, dateSetListener, calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH),  calendar1.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
+
 
         //Gets mentees name
         MenteeRef.addValueEventListener(new ValueEventListener() {
@@ -143,6 +176,7 @@ public class Goals_Add_Activity extends AppCompatActivity {
                     meeting.put("goalsStartDate", date);
                     meeting.put("goalsid", key);
                     meeting.put("goalsmentorid", mentorID);
+                    meeting.put("goalsmenteeid", menteeID);
 
                     Map goalsDetails = new HashMap();
                     goalsDetails.put(sender + "/" + goalsId , meeting);

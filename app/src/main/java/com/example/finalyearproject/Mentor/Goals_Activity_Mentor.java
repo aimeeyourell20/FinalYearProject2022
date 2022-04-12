@@ -11,7 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.finalyearproject.Adapters.Goals_Adapter;
+import com.example.finalyearproject.Adapters.Goals_Adapter_Mentee;
+import com.example.finalyearproject.Adapters.Goals_Adapter_Mentor;
 import com.example.finalyearproject.Models.Goals_Model;
 import com.example.finalyearproject.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,7 +29,7 @@ public class Goals_Activity_Mentor extends AppCompatActivity {
     private String menteeID = "";
     private RecyclerView menteeRecyclerView;
     private final ArrayList<Goals_Model> goals_models  = new ArrayList<>();
-    private Goals_Adapter goals_adapter;
+    private Goals_Adapter_Mentor goals_adapterMentee;
     private LinearLayoutManager linearLayoutManager;
     private ImageView mHome;
 
@@ -39,11 +40,11 @@ public class Goals_Activity_Mentor extends AppCompatActivity {
 
         RootRef = FirebaseDatabase.getInstance().getReference();
 
-        goals_adapter = new Goals_Adapter(goals_models);
+        goals_adapterMentee = new Goals_Adapter_Mentor(goals_models);
         menteeRecyclerView = (RecyclerView) findViewById(R.id.goalsRecyclerView);
         linearLayoutManager = new LinearLayoutManager(this);
         menteeRecyclerView.setLayoutManager(linearLayoutManager);
-        menteeRecyclerView.setAdapter(goals_adapter);
+        menteeRecyclerView.setAdapter(goals_adapterMentee);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -84,9 +85,9 @@ public class Goals_Activity_Mentor extends AppCompatActivity {
 
                 }
 
-                goals_adapter = new Goals_Adapter(Goals_Activity_Mentor.this, goals_models);
-                menteeRecyclerView.setAdapter(goals_adapter);
-                goals_adapter.notifyDataSetChanged();
+                goals_adapterMentee = new Goals_Adapter_Mentor(Goals_Activity_Mentor.this, goals_models);
+                menteeRecyclerView.setAdapter(goals_adapterMentee);
+                goals_adapterMentee.notifyDataSetChanged();
 
             }
 

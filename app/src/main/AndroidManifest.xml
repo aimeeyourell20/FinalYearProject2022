@@ -25,6 +25,27 @@
         android:theme="@style/Theme.FinalYearProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Mentor_Profile_Details_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Reports.Goals_Only_Started_Mentor"
+            android:exported="true" />
+        <activity
+            android:name=".Reports.Goals_In_Progress_Mentor"
+            android:exported="true" />
+        <activity
+            android:name=".Reports.Goals_Completed_Mentor"
+            android:exported="true" />
+        <activity
+            android:name=".Reports.Goals_Only_Started_Mentee"
+            android:exported="true" />
+        <activity
+            android:name=".Reports.Goals_In_Progress_Mentee"
+            android:exported="true" />
+        <activity
+            android:name=".Reports.Goals_Completed_Mentee"
+            android:exported="true" />
+        <activity
             android:name=".Reports.RatingReportChartBar"
             android:exported="true" />
         <activity
@@ -116,9 +137,6 @@
             android:exported="true" />
         <activity
             android:name=".Mentees.Goal_Edit"
-            android:exported="true" />
-        <activity
-            android:name=".API.CollegeReportChart"
             android:exported="true" />
         <activity
             android:name=".Reports.SkillsMentorReportChartBar"

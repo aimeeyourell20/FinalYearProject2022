@@ -12,6 +12,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.finalyearproject.Industry_Fragments.Rated_Fragments;
+import com.example.finalyearproject.Industry_Fragments.Rated_Fragments_1;
+import com.example.finalyearproject.Industry_Fragments.Rated_Fragments_2;
+import com.example.finalyearproject.Industry_Fragments.Rated_Fragments_3;
+import com.example.finalyearproject.Industry_Fragments.Rated_Fragments_4;
 import com.example.finalyearproject.Location_Fragments.China_Fragment;
 import com.example.finalyearproject.Location_Fragments.India_Fragment;
 import com.example.finalyearproject.Location_Fragments.Indonesia_Fragment;
@@ -129,7 +134,7 @@ public class RatingReportChartBar extends AppCompatActivity {
                     mBarChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));
                     BarData theData = new BarData(bardataset);
                     mBarChart.setFitBars(true);
-                    mBarChart.setTouchEnabled(false);
+                    mBarChart.setTouchEnabled(true);
                     mBarChart.setPinchZoom(false);
                     mBarChart.setDoubleTapToZoomEnabled(false);
                     theData.setBarWidth(0.5f);
@@ -146,31 +151,31 @@ public class RatingReportChartBar extends AppCompatActivity {
                             if (x == 0) {
                                 mBarChart.setVisibility(GONE);
                                 FragmentManager fm = getSupportFragmentManager();
-                                China_Fragment fragment = new China_Fragment();
+                                Rated_Fragments_1 fragment = new Rated_Fragments_1();
                                 fm.beginTransaction().replace(R.id.container,fragment).commit();
                             }
                             if (x == 1) {
                                 mBarChart.setVisibility(GONE);
                                 FragmentManager fm = getSupportFragmentManager();
-                                India_Fragment fragment = new India_Fragment();
+                                Rated_Fragments_2 fragment = new Rated_Fragments_2();
                                 fm.beginTransaction().replace(R.id.container,fragment).commit();
                             }
                             if (x == 2) {
                                 mBarChart.setVisibility(GONE);
                                 FragmentManager fm = getSupportFragmentManager();
-                                Indonesia_Fragment fragment = new Indonesia_Fragment();
+                                Rated_Fragments_3 fragment = new Rated_Fragments_3();
                                 fm.beginTransaction().replace(R.id.container,fragment).commit();
                             }
                             if (x == 3) {
                                 mBarChart.setVisibility(GONE);
                                 FragmentManager fm = getSupportFragmentManager();
-                                Japan_Fragment fragment = new Japan_Fragment();
+                                Rated_Fragments_4 fragment = new Rated_Fragments_4();
                                 fm.beginTransaction().replace(R.id.container,fragment).commit();
                             }
                             if (x == 4) {
                                 mBarChart.setVisibility(GONE);
                                 FragmentManager fm = getSupportFragmentManager();
-                                Malaysia_Fragment fragment = new Malaysia_Fragment();
+                                Rated_Fragments fragment = new Rated_Fragments();
                                 fm.beginTransaction().replace(R.id.container,fragment).commit();
                             }
 

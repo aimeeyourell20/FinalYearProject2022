@@ -7,6 +7,14 @@
     tools:context=".Mentees.Mentee_Add_Resume"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/back" />
+
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scroll"

@@ -93,7 +93,9 @@ public class  Mentee_Registration_Activity extends AppCompatActivity {
                     mentee.put("name", name);
                     mentee.put("email", email);
                     mentee.put("skill1", "");
+                    mentee.put("skill2", "");
                     mentee.put("skill3", "");
+                    mentee.put("skill4", "");
                     mentee.put("location", "");
                     mentee.put("language", "");
                     mentee.put("graduationYear", "");
@@ -112,6 +114,10 @@ public class  Mentee_Registration_Activity extends AppCompatActivity {
                     mentee.put("type", "Mentee");
                     mentee.put("profileimage", "");
                     mentee.put("industry", "");
+                    mentee.put("industry3", "");
+                    mentee.put("industry2", "");
+                    mentee.put("AverageRating", 0);
+
 
                     //Updates the mentees details
                     RootRef.updateChildren(mentee).addOnCompleteListener(new OnCompleteListener() {

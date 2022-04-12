@@ -1,5 +1,7 @@
 package com.example.finalyearproject.Reports;
 
+import static android.view.View.GONE;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,13 +10,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.finalyearproject.Mentees.Goals_Activity_Mentee;
+import com.example.finalyearproject.Mentor.Goals_Activity_Mentor;
 import com.example.finalyearproject.R;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -105,7 +112,7 @@ public class GoalsReportChartBar extends AppCompatActivity {
                         mBarChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));
                         BarData theData = new BarData(bardataset);
                         mBarChart.setFitBars(true);
-                        mBarChart.setTouchEnabled(false);
+                        mBarChart.setTouchEnabled(true);
                         mBarChart.setPinchZoom(false);
                         mBarChart.setDoubleTapToZoomEnabled(false);
                         theData.setBarWidth(0.5f);
@@ -114,20 +121,47 @@ public class GoalsReportChartBar extends AppCompatActivity {
                         bardataset.setBarBorderWidth(1);
                         mBarChart.animateY(5000);
 
+                        mBarChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+                            @Override
+                            public void onValueSelected(Entry e, Highlight h) {
+                                float x = e.getX();
+
+                                if (x == 0) {
+                                    mBarChart.setVisibility(GONE);
+                                    Intent j = new Intent(GoalsReportChartBar.this, Goals_Only_Started_Mentee.class);
+                                    startActivity(j);
+                                }
+                                if (x == 1) {
+                                    mBarChart.setVisibility(GONE);
+                                    Intent j = new Intent(GoalsReportChartBar.this, Goals_In_Progress_Mentee.class);
+                                    startActivity(j);
+                                }
+                                if (x == 2) {
+                                    mBarChart.setVisibility(GONE);
+                                    Intent j = new Intent(GoalsReportChartBar.this, Goals_Completed_Mentee.class);
+                                    startActivity(j);
+                                }
+                                if (x == 3) {
+                                    mBarChart.setVisibility(GONE);
+                                    Intent j = new Intent(GoalsReportChartBar.this, Goals_Activity_Mentee.class);
+                                    startActivity(j);
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected() {
+
+                            }
+                        });
                     }
                 }
-
-
-
             }
-            // }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+
         });
     }
 }
-
-

@@ -7,9 +7,20 @@
     android:layout_margin="10dp"
     android:layout_marginBottom="10dp"
     android:background="#80D8FF"
-    tools:context=".Person_Profile_Activity"
+    tools:context=".Mentor_Profile_Details_Activity"
     android:elevation="5dp">
 
+
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/persontype"
@@ -17,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Type"
+        android:fontFamily="@font/boogaloo"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -30,12 +42,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Profile Name"
+        android:fontFamily="@font/boogaloo"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImageProfile" />
+
+    <RatingBar
+        android:id="@+id/RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:isIndicator="true"
+        android:numStars="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/persontype"
+        android:stepSize="0.5" />
+
 
     <ImageView
         android:id="@+id/profileImageProfile"
@@ -45,14 +73,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:src="@drawable/profile_image" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="210dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/profilebackgroundwhite"
         android:orientation="vertical"
@@ -60,6 +88,100 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/backgroundprofilegrey"
+                android:elevation="10dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/goalsProfile"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/goals" />
+
+                <TextView
+                    android:id="@+id/reportsProfileTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Add Goal"
+                    android:fontFamily="@font/boogaloo"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/backgroundprofilegrey"
+                android:elevation="10dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/meetingProfile"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/meeting" />
+
+                <TextView
+                    android:id="@+id/menteesProfileTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Add Meeting"
+                    android:fontFamily="@font/boogaloo"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/backgroundprofilegrey"
+                android:elevation="10dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/messageProfile"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/messages" />
+
+                <TextView
+                    android:id="@+id/editProfileTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Message Mentor"
+                    android:fontFamily="@font/boogaloo"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,6 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Location:"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#6dd5ed"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -86,6 +209,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Location"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -101,41 +225,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/langaugetxt"
+                android:id="@+id/skills1txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Language:"
-                android:textColor="#6dd5ed"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/personlanguage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Language"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/skillstxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Skills 1:"
+                android:inputType="textMultiLine"
+                android:text="Skills:"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="#6dd5ed"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -143,12 +239,14 @@
             <TextView
                 android:id="@+id/personskills1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Skill 1"
+                android:inputType="textMultiLine"
                 android:textAlignment="viewEnd"
+                android:text="Skills:"
+                android:fontFamily="@font/boogaloo"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -161,51 +259,23 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/skillstxt2"
+                android:id="@+id/companytxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Skills 2:"
+                android:text="Company:"
                 android:textColor="#6dd5ed"
+                android:fontFamily="@font/boogaloo"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/personskills2"
+                android:id="@+id/personcompany"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Skill 2"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/black"
-                android:textSize="16sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/coursetxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Course:"
-                android:textColor="#6dd5ed"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/personcourse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Course"
+                android:text="Company"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -221,12 +291,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/jobtxt"
+                android:id="@+id/jobTitletxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Job Title:"
                 android:textColor="#6dd5ed"
+                android:fontFamily="@font/boogaloo"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -236,6 +307,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Job Title"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -257,6 +329,7 @@
                 android:layout_weight="1"
                 android:text="Industry:"
                 android:textColor="#6dd5ed"
+                android:fontFamily="@font/boogaloo"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -266,6 +339,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Industry"
+                android:fontFamily="@font/boogaloo"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -281,12 +355,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/personbiotxt"
+                android:id="@+id/goalstxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Bio:"
                 android:textColor="#6dd5ed"
+                android:fontFamily="@font/boogaloo"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -295,6 +370,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/boogaloo"
                 android:text="Bio"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
@@ -309,37 +385,23 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
             android:orientation="horizontal">
-
             <Button
-                android:id="@+id/requestMeeting"
+                android:id="@+id/sendRequest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:text="Request Meeting"
-                android:gravity="center"/>
+                android:layout_marginLeft="55dp"
+                android:fontFamily="@font/boogaloo"
+                android:gravity="center"
+                android:text="Send Mentor Request"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/cancelRequest"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/meetings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:text="View Meetings"
-                android:gravity="center"/>
-        </LinearLayout>
-
-
-
+            android:layout_marginLeft="55dp"
+            android:fontFamily="@font/boogaloo"
+            android:gravity="center"
+            android:text="Cancel Mentor Request" />
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

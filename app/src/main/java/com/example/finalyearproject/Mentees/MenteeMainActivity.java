@@ -32,8 +32,8 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 public class MenteeMainActivity extends AppCompatActivity{
 
     private ImageView mMentors, mFindMentor, mSettings, mGoals, mCareer, mCv, mProfile, mLogout, mMeeting, mChatbot, mReports;
-    private TextView mProfileName, mType;
-    private DatabaseReference RootRef;
+    private TextView mProfileName, mType, mMentorships;
+    private DatabaseReference RootRef, Mentorships;
     private DatabaseReference user;
     private FirebaseAuth firebaseAuth;
     private static int PICK_IMAGE = 123;
@@ -49,6 +49,7 @@ public class MenteeMainActivity extends AppCompatActivity{
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser().getUid();
         user = FirebaseDatabase.getInstance().getReference().child("users");
+        Mentorships = FirebaseDatabase.getInstance().getReference().child("Mentorship").child(currentUser);
 
         mMentors = findViewById(R.id.mentor);
         mFindMentor = findViewById(R.id.findMentor);
@@ -63,7 +64,21 @@ public class MenteeMainActivity extends AppCompatActivity{
         mMeeting = findViewById(R.id.meeting);
         mChatbot = findViewById(R.id.chatbot);
         mReports = findViewById(R.id.reports);
+        mMentorships = findViewById(R.id.mentorships);
 
+        Mentorships.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                int counter = (int) snapshot.getChildrenCount();
+                String userCounter = String.valueOf(counter);
+                mMentorships.setText("Current Ongoing Mentorships: " + userCounter);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
         RootRef = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -193,7 +208,7 @@ public class MenteeMainActivity extends AppCompatActivity{
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
         if(currentUser == null){
-            
+
             Login();
         }else{
             CheckUser();
@@ -245,7 +260,7 @@ public class MenteeMainActivity extends AppCompatActivity{
     private void Goals() {
         Intent i = new Intent(MenteeMainActivity.this, Goals_Activity_Mentee.class);
         startActivity(i);
-        }
+    }
 
     private void Mentors() {
 

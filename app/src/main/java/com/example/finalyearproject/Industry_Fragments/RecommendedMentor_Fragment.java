@@ -62,8 +62,8 @@ public class RecommendedMentor_Fragment extends Fragment {
 
         RootRef = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-        SearchButton = (Button) View.findViewById(R.id.search_people_friends_button1);
-        SearchInputText1 = (EditText) View.findViewById(R.id.search_box_input);
+        //SearchButton = (Button) View.findViewById(R.id.search_people_friends_button1);
+        //SearchInputText1 = (EditText) View.findViewById(R.id.search_box_input);
 
                 onStart();
 

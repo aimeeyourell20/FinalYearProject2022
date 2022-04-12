@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".Mentees.Mentee_View_Resumes">
 
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/back" />
+
     <TextView
         android:id="@+id/resumesList"
         android:layout_width="match_parent"

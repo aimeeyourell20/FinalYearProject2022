@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -19,6 +20,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.finalyearproject.Adapters.JobAdapter;
+import com.example.finalyearproject.Mentees.Meetings_Activity_Mentee;
+import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.example.finalyearproject.Models.Jobs;
 import com.example.finalyearproject.R;
 
@@ -45,6 +48,7 @@ public class CareerOptions extends AppCompatActivity implements JobAdapter.OnIte
     private RequestQueue mRequestQueue;
     private EditText search;
     private Button button;
+    private ImageView mHome;
 
 
     @Override
@@ -55,6 +59,16 @@ public class CareerOptions extends AppCompatActivity implements JobAdapter.OnIte
         mRecyclerView = findViewById(R.id.search);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mHome = findViewById(R.id.home);
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(CareerOptions.this, CareerOptionsMentee.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         mExampleList = new ArrayList<>();
 

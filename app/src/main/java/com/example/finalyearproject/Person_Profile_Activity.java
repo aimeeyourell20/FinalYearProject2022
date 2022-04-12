@@ -12,6 +12,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.finalyearproject.Mentees.Goals_Add_Activity;
+import com.example.finalyearproject.Mentees.MeetingRequest;
 import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,7 +32,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
     private TextView mName, mSkills1, mLocation, mLanguage, mJobTitle, mBio, mIndustry, mType, mCompany;
     private Button mSendFriendReqButton, mDeclineFriendRequestButton;
     private ImageView mProfile;
-    private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef, RootRef, Rating;
+    private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef, RootRef;
     private FirebaseAuth mAuth;
     private String senderUserId, CURRENT_STATE, saveCurrentDate;
     private String receiverUserId = "";
@@ -69,6 +71,8 @@ public class Person_Profile_Activity extends AppCompatActivity {
                 finish();
             }
         });
+
+
 
         //receiverUserId = getIntent().getExtras().get("mentorid").toString();
         UsersRef = FirebaseDatabase.getInstance().getReference().child("users");

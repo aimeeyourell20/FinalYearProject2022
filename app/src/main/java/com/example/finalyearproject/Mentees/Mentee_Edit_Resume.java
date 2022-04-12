@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +34,7 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
     private String currentUser;
     private String resume_id = "";
     private FirebaseAuth firebaseAuth;
+    private ImageView mHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,16 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser().getUid();
+
+        mHome = findViewById(R.id.home);
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Mentee_Edit_Resume.this, Mentee_Resume_Options.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         mName = findViewById(R.id.name);
         mSkills = findViewById(R.id.interestSkills);
