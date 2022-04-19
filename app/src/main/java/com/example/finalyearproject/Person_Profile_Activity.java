@@ -32,7 +32,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
     private TextView mName, mSkills1, mLocation, mLanguage, mJobTitle, mBio, mIndustry, mType, mCompany;
     private Button mSendFriendReqButton, mDeclineFriendRequestButton;
     private ImageView mProfile;
-    private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef, RootRef;
+    private DatabaseReference MentorshipRequestRef, UsersRef, MentorshipRef, RootRef;
     private FirebaseAuth mAuth;
     private String senderUserId, CURRENT_STATE, saveCurrentDate;
     private String receiverUserId = "";
@@ -45,6 +45,20 @@ public class Person_Profile_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person_profile);
 
+        mName = findViewById(R.id.personname);
+        mType = findViewById(R.id.persontype);
+        mSkills1 = findViewById(R.id.personskills1);
+        mCompany = findViewById(R.id.personcompany);
+        mLanguage = findViewById(R.id.personlanguage);
+        mLocation = findViewById(R.id.personlocation);
+        mJobTitle = findViewById(R.id.personjobTitle);
+        mBio = findViewById(R.id.personbio);
+        mIndustry = findViewById(R.id.personindustry);
+        mProfile = findViewById(R.id.profileImageProfile);
+        mSendFriendReqButton = (Button) findViewById(R.id.sendRequest);
+        mDeclineFriendRequestButton = (Button) findViewById(R.id.cancelRequest);
+        CURRENT_STATE = "not_mentorship";
+
 
         mAuth = FirebaseAuth.getInstance();
         senderUserId = mAuth.getCurrentUser().getUid();
@@ -55,7 +69,6 @@ public class Person_Profile_Activity extends AppCompatActivity {
 
             if (extras != null) {
                 receiverUserId = (String) extras.get("mentorid");
-                //messageReceiverName = (String) extras.get("name");
             }
         }
 
@@ -72,15 +85,10 @@ public class Person_Profile_Activity extends AppCompatActivity {
             }
         });
 
-
-
-        //receiverUserId = getIntent().getExtras().get("mentorid").toString();
         UsersRef = FirebaseDatabase.getInstance().getReference().child("users");
-        FriendsRequestRef = FirebaseDatabase.getInstance().getReference().child("MentorshipRequests");
-        FriendsRef = FirebaseDatabase.getInstance().getReference().child("Mentorship");
+        MentorshipRequestRef = FirebaseDatabase.getInstance().getReference().child("MentorshipRequests");
+        MentorshipRef = FirebaseDatabase.getInstance().getReference().child("Mentorship");
         RootRef = FirebaseDatabase.getInstance().getReference().child("users");
-
-        IntializeFields();
 
         UsersRef.child(receiverUserId).addValueEventListener(new ValueEventListener() {
             @Override
@@ -109,9 +117,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     mLocation.setText(location);
                     mCompany.setText(company);
 
-
-
-                    MaintananceofButtons();
+                    MentorshipButtons();
                 }
 
             }
@@ -140,15 +146,15 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     }
                     if(CURRENT_STATE.equals("request_sent"))
                     {
-                        CancelFriendrequest();
+                        CancelMentorshipRequest();
                     }
                     if (CURRENT_STATE.equals("request_received"))
                     {
-                        AcceptFriendRequest();
+                        AcceptMentorshipRequest();
                     }
                     if (CURRENT_STATE.equals("mentorship"))
                     {
-                        UnFriendAnExistingFriend();
+                        UnFriendMentorship();
                     }
                 }
             });
@@ -160,9 +166,9 @@ public class Person_Profile_Activity extends AppCompatActivity {
         }
     }
 
-    private void UnFriendAnExistingFriend() {
+    private void UnFriendMentorship() {
 
-        FriendsRef.child(senderUserId).child(receiverUserId)
+        MentorshipRef.child(senderUserId).child(receiverUserId)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>()
                 {
@@ -171,7 +177,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     {
                         if(task.isSuccessful())
                         {
-                            FriendsRef.child(receiverUserId).child(senderUserId).removeValue()
+                            MentorshipRef.child(receiverUserId).child(senderUserId).removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>()
                                     {
                                         @Override
@@ -194,13 +200,13 @@ public class Person_Profile_Activity extends AppCompatActivity {
                 });
     }
 
-    private void AcceptFriendRequest() {
+    private void AcceptMentorshipRequest() {
 
         Calendar calFordDate = Calendar.getInstance();
         SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-yyyy");
         saveCurrentDate = currentDate.format(calFordDate.getTime());
 
-        FriendsRef.child(senderUserId).child(receiverUserId).child("date").setValue(saveCurrentDate)
+        MentorshipRef.child(senderUserId).child(receiverUserId).child("date").setValue(saveCurrentDate)
                 .addOnCompleteListener(new OnCompleteListener<Void>()
                 {
                     @Override
@@ -208,7 +214,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     {
                         if(task.isSuccessful())
                         {
-                            FriendsRef.child(receiverUserId).child(senderUserId).child("date").setValue(saveCurrentDate)
+                            MentorshipRef.child(receiverUserId).child(senderUserId).child("date").setValue(saveCurrentDate)
                                     .addOnCompleteListener(new OnCompleteListener<Void>()
                                     {
                                         @Override
@@ -216,7 +222,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
                                         {
                                             if(task.isSuccessful())
                                             {
-                                                FriendsRequestRef.child(senderUserId).child(receiverUserId)
+                                                MentorshipRequestRef.child(senderUserId).child(receiverUserId)
                                                         .removeValue()
                                                         .addOnCompleteListener(new OnCompleteListener<Void>()
                                                         {
@@ -225,7 +231,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
                                                             {
                                                                 if(task.isSuccessful())
                                                                 {
-                                                                    FriendsRequestRef.child(receiverUserId).child(senderUserId).removeValue()
+                                                                    MentorshipRequestRef.child(receiverUserId).child(senderUserId).removeValue()
                                                                             .addOnCompleteListener(new OnCompleteListener<Void>()
                                                                             {
                                                                                 @Override
@@ -240,14 +246,14 @@ public class Person_Profile_Activity extends AppCompatActivity {
                                                                                         mDeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                                                         mDeclineFriendRequestButton.setEnabled(false);
 
-                                                                                        mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+                                                                                      /*  mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
                                                                                             @Override
                                                                                             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                                                                                                 RootRef.child(receiverUserId).child(senderUserId).child("rating").push();
                                                                                                 RootRef.child(receiverUserId).child("Rating").child(senderUserId).child("rating").setValue(v);
                                                                                             }
                                                                                         });
-
+*/
 
                                                                                     }
                                                                                 }
@@ -268,9 +274,9 @@ public class Person_Profile_Activity extends AppCompatActivity {
 
 
 
-    private void CancelFriendrequest() {
+    private void CancelMentorshipRequest() {
 
-        FriendsRequestRef.child(senderUserId).child(receiverUserId)
+        MentorshipRequestRef.child(senderUserId).child(receiverUserId)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>()
                 {
@@ -279,7 +285,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     {
                         if(task.isSuccessful())
                         {
-                            FriendsRequestRef.child(receiverUserId).child(senderUserId).removeValue()
+                            MentorshipRequestRef.child(receiverUserId).child(senderUserId).removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>()
                                     {
                                         @Override
@@ -301,9 +307,9 @@ public class Person_Profile_Activity extends AppCompatActivity {
                 });
     }
 
-    private void MaintananceofButtons()
+    private void MentorshipButtons()
     {
-        FriendsRequestRef.child(senderUserId)
+        MentorshipRequestRef.child(senderUserId)
                 .addListenerForSingleValueEvent(new ValueEventListener()
                 {
                     @Override
@@ -334,14 +340,14 @@ public class Person_Profile_Activity extends AppCompatActivity {
                                     @Override
                                     public void onClick(View v)
                                     {
-                                        CancelFriendrequest();
+                                        AcceptMentorshipRequest();
                                     }
                                 });
                             }
                         }
                         else
                         {
-                            FriendsRef.child(senderUserId)
+                            MentorshipRef.child(senderUserId)
                                     .addListenerForSingleValueEvent(new ValueEventListener()
                                     {
                                         @Override
@@ -355,13 +361,13 @@ public class Person_Profile_Activity extends AppCompatActivity {
                                                 mDeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                 mDeclineFriendRequestButton.setEnabled(false);
 
-                                                mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+                                                /*mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
                                                     @Override
                                                     public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                                                         RootRef.child(receiverUserId).child(senderUserId).child("rating").push();
                                                         RootRef.child(receiverUserId).child("Rating").child(senderUserId).child("rating").setValue(v);
                                                     }
-                                                });
+                                                });*/
 
 
                                             }
@@ -385,7 +391,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
     }
 
     private void SendFriendRequestToaPerson() {
-        FriendsRequestRef.child(senderUserId).child(receiverUserId)
+        MentorshipRequestRef.child(senderUserId).child(receiverUserId)
                 .child("request_type").setValue("sent")
                 .addOnCompleteListener(new OnCompleteListener<Void>()
                 {
@@ -394,7 +400,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     {
                         if(task.isSuccessful())
                         {
-                            FriendsRequestRef.child(receiverUserId).child(senderUserId).child("request_type").setValue("received")
+                            MentorshipRequestRef.child(receiverUserId).child(senderUserId).child("request_type").setValue("received")
                                     .addOnCompleteListener(new OnCompleteListener<Void>()
                                     {
                                         @Override
@@ -415,30 +421,4 @@ public class Person_Profile_Activity extends AppCompatActivity {
                     }
                 });
     }
-
-
-
-
-
-    private void IntializeFields()
-    {
-        mName = findViewById(R.id.personname);
-        mType = findViewById(R.id.persontype);
-        mSkills1 = findViewById(R.id.personskills1);
-        mCompany = findViewById(R.id.personcompany);
-        mLanguage = findViewById(R.id.personlanguage);
-        mLocation = findViewById(R.id.personlocation);
-        mJobTitle = findViewById(R.id.personjobTitle);
-        mBio = findViewById(R.id.personbio);
-        mIndustry = findViewById(R.id.personindustry);
-        mProfile = findViewById(R.id.profileImageProfile);
-        mSendFriendReqButton = (Button) findViewById(R.id.sendRequest);
-        mDeclineFriendRequestButton = (Button) findViewById(R.id.cancelRequest);
-
-
-        //RateMentor();
-        CURRENT_STATE = "not_mentorship";
-    }
-
-
 }

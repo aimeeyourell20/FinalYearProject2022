@@ -84,9 +84,6 @@ public class Goals_In_Progress_Mentor extends AppCompatActivity {
                         if(status.equals("In progress")){
                             Goals_Model g = a.getValue(Goals_Model.class);
                             goals_models.add(g);
-                        }else{
-                            Toast.makeText(Goals_In_Progress_Mentor.this, "Not Available", Toast.LENGTH_SHORT).show();
-
                         }
 
                     }

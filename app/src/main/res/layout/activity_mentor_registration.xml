@@ -10,6 +10,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
+        android:layout_below="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
@@ -148,6 +149,18 @@
                     android:backgroundTint="#039BE5"
                     android:text="Sign Up"
                     android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/backButton1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="21dp"
+                    android:backgroundTint="#039BE5"
+                    android:text="Back"
+                    android:textSize="20sp" />
+
 
 
             </LinearLayout>

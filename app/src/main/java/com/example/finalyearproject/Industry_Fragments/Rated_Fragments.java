@@ -20,6 +20,7 @@ import com.example.finalyearproject.Models.FindMentor;
 import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.example.finalyearproject.Person_Profile_Activity;
 import com.example.finalyearproject.R;
+import com.example.finalyearproject.Reports.RatingReportChartBar;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -64,6 +65,15 @@ public class Rated_Fragments extends Fragment {
         SearchInputText1 = (EditText) View.findViewById(R.id.search_box_input);
 
         mHome = View.findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), RatingReportChartBar.class);
+                startActivity(i);
+
+            }
+        });
 
 
         skill(searchBoxInput1);

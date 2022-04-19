@@ -63,7 +63,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Total User Mentorships:"
+                android:text="Total Current"
+                android:fontFamily="@font/boogaloo"
+                android:textColor="#6dd5ed"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="User Mentorships:"
                 android:fontFamily="@font/boogaloo"
                 android:textColor="#6dd5ed"
                 android:textSize="30sp"
@@ -80,7 +101,6 @@
                 android:textSize="25sp" />
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,12 +110,13 @@
             android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
+
             <TextView
                 android:id="@+id/skillstxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Total App Mentorships:"
+                android:text="Total Overall Mentorships:"
                 android:textColor="#6dd5ed"
                 android:fontFamily="@font/boogaloo"
                 android:textSize="30sp"

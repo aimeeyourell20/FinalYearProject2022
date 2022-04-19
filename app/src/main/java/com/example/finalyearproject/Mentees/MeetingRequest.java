@@ -126,10 +126,10 @@ public class MeetingRequest extends AppCompatActivity {
                         && !mMentor.getText().toString().isEmpty()  && !mMentee.getText().toString().isEmpty()){
 
                     Calendar beginTime = Calendar.getInstance();
-                    beginTime.set(2022, 0, 17, 7, 30);
+                    beginTime.set(2022, 04, 20, 7, 30);
 
                     Calendar endTime = Calendar.getInstance();
-                    endTime.set(2022, 12, 31, 8, 30);
+                    endTime.set(2022, 04, 20, 8, 30);
 
                     //Sets the meeting details in calendar
                     Intent intent = new Intent(Intent.ACTION_INSERT)

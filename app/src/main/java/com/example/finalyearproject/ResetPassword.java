@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.finalyearproject.Mentees.Mentee_Registration_Activity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -18,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class ResetPassword extends AppCompatActivity {
 
     private TextInputEditText mEmail;
-    private Button mReset;
+    private Button mReset, mBackButton;
     private FirebaseAuth mAuth;
 
     @Override
@@ -30,6 +31,17 @@ public class ResetPassword extends AppCompatActivity {
         mReset = findViewById(R.id.resetButton);
 
         mAuth = FirebaseAuth.getInstance();
+
+        mBackButton = findViewById(R.id.backButton1);
+
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ResetPassword.this, Welcome_Activity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         mReset.setOnClickListener(new View.OnClickListener() {
             @Override

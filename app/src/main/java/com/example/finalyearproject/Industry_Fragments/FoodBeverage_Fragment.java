@@ -19,6 +19,7 @@ import com.example.finalyearproject.Models.FindMentor;
 import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.example.finalyearproject.Person_Profile_Activity;
 import com.example.finalyearproject.R;
+import com.example.finalyearproject.Reports.IndustryMenteeReportChartBar;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -60,7 +61,7 @@ public class FoodBeverage_Fragment extends Fragment {
         mHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), MenteeMainActivity.class);
+                Intent i = new Intent(getContext(), IndustryMenteeReportChartBar.class);
                 startActivity(i);
 
             }

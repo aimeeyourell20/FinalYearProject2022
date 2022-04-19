@@ -85,9 +85,6 @@ public class Goals_Only_Started_Mentee extends AppCompatActivity {
                         if(status.equals("Only started")){
                             Goals_Model g = a.getValue(Goals_Model.class);
                             goals_models.add(g);
-                        }else{
-                            Toast.makeText(Goals_Only_Started_Mentee.this, "Not Available", Toast.LENGTH_SHORT).show();
-
                         }
 
                     }

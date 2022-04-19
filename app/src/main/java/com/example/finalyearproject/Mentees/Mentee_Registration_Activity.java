@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.finalyearproject.Login_Activity;
 import com.example.finalyearproject.R;
+import com.example.finalyearproject.Welcome_Activity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -25,7 +26,7 @@ public class  Mentee_Registration_Activity extends AppCompatActivity {
 
 
     private TextInputEditText mRegisterEmail, mRegisterName, mRegisterPassword;
-    private Button mMenteeSignUpButton;
+    private Button mMenteeSignUpButton, mBackButton;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference RootRef;
 
@@ -40,6 +41,16 @@ public class  Mentee_Registration_Activity extends AppCompatActivity {
         mRegisterName = findViewById(R.id.registerName);
         mRegisterPassword = findViewById(R.id.registerPassword);
         mMenteeSignUpButton = findViewById(R.id.mentorSignUpButton);
+        mBackButton = findViewById(R.id.backButton1);
+
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Mentee_Registration_Activity.this, Welcome_Activity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         mMenteeSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +58,7 @@ public class  Mentee_Registration_Activity extends AppCompatActivity {
                 signupUser();
             }
         });
+
 
     }
 
