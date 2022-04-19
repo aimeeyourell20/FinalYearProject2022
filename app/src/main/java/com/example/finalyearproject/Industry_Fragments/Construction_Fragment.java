@@ -62,7 +62,7 @@ public class Construction_Fragment extends Fragment {
         mHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), IndustryMenteeReportChartBar.class);
+                Intent i = new Intent(getContext(), MenteeMainActivity.class);
                 startActivity(i);
 
             }

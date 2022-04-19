@@ -61,12 +61,11 @@ public class Telecommunication_Fragment extends Fragment {
         mHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), IndustryMenteeReportChartBar.class);
+                Intent i = new Intent(getContext(), MenteeMainActivity.class);
                 startActivity(i);
 
             }
         });
-
 
         skill(searchBoxInput1);
         SkillsButton.setOnClickListener(new View.OnClickListener() {

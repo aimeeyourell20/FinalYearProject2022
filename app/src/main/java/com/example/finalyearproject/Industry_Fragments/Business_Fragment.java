@@ -20,6 +20,7 @@ import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.example.finalyearproject.Person_Profile_Activity;
 import com.example.finalyearproject.R;
 import com.example.finalyearproject.Reports.IndustryMenteeReportChartBar;
+import com.example.finalyearproject.Reports.Mentee_Reports;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -61,7 +62,7 @@ public class Business_Fragment extends Fragment {
         mHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), IndustryMenteeReportChartBar.class);
+                Intent i = new Intent(getContext(), MenteeMainActivity.class);
                 startActivity(i);
 
             }
