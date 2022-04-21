@@ -13,10 +13,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.finalyearproject.Models.Mentee;
-import com.example.finalyearproject.Person_Profile_Activity_2;
+import com.example.finalyearproject.Mentor_Request_Activity;
 import com.example.finalyearproject.R;
-import com.example.finalyearproject.Reports.AsiaReportChartBar;
-import com.example.finalyearproject.Reports.LocationReportChartMentee;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -103,7 +101,7 @@ public class Mentee_Request_Activity extends AppCompatActivity {
                                 public void onClick(View view) {
                                     String menteeid = getRef(i).getKey();
 
-                                    Intent i = new Intent(Mentee_Request_Activity.this, Person_Profile_Activity_2.class);
+                                    Intent i = new Intent(Mentee_Request_Activity.this, Mentor_Request_Activity.class);
                                     i.putExtra("menteeid", menteeid);
                                     startActivity(i);
                                     }

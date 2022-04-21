@@ -12,8 +12,6 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.finalyearproject.Mentees.Goals_Add_Activity;
-import com.example.finalyearproject.Mentees.MeetingRequest;
 import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Person_Profile_Activity extends AppCompatActivity {
+public class Mentee_Request_Activity extends AppCompatActivity {
 
     private TextView mName, mSkills1, mLocation, mLanguage, mJobTitle, mBio, mIndustry, mType, mCompany;
     private Button mSendFriendReqButton, mDeclineFriendRequestButton;
@@ -79,7 +77,7 @@ public class Person_Profile_Activity extends AppCompatActivity {
         mHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Person_Profile_Activity.this, MenteeMainActivity.class);
+                Intent i = new Intent(Mentee_Request_Activity.this, MenteeMainActivity.class);
                 startActivity(i);
                 finish();
             }

@@ -17,9 +17,8 @@ import android.widget.TextView;
 
 import com.example.finalyearproject.Models.FindMentor;
 import com.example.finalyearproject.Mentees.MenteeMainActivity;
-import com.example.finalyearproject.Person_Profile_Activity;
+import com.example.finalyearproject.Mentee_Request_Activity;
 import com.example.finalyearproject.R;
-import com.example.finalyearproject.Reports.IndustryMenteeReportChartBar;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -134,7 +133,7 @@ public class Education_Fragment extends Fragment {
                                 public void onClick(View view) {
                                     String mentorid = getRef(i).getKey();
 
-                                    Intent i = new Intent(getActivity(), Person_Profile_Activity.class);
+                                    Intent i = new Intent(getActivity(), Mentee_Request_Activity.class);
                                     i.putExtra("mentorid", mentorid);
                                     startActivity(i);
 
@@ -189,7 +188,7 @@ public class Education_Fragment extends Fragment {
                                 public void onClick(View view) {
                                     String mentorid = getRef(i).getKey();
 
-                                    Intent i = new Intent(getActivity(), Person_Profile_Activity.class);
+                                    Intent i = new Intent(getActivity(), Mentee_Request_Activity.class);
                                     i.putExtra("mentorid", mentorid);
                                     startActivity(i);
 

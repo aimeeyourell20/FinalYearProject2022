@@ -12,7 +12,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 //This Class is used to prepare retrofit to make the call.
-
 class ChatbotKotlin : AppCompatActivity() {
     private val ChatBotAdapter = AdapterChatbot()
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,8 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalyearproject.Adapters.AdapterClass;
+import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.example.finalyearproject.Models.FindMentor;
-import com.example.finalyearproject.Person_Profile_Activity;
+import com.example.finalyearproject.Mentee_Request_Activity;
 import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,10 +35,9 @@ public class RecommendedMentor_Fragment extends Fragment {
     private View View;
     private RecyclerView RecyclerView;
     private DatabaseReference RootRef;
-    private Button SearchButton;
-    private EditText SearchInputText1;
     private AdapterClass adapterClass;
     private List<FindMentor> userList;
+    private ImageView mHome;
 
 
     public RecommendedMentor_Fragment() {
@@ -59,13 +58,20 @@ public class RecommendedMentor_Fragment extends Fragment {
         adapterClass = new AdapterClass(getActivity(), userList);
         RecyclerView.setAdapter(adapterClass);
 
+        mHome = View.findViewById(R.id.home);
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), MenteeMainActivity.class);
+                startActivity(i);
+
+            }
+        });
+
 
         RootRef = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-
-        //SearchButton = (Button) View.findViewById(R.id.search_people_friends_button1);
-        //SearchInputText1 = (EditText) View.findViewById(R.id.search_box_input);
-
-                onStart();
+        onStart();
 
 
 
@@ -127,7 +133,7 @@ public class RecommendedMentor_Fragment extends Fragment {
                                     public void onClick(View view) {
                                         String mentorid = getRef(i).getKey();
                                         //If profile is selected then show more profile information
-                                        Intent i = new Intent(getActivity(), Person_Profile_Activity.class);
+                                        Intent i = new Intent(getActivity(), Mentee_Request_Activity.class);
                                         i.putExtra("mentorid", mentorid);
                                         startActivity(i);
 

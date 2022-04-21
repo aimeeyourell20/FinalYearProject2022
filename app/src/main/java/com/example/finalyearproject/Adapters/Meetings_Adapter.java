@@ -1,16 +1,25 @@
 package com.example.finalyearproject.Adapters;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.finalyearproject.Mentees.Goal_Edit;
+import com.example.finalyearproject.Mentees.Goals_Activity_Mentee;
+import com.example.finalyearproject.Models.Goals_Model;
 import com.example.finalyearproject.Models.Meeting_Model;
 import com.example.finalyearproject.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -51,8 +60,6 @@ public class Meetings_Adapter extends RecyclerView.Adapter<Meetings_Adapter.Meet
         holder.meetingTitle.setText(meeting_model.getMeetingTitle());
         holder.meetingMentee.setText(meeting_model.getMeetingMentee());
         holder.meetingDate.setText(meeting_model.getDate());
-
-
 
     }
 

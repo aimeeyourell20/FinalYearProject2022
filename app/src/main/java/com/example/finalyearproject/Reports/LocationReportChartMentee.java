@@ -30,7 +30,7 @@ public class LocationReportChartMentee extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LocationReportChartMentee.this, MenteeMainActivity.class);
+                Intent i = new Intent(LocationReportChartMentee.this, Mentee_Reports.class);
                 startActivity(i);
                 finish();
             }

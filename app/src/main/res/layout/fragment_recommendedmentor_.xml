@@ -6,7 +6,19 @@
     tools:context=".Industry_Fragments.RecommendedMentor_Fragment">
 
 
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/back" />
 
+    <RelativeLayout
+        android:layout_marginTop="40dp"
+        android:id="@+id/activity_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -18,4 +30,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp" />
+
+    </RelativeLayout>
+
 </RelativeLayout>

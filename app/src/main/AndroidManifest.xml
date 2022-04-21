@@ -215,13 +215,13 @@
             android:name=".MentorList"
             android:exported="true" />
         <activity
-            android:name=".Person_Profile_Activity_2"
+            android:name=".Mentor_Request_Activity"
             android:exported="true" />
         <activity
             android:name=".Mentor.Mentee_Request_Activity"
             android:exported="true" />
         <activity
-            android:name=".Person_Profile_Activity"
+            android:name=".Mentee_Request_Activity"
             android:exported="true" />
         <activity
             android:name=".Mentor.Mentor_Profile_Activity"

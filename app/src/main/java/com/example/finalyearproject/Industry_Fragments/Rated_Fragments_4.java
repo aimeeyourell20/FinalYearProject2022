@@ -14,10 +14,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.example.finalyearproject.Models.FindMentor;
-import com.example.finalyearproject.Person_Profile_Activity;
+import com.example.finalyearproject.Mentee_Request_Activity;
 import com.example.finalyearproject.R;
-import com.example.finalyearproject.Reports.RatingReportChartBar;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -63,7 +63,7 @@ public class Rated_Fragments_4 extends Fragment {
         mHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), RatingReportChartBar.class);
+                Intent i = new Intent(getContext(), MenteeMainActivity.class);
                 startActivity(i);
 
             }
@@ -109,7 +109,7 @@ public class Rated_Fragments_4 extends Fragment {
                                             public void onClick(View view) {
                                                 String mentorid = getRef(i).getKey();
 
-                                                Intent i = new Intent(getActivity(), Person_Profile_Activity.class);
+                                                Intent i = new Intent(getActivity(), Mentee_Request_Activity.class);
                                                 i.putExtra("mentorid", mentorid);
                                                 startActivity(i);
 

@@ -30,7 +30,7 @@ public class LocationReportChartMentor extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LocationReportChartMentor.this, MentorMainActivity.class);
+                Intent i = new Intent(LocationReportChartMentor.this, Mentor_Reports.class);
                 startActivity(i);
                 finish();
             }

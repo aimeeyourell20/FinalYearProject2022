@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -22,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Meetings_Activity_Mentee extends AppCompatActivity {
     private DatabaseReference RootRef;
@@ -65,10 +68,10 @@ public class Meetings_Activity_Mentee extends AppCompatActivity {
                 finish();
             }
         });
-
         FetchMeetings();
     }
 
+    //Gets all of the meetings and displays them for that current user
     private void FetchMeetings() {
 
         RootRef.child("Meetings").child(FirebaseAuth.getInstance().getUid()).child(menteeID).addValueEventListener(new ValueEventListener() {
