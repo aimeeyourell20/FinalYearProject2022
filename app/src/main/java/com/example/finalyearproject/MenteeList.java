@@ -143,6 +143,7 @@ public class MenteeList extends AppCompatActivity {
                                                 intent.putExtra("mentorid", users);
                                                 intent.putExtra("menteeid", MenteeOnline);
                                                 startActivity(intent);
+                                                finish();
                                             }
                                         }
                                     });

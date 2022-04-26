@@ -59,7 +59,6 @@ public class MentorFriends extends AppCompatActivity {
 
             if (extras != null) {
                 receiverUserId = (String) extras.get("menteeid");
-                //messageReceiverName = (String) extras.get("name");
             }
         }
 

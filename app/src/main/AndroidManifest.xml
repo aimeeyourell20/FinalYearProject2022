@@ -184,9 +184,6 @@
             android:name=".Mentees.Meetings_Activity_Mentee"
             android:exported="true" />
         <activity
-            android:name=".Models.Meetings"
-            android:exported="true" />
-        <activity
             android:name=".Mentees.MeetingRequest"
             android:exported="true" />
         <activity

@@ -47,7 +47,6 @@ public class Rating_Activity extends AppCompatActivity {
 
             if (extras != null) {
                 mentorId = (String) extras.get("mentorid");
-                //messageReceiverName = (String) extras.get("name");
             }
         }
 
@@ -74,44 +73,6 @@ public class Rating_Activity extends AppCompatActivity {
 
             }
         });
-
-        final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("users").child(mentorId);
-
-        Query mQueryMF = dbRef.child("Rating");
-
-
-        mQueryMF.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                int total = 0;
-                int count = 0;
-                float average = 0;
-                int rating;
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-
-                    rating = ds.child("rating").getValue(Integer.class);
-
-                    //Log.d(tag, "Rating" + ds.child("rating").getValue(Integer.class));
-
-                    total = total + rating;
-                    count = count + 1;
-                    average = total / count;
-
-                    final DatabaseReference newRef = dbRef;
-                    newRef.child("AverageRating").setValue(average);
-
-
-                }
-
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                throw databaseError.toException();
-            }
-        });
-
 
     }
 }
