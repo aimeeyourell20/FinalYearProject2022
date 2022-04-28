@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalyearproject.Adapters.AdapterClass;
 import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.example.finalyearproject.Models.FindMentor;
-import com.example.finalyearproject.Mentee_Request_Activity;
+import com.example.finalyearproject.Mentees.Mentee_Request_Activity;
 import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -110,7 +110,7 @@ public class RecommendedMentor_Fragment extends Fragment {
                 FirebaseRecyclerAdapter<FindMentor, FindMentorViewHolder> firebaseRecyclerAdapter =
                         new FirebaseRecyclerAdapter<FindMentor, FindMentorViewHolder>(
                                 FindMentor.class,
-                                R.layout.all_mentors_displayed,
+                                R.layout.all_mentors_displayed_2,
                                 FindMentorViewHolder.class,
                                 query
 
@@ -120,12 +120,12 @@ public class RecommendedMentor_Fragment extends Fragment {
 
 
                                 //Set mentors details
-                                findMentorViewHolder.setType(findMentor.getType());
                                 findMentorViewHolder.setName(findMentor.getName());
                                 findMentorViewHolder.setCompany(findMentor.getCompany());
                                 findMentorViewHolder.setLocation(findMentor.getLocation());
                                 findMentorViewHolder.setSkills1(findMentor.getSkill1());
                                 findMentorViewHolder.setIndustry(findMentor.getIndustry());
+
 
 
                                 findMentorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -166,11 +166,6 @@ public class RecommendedMentor_Fragment extends Fragment {
 
                 }
 
-                public void setType(String type) {
-
-                    TextView myType = (TextView) mView.findViewById(R.id.searchMentorType);
-                    myType.setText(type);
-                }
 
                 public void setName(String name) {
 
@@ -200,6 +195,7 @@ public class RecommendedMentor_Fragment extends Fragment {
                     TextView myCompany = (TextView) mView.findViewById(R.id.searchMentorCompany);
                     myCompany.setText(company);
                 }
+
 
             }
 

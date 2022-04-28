@@ -1,4 +1,4 @@
-package com.example.finalyearproject;
+package com.example.finalyearproject.Mentees;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.finalyearproject.Mentees.MenteeMainActivity;
+import com.example.finalyearproject.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -244,15 +244,6 @@ public class Mentee_Request_Activity extends AppCompatActivity {
                                                                                         mDeclineFriendRequestButton.setVisibility(View.INVISIBLE);
                                                                                         mDeclineFriendRequestButton.setEnabled(false);
 
-                                                                                      /*  mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-                                                                                            @Override
-                                                                                            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                                                                                                RootRef.child(receiverUserId).child(senderUserId).child("rating").push();
-                                                                                                RootRef.child(receiverUserId).child("Rating").child(senderUserId).child("rating").setValue(v);
-                                                                                            }
-                                                                                        });
-*/
-
                                                                                     }
                                                                                 }
                                                                             });
@@ -264,8 +255,6 @@ public class Mentee_Request_Activity extends AppCompatActivity {
                                     });
 
                             }
-
-
                     }
                 });
     }

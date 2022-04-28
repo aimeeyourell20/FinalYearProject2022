@@ -24,11 +24,13 @@
         <entry key="app/src/main/res/drawable/ic_about.xml" value="0.18489583333333334" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.25625" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.25625" />
+        <entry key="app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable/ic_industry.xml" value="0.2962962962962963" />
         <entry key="app/src/main/res/drawable/ic_language.xml" value="0.2962962962962963" />
         <entry key="app/src/main/res/drawable/ic_location.xml" value="0.2962962962962963" />
+        <entry key="app/src/main/res/drawable/ic_lock.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/ic_logout.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable/ic_message.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable/ic_password.xml" value="0.15092592592592594" />
@@ -136,7 +138,7 @@
         <entry key="app/src/main/res/layout/activity_mentor_main.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/activity_mentor_profile.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_mentor_profile2.xml" value="0.24010416666666667" />
-        <entry key="app/src/main/res/layout/activity_mentor_profile3.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/layout/activity_mentor_profile3.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_mentor_rating_board.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_mentor_registration.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_mentor_registration2.xml" value="0.3098958333333333" />
@@ -145,6 +147,7 @@
         <entry key="app/src/main/res/layout/activity_mentorship_report_menu.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_message_mentee.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_message_mentor.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_message_mentor1.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_middle_east.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_middle_east_report_chart_bar.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_middle_east_report_chart_pie.xml" value="0.24010416666666667" />
@@ -181,6 +184,7 @@
         <entry key="app/src/main/res/layout/all_mentee_meetings_displayed.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/all_mentees_displayed.xml" value="0.2935185185185185" />
         <entry key="app/src/main/res/layout/all_mentors_displayed.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/all_mentors_displayed_2.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/all_mentors_fragment.xml" value="0.17447916666666666" />
         <entry key="app/src/main/res/layout/barchart.xml" value="0.2351851851851852" />
         <entry key="app/src/main/res/layout/chatbotkotlin.xml" value="0.2364102564102564" />
@@ -296,6 +300,7 @@
         <entry key="app/src/main/res/layout/mentorshipreportchartpie2.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/message_layout.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/message_mentor_bar.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/notifications.xml" value="0.67" />
         <entry key="app/src/main/res/layout/resume_details.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/search.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/skills_fragment_layout.xml" value="0.24010416666666667" />

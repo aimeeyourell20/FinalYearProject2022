@@ -1,4 +1,4 @@
-package com.example.finalyearproject;
+package com.example.finalyearproject.Mentor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.finalyearproject.Mentor.MentorMainActivity;
+import com.example.finalyearproject.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;

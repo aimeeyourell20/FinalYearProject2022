@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalyearproject.Mentees.MenteeMainActivity;
 import com.example.finalyearproject.Models.FindMentor;
-import com.example.finalyearproject.Mentee_Request_Activity;
+import com.example.finalyearproject.Mentees.Mentee_Request_Activity;
 import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -81,7 +81,7 @@ public class Rated_Fragments_2 extends Fragment {
         FirebaseRecyclerAdapter<FindMentor, Rated_Fragments_2.FindMentorViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<FindMentor, Rated_Fragments_2.FindMentorViewHolder>(
                         FindMentor.class,
-                        R.layout.all_mentors_displayed,
+                        R.layout.all_mentors_displayed_2,
                         Rated_Fragments_2.FindMentorViewHolder.class,
                         searchPeopleAndFriendsQuery
 
@@ -96,7 +96,6 @@ public class Rated_Fragments_2 extends Fragment {
 
                                     else {
 
-                                        findMentorViewHolder.setType(findMentor.getType());
                                         findMentorViewHolder.setName(findMentor.getName());
                                         findMentorViewHolder.setCompany(findMentor.getCompany());
                                         findMentorViewHolder.setLocation(findMentor.getLocation());
@@ -131,13 +130,6 @@ public class Rated_Fragments_2 extends Fragment {
             mView = itemView;
 
         }
-
-        public void setType(String type) {
-
-            TextView myType = (TextView) mView.findViewById(R.id.searchMentorType);
-            myType.setText(type);
-        }
-
         public void setName(String name) {
 
             TextView myName = (TextView) mView.findViewById(R.id.searchMentorName);

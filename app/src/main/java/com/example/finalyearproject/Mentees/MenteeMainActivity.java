@@ -17,7 +17,6 @@ import com.example.finalyearproject.Industry_Fragments.SearchIndustryFragment;
 import com.example.finalyearproject.Kotlin.ChatbotKotlin;
 import com.example.finalyearproject.Reports.Mentee_Reports;
 import com.example.finalyearproject.Login_Activity;
-import com.example.finalyearproject.MenteeList;
 import com.example.finalyearproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

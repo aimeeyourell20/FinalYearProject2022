@@ -25,7 +25,7 @@
         android:theme="@style/Theme.FinalYearProject"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Mentor_Profile_Details_Activity"
+            android:name=".Mentor.Mentor_Profile_Details_Activity"
             android:exported="true" />
         <activity
             android:name=".Reports.Goals_Only_Started_Mentor"
@@ -49,7 +49,7 @@
             android:name=".Reports.RatingReportChartBar"
             android:exported="true" />
         <activity
-            android:name=".Rating_Activity"
+            android:name=".Mentees.Rating_Activity"
             android:exported="true" />
         <activity
             android:name=".ResetPassword"
@@ -190,14 +190,15 @@
             android:name=".API.CareerDetails"
             android:exported="true" />
         <activity
-            android:name=".MentorFriends"
+            android:name=".Mentor.MentorFriends"
             android:exported="true" />
         <activity
             android:name=".Mentees.Mentee_Edit_Resume"
             android:exported="true" />
         <activity
             android:name=".Mentees.Message_Mentee"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".Mentees.MenteeMainActivity"/>
         <activity
             android:name=".API.CareerOptions"
             android:exported="true" />
@@ -206,19 +207,19 @@
             android:exported="true"
             android:parentActivityName=".Mentor.MentorMainActivity" />
         <activity
-            android:name=".MenteeList"
+            android:name=".Mentees.MenteeList"
             android:exported="true" />
         <activity
-            android:name=".MentorList"
+            android:name=".Mentor.MentorList"
             android:exported="true" />
         <activity
-            android:name=".Mentor_Request_Activity"
+            android:name=".Mentor.Mentor_Request_Activity"
             android:exported="true" />
         <activity
             android:name=".Mentor.Mentee_Request_Activity"
             android:exported="true" />
         <activity
-            android:name=".Mentee_Request_Activity"
+            android:name=".Mentees.Mentee_Request_Activity"
             android:exported="true" />
         <activity
             android:name=".Mentor.Mentor_Profile_Activity"

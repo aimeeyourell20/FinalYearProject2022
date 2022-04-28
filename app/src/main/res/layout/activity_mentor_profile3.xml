@@ -7,7 +7,7 @@
     android:layout_margin="10dp"
     android:layout_marginBottom="10dp"
     android:background="#80D8FF"
-    tools:context=".Mentor_Profile_Details_Activity"
+    tools:context=".Mentor.Mentor_Profile_Details_Activity"
     android:elevation="5dp">
 
 
@@ -21,20 +21,6 @@
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/persontype"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Type"
-        android:fontFamily="@font/boogaloo"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/personname" />
 
     <TextView
         android:id="@+id/personname"
@@ -61,7 +47,7 @@
         android:numStars="5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/persontype"
+        app:layout_constraintTop_toBottomOf="@+id/personname"
         android:stepSize="0.5" />
 
 
@@ -80,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="175dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/profilebackgroundwhite"
         android:orientation="vertical"
@@ -96,7 +82,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:background="@drawable/backgroundprofilegrey"
                 android:elevation="10dp"
@@ -178,9 +164,20 @@
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
-            </LinearLayout>
 
+                <TextView
+                    android:id="@+id/isSeen"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/boards_orange"
+                    android:layout_marginLeft="33dp"
+                    android:layout_alignParentRight="true"/>
+
+
+            </LinearLayout>
         </LinearLayout>
+
+
 
 
         <LinearLayout

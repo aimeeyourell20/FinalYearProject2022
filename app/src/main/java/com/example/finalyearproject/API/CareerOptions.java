@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -130,6 +131,7 @@ public class CareerOptions extends AppCompatActivity implements JobAdapter.OnIte
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
             }
+
         }){
             @Override
             public Map<String,String> getHeaders() throws AuthFailureError{
@@ -139,6 +141,10 @@ public class CareerOptions extends AppCompatActivity implements JobAdapter.OnIte
                 return params;
             }
         };
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                10000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         mRequestQueue.add(request);
     }
 

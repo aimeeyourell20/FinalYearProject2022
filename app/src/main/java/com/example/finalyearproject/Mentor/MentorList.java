@@ -1,12 +1,10 @@
-package com.example.finalyearproject;
+package com.example.finalyearproject.Mentor;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,9 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.finalyearproject.Mentees.Message_Mentee;
-import com.example.finalyearproject.Mentor.MentorMainActivity;
 import com.example.finalyearproject.Models.MenteeFriendList;
+import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -105,38 +102,10 @@ public class MentorList extends AppCompatActivity {
                                 @Override
                                 public void onClick(View view) {
 
-                                    CharSequence options[] = new CharSequence[]{
-                                            name + " Profile",
-
-                                            "Send Message"
-                                    };
-
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(MentorList.this);
-                                    builder.setTitle("Select an option");
-
-                                    builder.setItems(options, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                                            if(i == 0){
 
                                                 Intent intent = new Intent(MentorList.this, MentorFriends.class);
                                                 intent.putExtra("menteeid", users);
                                                 startActivity(intent);
-
-                                            }
-                                            if(i == 1){
-
-                                                Intent intent = new Intent(MentorList.this, Message_Mentee.class);
-                                                intent.putExtra("menteeid", users);
-                                                intent.putExtra("name", name);
-                                                startActivity(intent);
-                                            }
-
-                                        }
-                                    });
-
-                                    builder.show();
                                 }
                             });
                         }

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="11dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="21dp"
+    android:gravity="center_vertical"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="12dp"
+        android:background="#fff"
+        android:elevation="12dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/cardview">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="6dp">
+
+                <ImageView
+                    android:id="@+id/searchMentorProfilePicture"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:src="@drawable/image1"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentors Fullname:"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/boogaloo"
+                    android:textColor="#6dd5ed"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/searchMentorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentor fullname"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/boogaloo"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentors Skill:"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/boogaloo"
+                    android:textColor="#6dd5ed"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/searchMentorBio1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentor Skill1"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/boogaloo"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentors Industry:"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/boogaloo"
+                    android:textColor="#6dd5ed"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+
+                <TextView
+                    android:id="@+id/searchMentorIndustry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentor Industry"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/boogaloo"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentors Company:"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/boogaloo"
+                    android:textColor="#6dd5ed"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+
+                <TextView
+                    android:id="@+id/searchMentorCompany"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentor Company"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/boogaloo"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentors Location:"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/boogaloo"
+                    android:textColor="#6dd5ed"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/searchMentorLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mentor Location"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/boogaloo"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+
+
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

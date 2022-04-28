@@ -4,57 +4,60 @@ public class MentorMessages {
 
     public String data, time, type, message, from;
 
-        public MentorMessages()
-        {
 
-        }
+    public MentorMessages()
+    {
 
-        public MentorMessages(String data, String time, String type, String message, String from)
-        {
-            this.data = data;
-            this.time = time;
-            this.type = type;
-            this.message = message;
-            this.from = from;
-        }
+    }
 
-        public String getData() {
-            return data;
-        }
+    public MentorMessages(String data, String time, String type, String message, String from)
+    {
+        this.data = data;
+        this.time = time;
+        this.type = type;
+        this.message = message;
+        this.from = from;
 
-        public void setData(String data) {
-            this.data = data;
-        }
 
-        public String getTime() {
-            return time;
-        }
+    }
 
-        public void setTime(String time) {
-            this.time = time;
-        }
+    public String getData() {
+        return data;
+    }
 
-        public String getType() {
-            return type;
-        }
+    public void setData(String data) {
+        this.data = data;
+    }
 
-        public void setType(String type) {
-            this.type = type;
-        }
+    public String getTime() {
+        return time;
+    }
 
-        public String getMessage() {
-            return message;
-        }
+    public void setTime(String time) {
+        this.time = time;
+    }
 
-        public void setMessage(String message) {
-            this.message = message;
-        }
+    public String getType() {
+        return type;
+    }
 
-        public String getFrom() {
-            return from;
-        }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-        public void setFrom(String from) {
-            this.from = from;
-        }
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
 }

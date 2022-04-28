@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.example.finalyearproject.Models.FindMentor;
 import com.example.finalyearproject.Mentees.MenteeMainActivity;
-import com.example.finalyearproject.Mentee_Request_Activity;
+import com.example.finalyearproject.Mentees.Mentee_Request_Activity;
 import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -83,7 +83,7 @@ public class Rated_Fragments extends Fragment {
         FirebaseRecyclerAdapter<FindMentor, Rated_Fragments.FindMentorViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<FindMentor, Rated_Fragments.FindMentorViewHolder>(
                         FindMentor.class,
-                        R.layout.all_mentors_displayed,
+                        R.layout.all_mentors_displayed_2,
                         Rated_Fragments.FindMentorViewHolder.class,
                         searchPeopleAndFriendsQuery
 
@@ -98,7 +98,6 @@ public class Rated_Fragments extends Fragment {
 
                                     else {
 
-                                        findMentorViewHolder.setType(findMentor.getType());
                                         findMentorViewHolder.setName(findMentor.getName());
                                         findMentorViewHolder.setCompany(findMentor.getCompany());
                                         findMentorViewHolder.setLocation(findMentor.getLocation());
@@ -132,12 +131,6 @@ public class Rated_Fragments extends Fragment {
             super(itemView);
             mView = itemView;
 
-        }
-
-        public void setType(String type) {
-
-            TextView myType = (TextView) mView.findViewById(R.id.searchMentorType);
-            myType.setText(type);
         }
 
         public void setName(String name) {

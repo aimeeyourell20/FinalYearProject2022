@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.example.finalyearproject.Models.FindMentor;
 import com.example.finalyearproject.Mentees.MenteeMainActivity;
-import com.example.finalyearproject.Mentee_Request_Activity;
+import com.example.finalyearproject.Mentees.Mentee_Request_Activity;
 import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -101,7 +101,7 @@ public class Media_Fragment extends Fragment {
         FirebaseRecyclerAdapter<FindMentor, Media_Fragment.FindMentorViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<FindMentor, Media_Fragment.FindMentorViewHolder>(
                         FindMentor.class,
-                        R.layout.all_mentors_displayed,
+                        R.layout.all_mentors_displayed_2,
                         Media_Fragment.FindMentorViewHolder.class,
                         searchPeopleAndFriendsQuery
 
@@ -119,7 +119,6 @@ public class Media_Fragment extends Fragment {
                         }
                         else {
 
-                            findMentorViewHolder.setType(findMentor.getType());
                             findMentorViewHolder.setName(findMentor.getName());
                             findMentorViewHolder.setCompany(findMentor.getCompany());
                             findMentorViewHolder.setLocation(findMentor.getLocation());
@@ -157,7 +156,7 @@ public class Media_Fragment extends Fragment {
         FirebaseRecyclerAdapter<FindMentor, Media_Fragment.FindMentorViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<FindMentor, Media_Fragment.FindMentorViewHolder>(
                         FindMentor.class,
-                        R.layout.all_mentors_displayed,
+                        R.layout.all_mentors_displayed_2,
                         Media_Fragment.FindMentorViewHolder.class,
                         searchPeopleAndFriendsQuery
 
@@ -175,7 +174,6 @@ public class Media_Fragment extends Fragment {
                         }
                         else {
 
-                            findMentorViewHolder.setType(findMentor.getType());
                             findMentorViewHolder.setName(findMentor.getName());
                             findMentorViewHolder.setCompany(findMentor.getCompany());
                             findMentorViewHolder.setLocation(findMentor.getLocation());
@@ -211,12 +209,6 @@ public class Media_Fragment extends Fragment {
             super(itemView);
             mView = itemView;
 
-        }
-
-        public void setType(String type) {
-
-            TextView myType = (TextView) mView.findViewById(R.id.searchMentorType);
-            myType.setText(type);
         }
 
         public void setName(String name) {

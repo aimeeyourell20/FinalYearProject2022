@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalyearproject.Models.FindMentor;
-import com.example.finalyearproject.Mentee_Request_Activity;
+import com.example.finalyearproject.Mentees.Mentee_Request_Activity;
 import com.example.finalyearproject.R;
 import com.example.finalyearproject.Reports.LocationReportChartMentee;
 import com.example.finalyearproject.Skills_Fragments.Attention_To_Detail_Fragment;
@@ -101,7 +101,7 @@ public class Ireland_Fragment extends Fragment {
         FirebaseRecyclerAdapter<FindMentor, Attention_To_Detail_Fragment.FindMentorViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<FindMentor, Attention_To_Detail_Fragment.FindMentorViewHolder>(
                         FindMentor.class,
-                        R.layout.all_mentors_displayed,
+                        R.layout.all_mentors_displayed_2,
                         Attention_To_Detail_Fragment.FindMentorViewHolder.class,
                         searchPeopleAndFriendsQuery
 
@@ -119,7 +119,6 @@ public class Ireland_Fragment extends Fragment {
                         }
                         else {
 
-                            findMentorViewHolder.setType(findMentor.getType());
                             findMentorViewHolder.setName(findMentor.getName());
                             findMentorViewHolder.setCompany(findMentor.getCompany());
                             findMentorViewHolder.setLocation(findMentor.getLocation());
@@ -157,7 +156,7 @@ public class Ireland_Fragment extends Fragment {
         FirebaseRecyclerAdapter<FindMentor, Attention_To_Detail_Fragment.FindMentorViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<FindMentor, Attention_To_Detail_Fragment.FindMentorViewHolder>(
                         FindMentor.class,
-                        R.layout.all_mentors_displayed,
+                        R.layout.all_mentors_displayed_2,
                         Attention_To_Detail_Fragment.FindMentorViewHolder.class,
                         searchPeopleAndFriendsQuery
 
@@ -174,7 +173,6 @@ public class Ireland_Fragment extends Fragment {
                         }
                         else {
 
-                            findMentorViewHolder.setType(findMentor.getType());
                             findMentorViewHolder.setName(findMentor.getName());
                             findMentorViewHolder.setCompany(findMentor.getCompany());
                             findMentorViewHolder.setLocation(findMentor.getLocation());

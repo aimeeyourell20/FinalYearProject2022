@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.example.finalyearproject.Models.FindMentor;
 import com.example.finalyearproject.Reports.SkillsMentorReportChartBar;
-import com.example.finalyearproject.Mentee_Request_Activity;
+import com.example.finalyearproject.Mentees.Mentee_Request_Activity;
 import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -101,7 +101,7 @@ public class Collaboration_Fragment extends Fragment {
         FirebaseRecyclerAdapter<FindMentor, Collaboration_Fragment.FindMentorViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<FindMentor, Collaboration_Fragment.FindMentorViewHolder>(
                         FindMentor.class,
-                        R.layout.all_mentors_displayed,
+                        R.layout.all_mentors_displayed_2,
                         Collaboration_Fragment.FindMentorViewHolder.class,
                         searchPeopleAndFriendsQuery
 
@@ -119,7 +119,6 @@ public class Collaboration_Fragment extends Fragment {
                         }
                         else {
 
-                            findMentorViewHolder.setType(findMentor.getType());
                             findMentorViewHolder.setName(findMentor.getName());
                             findMentorViewHolder.setCompany(findMentor.getCompany());
                             findMentorViewHolder.setLocation(findMentor.getLocation());
@@ -157,7 +156,7 @@ public class Collaboration_Fragment extends Fragment {
         FirebaseRecyclerAdapter<FindMentor, Collaboration_Fragment.FindMentorViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<FindMentor, Collaboration_Fragment.FindMentorViewHolder>(
                         FindMentor.class,
-                        R.layout.all_mentors_displayed,
+                        R.layout.all_mentors_displayed_2,
                         Collaboration_Fragment.FindMentorViewHolder.class,
                         searchPeopleAndFriendsQuery
 
@@ -174,7 +173,6 @@ public class Collaboration_Fragment extends Fragment {
                         }
                         else {
 
-                            findMentorViewHolder.setType(findMentor.getType());
                             findMentorViewHolder.setName(findMentor.getName());
                             findMentorViewHolder.setCompany(findMentor.getCompany());
                             findMentorViewHolder.setLocation(findMentor.getLocation());

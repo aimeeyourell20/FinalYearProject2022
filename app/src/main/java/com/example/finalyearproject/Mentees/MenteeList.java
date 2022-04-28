@@ -1,4 +1,4 @@
-package com.example.finalyearproject;
+package com.example.finalyearproject.Mentees;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -14,11 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.finalyearproject.Mentees.Goals_Add_Activity;
-import com.example.finalyearproject.Mentees.MeetingRequest;
-import com.example.finalyearproject.Mentees.MenteeMainActivity;
-import com.example.finalyearproject.Mentor.Message_Mentor;
+import com.example.finalyearproject.Mentor.Mentor_Profile_Details_Activity;
 import com.example.finalyearproject.Models.MentorFriendlist;
+import com.example.finalyearproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;

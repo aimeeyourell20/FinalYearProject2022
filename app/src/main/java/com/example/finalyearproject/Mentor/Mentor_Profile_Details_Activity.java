@@ -1,9 +1,12 @@
-package com.example.finalyearproject;
+package com.example.finalyearproject.Mentor;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +18,7 @@ import com.bumptech.glide.Glide;
 import com.example.finalyearproject.Mentees.Goals_Add_Activity;
 import com.example.finalyearproject.Mentees.MeetingRequest;
 import com.example.finalyearproject.Mentees.MenteeMainActivity;
-import com.example.finalyearproject.Mentor.Message_Mentor;
+import com.example.finalyearproject.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,15 +31,16 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class Mentor_Profile_Details_Activity extends AppCompatActivity {
 
-    private TextView mName, mSkills1, mLocation, mLanguage, mJobTitle, mBio, mIndustry, mType, mCompany;
+    private TextView mName, mSkills1, mLocation, mLanguage, mJobTitle, mBio, mIndustry, mIsSeen, mCompany;
     private Button mSendFriendReqButton, mDeclineFriendRequestButton;
     private ImageView mProfile, mMeetingProfile, mGoalsProfile, mMessageProfile;
-    private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef, RootRef, Rating;
+    private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef, RootRef, Rating, Messages, Messaging;
     private FirebaseAuth mAuth;
-    private String senderUserId, CURRENT_STATE, saveCurrentDate;
+    private String menteeId, CURRENT_STATE, saveCurrentDate;
     private String mentorId = "";
     private ImageView mHome;
     private  RatingBar mRatingBar;
@@ -49,7 +53,20 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
 
 
         mAuth = FirebaseAuth.getInstance();
-        senderUserId = mAuth.getCurrentUser().getUid();
+        menteeId = mAuth.getCurrentUser().getUid();
+
+        mName = findViewById(R.id.personname);
+        mSkills1 = findViewById(R.id.personskills1);
+        mCompany = findViewById(R.id.personcompany);
+        mLanguage = findViewById(R.id.personlanguage);
+        mLocation = findViewById(R.id.personlocation);
+        mJobTitle = findViewById(R.id.personjobTitle);
+        mBio = findViewById(R.id.personbio);
+        mIndustry = findViewById(R.id.personindustry);
+        mProfile = findViewById(R.id.profileImageProfile);
+        mSendFriendReqButton = (Button) findViewById(R.id.sendRequest);
+        mDeclineFriendRequestButton = (Button) findViewById(R.id.cancelRequest);
+        CURRENT_STATE = "not_mentorship";
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -61,10 +78,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
         }
 
         final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("users").child(mentorId);
-
         Query mQueryMF = dbRef.child("Rating");
-
-
         mQueryMF.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -75,18 +89,12 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
                     rating = ds.child("rating").getValue(Integer.class);
-
                     total = total + rating;
                     count = count + 1;
                     average = total / count;
-
                     final DatabaseReference newRef = dbRef;
                     newRef.child("AverageRating").setValue(average);
-
-
                 }
-
-
             }
 
             @Override
@@ -98,18 +106,81 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
 
 
         mRatingBar = findViewById(R.id.RatingBar);
-
         mHome = findViewById(R.id.home);
         mGoalsProfile = findViewById(R.id.goalsProfile);
         mMeetingProfile = findViewById(R.id.meetingProfile);
         mMessageProfile = findViewById(R.id.messageProfile);
+        mIsSeen = findViewById(R.id.isSeen);
+
+        Messaging = FirebaseDatabase.getInstance().getReference().child("MessagesUpdate").child(mentorId).child(menteeId);
+        Messaging.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                String isRead = snapshot.child("isRead").getValue().toString();
+                if (isRead.equals("true")) {
+                    mIsSeen.setBackgroundColor(Color.GREEN);                }
+                if(isRead.equals("false"))     {
+                    mIsSeen.setBackgroundColor(Color.RED);
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         mHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Mentor_Profile_Details_Activity.this, MenteeMainActivity.class);
-                startActivity(i);
-                finish();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Mentor_Profile_Details_Activity.this);
+
+
+                        builder.setTitle("Messages");
+
+                        builder.setMessage("Have you read messages?");
+
+                        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int which) {
+                                RootRef = FirebaseDatabase.getInstance().getReference().child("MessagesUpdate").child(menteeId).child(mentorId);
+                                HashMap messaging = new HashMap();
+                                messaging.put("isRead", true);
+
+                                RootRef.updateChildren(messaging).addOnCompleteListener(new OnCompleteListener() {
+                                    @Override
+                                    public void onComplete(@NonNull Task task) {
+                                        Intent i = new Intent(Mentor_Profile_Details_Activity.this, MenteeMainActivity.class);
+                                        startActivity(i);
+                                        finish();
+                                    }
+                                });
+                            }
+
+                        });
+
+                        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                RootRef = FirebaseDatabase.getInstance().getReference().child("MessagesUpdate").child(menteeId).child(mentorId);
+                                HashMap messaging = new HashMap();
+                                messaging.put("isRead", false);
+
+                                RootRef.updateChildren(messaging).addOnCompleteListener(new OnCompleteListener() {
+                                    @Override
+                                    public void onComplete(@NonNull Task task) {
+                                        Intent i = new Intent(Mentor_Profile_Details_Activity.this, MenteeMainActivity.class);
+                                        startActivity(i);
+                                        finish();
+                                    }
+                                });
+                            }
+
+                        });
+                        AlertDialog alert = builder.create();
+                        alert.show();
             }
         });
 
@@ -119,8 +190,6 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
         FriendsRef = FirebaseDatabase.getInstance().getReference().child("Mentorship");
         RootRef = FirebaseDatabase.getInstance().getReference().child("users");
 
-        IntializeFields();
-
         UsersRef.child(mentorId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -129,7 +198,6 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
                     String bio = dataSnapshot.child("bio").getValue().toString();
                     String jobTitle = dataSnapshot.child("jobType").getValue().toString();
                     String industry = dataSnapshot.child("industry").getValue().toString();
-                    String type = dataSnapshot.child("type").getValue().toString();
                     String skill1 = dataSnapshot.child("skill1").getValue().toString();
                     String location = dataSnapshot.child("location").getValue().toString();
                     String company = dataSnapshot.child("company").getValue().toString();
@@ -143,7 +211,6 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
                     mBio.setText(bio);
                     mJobTitle.setText(jobTitle);
                     mIndustry.setText(industry);
-                    mType.setText(type);
                     mSkills1.setText(skill1);
                     mLocation.setText(location);
                     mCompany.setText(company);
@@ -197,7 +264,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
         mDeclineFriendRequestButton.setVisibility(View.INVISIBLE);
         mDeclineFriendRequestButton.setEnabled(false);
 
-        if(!senderUserId.equals(mentorId))
+        if(!mentorId.equals(menteeId))
         {
             mSendFriendReqButton.setOnClickListener(new View.OnClickListener()
             {
@@ -234,7 +301,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
 
     private void UnFriendAnExistingFriend() {
 
-        FriendsRef.child(senderUserId).child(mentorId)
+        FriendsRef.child(menteeId).child(mentorId)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>()
                 {
@@ -243,7 +310,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
                     {
                         if(task.isSuccessful())
                         {
-                            FriendsRef.child(mentorId).child(senderUserId).removeValue()
+                            FriendsRef.child(mentorId).child(menteeId).removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>()
                                     {
                                         @Override
@@ -272,7 +339,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
         SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-yyyy");
         saveCurrentDate = currentDate.format(calFordDate.getTime());
 
-        FriendsRef.child(senderUserId).child(mentorId).child("date").setValue(saveCurrentDate)
+        FriendsRef.child(menteeId).child(mentorId).child("date").setValue(saveCurrentDate)
                 .addOnCompleteListener(new OnCompleteListener<Void>()
                 {
                     @Override
@@ -280,7 +347,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
                     {
                         if(task.isSuccessful())
                         {
-                            FriendsRef.child(mentorId).child(senderUserId).child("date").setValue(saveCurrentDate)
+                            FriendsRef.child(mentorId).child(menteeId).child("date").setValue(saveCurrentDate)
                                     .addOnCompleteListener(new OnCompleteListener<Void>()
                                     {
                                         @Override
@@ -288,7 +355,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
                                         {
                                             if(task.isSuccessful())
                                             {
-                                                FriendsRequestRef.child(senderUserId).child(mentorId)
+                                                FriendsRequestRef.child(menteeId).child(mentorId)
                                                         .removeValue()
                                                         .addOnCompleteListener(new OnCompleteListener<Void>()
                                                         {
@@ -297,7 +364,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
                                                             {
                                                                 if(task.isSuccessful())
                                                                 {
-                                                                    FriendsRequestRef.child(mentorId).child(senderUserId).removeValue()
+                                                                    FriendsRequestRef.child(mentorId).child(menteeId).removeValue()
                                                                             .addOnCompleteListener(new OnCompleteListener<Void>()
                                                                             {
                                                                                 @Override
@@ -333,7 +400,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
 
     private void CancelFriendrequest() {
 
-        FriendsRequestRef.child(senderUserId).child(mentorId)
+        FriendsRequestRef.child(menteeId).child(mentorId)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>()
                 {
@@ -342,7 +409,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
                     {
                         if(task.isSuccessful())
                         {
-                            FriendsRequestRef.child(mentorId).child(senderUserId).removeValue()
+                            FriendsRequestRef.child(mentorId).child(menteeId).removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>()
                                     {
                                         @Override
@@ -366,7 +433,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
 
     private void MaintananceofButtons()
     {
-        FriendsRequestRef.child(senderUserId)
+        FriendsRequestRef.child(menteeId)
                 .addListenerForSingleValueEvent(new ValueEventListener()
                 {
                     @Override
@@ -404,7 +471,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
                         }
                         else
                         {
-                            FriendsRef.child(senderUserId)
+                            FriendsRef.child(menteeId)
                                     .addListenerForSingleValueEvent(new ValueEventListener()
                                     {
                                         @Override
@@ -439,7 +506,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
     }
 
     private void SendFriendRequestToaPerson() {
-        FriendsRequestRef.child(senderUserId).child(mentorId)
+        FriendsRequestRef.child(menteeId).child(mentorId)
                 .child("request_type").setValue("sent")
                 .addOnCompleteListener(new OnCompleteListener<Void>()
                 {
@@ -448,7 +515,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
                     {
                         if(task.isSuccessful())
                         {
-                            FriendsRequestRef.child(mentorId).child(senderUserId).child("request_type").setValue("received")
+                            FriendsRequestRef.child(mentorId).child(menteeId).child("request_type").setValue("received")
                                     .addOnCompleteListener(new OnCompleteListener<Void>()
                                     {
                                         @Override
@@ -476,22 +543,7 @@ public class Mentor_Profile_Details_Activity extends AppCompatActivity {
 
     private void IntializeFields()
     {
-        mName = findViewById(R.id.personname);
-        mType = findViewById(R.id.persontype);
-        mSkills1 = findViewById(R.id.personskills1);
-        mCompany = findViewById(R.id.personcompany);
-        mLanguage = findViewById(R.id.personlanguage);
-        mLocation = findViewById(R.id.personlocation);
-        mJobTitle = findViewById(R.id.personjobTitle);
-        mBio = findViewById(R.id.personbio);
-        mIndustry = findViewById(R.id.personindustry);
-        mProfile = findViewById(R.id.profileImageProfile);
-        mSendFriendReqButton = (Button) findViewById(R.id.sendRequest);
-        mDeclineFriendRequestButton = (Button) findViewById(R.id.cancelRequest);
 
-
-        //RateMentor();
-        CURRENT_STATE = "not_mentorship";
     }
 
 

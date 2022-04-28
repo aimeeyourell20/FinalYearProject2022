@@ -55,7 +55,7 @@ public class Message_Mentee extends AppCompatActivity
     private String menteeID = "";
     private TextView mMentorName;
     private CircleImageView mMentorProfileImage;
-    private DatabaseReference RootRef;
+    private DatabaseReference RootRef, Messaging;
     private FirebaseAuth mAuth;
     private final List<MentorMessages> messagesList = new ArrayList<>();
     private LinearLayoutManager linearLayoutManager;
@@ -69,7 +69,6 @@ public class Message_Mentee extends AppCompatActivity
 
         ChattoolBar = (Toolbar) findViewById(R.id.messageMentorToolbar);
         setSupportActionBar(ChattoolBar);
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowCustomEnabled(true);
@@ -103,7 +102,37 @@ public class Message_Mentee extends AppCompatActivity
             }
         }
 
-        DisplayReceiverInfo();
+        Messaging = FirebaseDatabase.getInstance().getReference().child("MessagesUpdate").child(mentorID).child(menteeID);
+
+        Messaging.addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                if(!snapshot.exists()){
+                                                    Messaging = FirebaseDatabase.getInstance().getReference().child("MessagesUpdate").child(mentorID).child(menteeID);
+                                                    HashMap messaging = new HashMap();
+                                                    messaging.put("isRead", false);
+                                                }else {
+                                                    String isRead = snapshot.child("isRead").getValue().toString();
+                                                    if (isRead.equals("true")) {
+                                                        Toast.makeText(Message_Mentee.this, "", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                    if (isRead.equals("false")) {
+                                                        Toast.makeText(Message_Mentee.this, "", Toast.LENGTH_SHORT).show();
+
+                                                    }
+                                                }
+
+
+                                            }
+
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+        });
+
+            DisplayReceiverInfo();
 
         SendMessageButton.setOnClickListener(new View.OnClickListener()
         {
@@ -189,6 +218,7 @@ public class Message_Mentee extends AppCompatActivity
             messageMap.put("type", "text");
             messageMap.put("from", mentorID);
 
+
             Map messageBodyDetails = new HashMap();
             messageBodyDetails.put(sender + "/" + messageID , messageMap);
             messageBodyDetails.put(receiver + "/" + messageID , messageMap);
@@ -200,13 +230,13 @@ public class Message_Mentee extends AppCompatActivity
                 public void onComplete(@NonNull Task task)
                 {
                     if(task.isSuccessful())
-                {
-                    message.setText("");
-                }
-                else
-                {
-                    message.setText("");
-                }
+                    {
+                        message.setText("");
+                    }
+                    else
+                    {
+                        message.setText("");
+                    }
                 }
             });
         }

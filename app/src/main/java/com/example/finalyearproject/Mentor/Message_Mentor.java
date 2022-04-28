@@ -1,17 +1,20 @@
 package com.example.finalyearproject.Mentor;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -31,6 +34,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.Nullable;
 
@@ -52,7 +56,7 @@ public class Message_Mentor extends AppCompatActivity
     private String mentorID, menteeID, mentorName, date, time;
     private TextView mMenteeName;
     private CircleImageView mMenteeProfileImage;
-    private DatabaseReference RootRef;
+    private DatabaseReference RootRef, Messaging;
     private FirebaseAuth mAuth;
     private final List<MentorMessages> messagesList = new ArrayList<>();
     private LinearLayoutManager linearLayoutManager;
@@ -67,7 +71,7 @@ public class Message_Mentor extends AppCompatActivity
         mAuth = FirebaseAuth.getInstance();
         menteeID = mAuth.getCurrentUser().getUid();
         RootRef = FirebaseDatabase.getInstance().getReference();
-        
+
         ChattoolBar = (Toolbar) findViewById(R.id.messageMentorToolbar);
         setSupportActionBar(ChattoolBar);
         ActionBar actionBar = getSupportActionBar();
@@ -76,6 +80,7 @@ public class Message_Mentor extends AppCompatActivity
         LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View action_bar_view = layoutInflater.inflate(R.layout.message_mentor_bar, null);
         actionBar.setCustomView(action_bar_view);
+
 
         mMenteeName = (TextView) findViewById(R.id.messageMentorName);
         mMenteeProfileImage = (CircleImageView) findViewById(R.id.messageMentorProfileImage);
@@ -101,7 +106,38 @@ public class Message_Mentor extends AppCompatActivity
             }
         }
 
-        DisplayReceiverInfo();
+        Messaging = FirebaseDatabase.getInstance().getReference().child("MessagesUpdate").child(menteeID).child(mentorID);
+
+        Messaging.addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                if(!snapshot.exists()){
+                                                    Messaging = FirebaseDatabase.getInstance().getReference().child("MessagesUpdate").child(menteeID).child(mentorID);
+                                                    HashMap messaging = new HashMap();
+                                                    messaging.put("isRead", false);
+                                                }else {
+                                                    String isRead = snapshot.child("isRead").getValue().toString();
+                                                    if (isRead.equals("true")) {
+                                                        Toast.makeText(Message_Mentor.this, "", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                    if (isRead.equals("false")) {
+                                                        Toast.makeText(Message_Mentor.this, "", Toast.LENGTH_SHORT).show();
+
+                                                    }
+
+                                                }
+
+                                                }
+
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+
+
+         DisplayReceiverInfo();
 
         SendMessageButton.setOnClickListener(new View.OnClickListener()
         {
@@ -114,6 +150,7 @@ public class Message_Mentor extends AppCompatActivity
 
         FetchMessages();
     }
+
 
     //Sets the messages
     private void FetchMessages()
