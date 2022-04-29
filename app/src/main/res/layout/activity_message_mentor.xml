@@ -11,6 +11,13 @@
         layout="@layout/toolbar">
     </include>
 
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/back" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messageMentorRecyclerView"
         android:layout_width="match_parent"

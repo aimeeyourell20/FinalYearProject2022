@@ -188,15 +188,15 @@ public class Login_Activity extends AppCompatActivity {
 
                         Toast.makeText(Login_Activity.this, "Mentor log in successful", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(Login_Activity.this, MentorMainActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
-                        finish();
 
                     } else if (type.equals("Mentee")) {
 
                         Toast.makeText(Login_Activity.this, "Mentee log in successful", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(Login_Activity.this, MenteeMainActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
-                        finish();
                     }
 
                 }

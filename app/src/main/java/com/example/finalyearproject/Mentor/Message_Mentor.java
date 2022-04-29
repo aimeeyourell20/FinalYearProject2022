@@ -55,6 +55,7 @@ public class Message_Mentor extends AppCompatActivity
     private RecyclerView mUserMessagesList;
     private String mentorID, menteeID, mentorName, date, time;
     private TextView mMenteeName;
+    private ImageView mHome;
     private CircleImageView mMenteeProfileImage;
     private DatabaseReference RootRef, Messaging;
     private FirebaseAuth mAuth;
@@ -71,11 +72,12 @@ public class Message_Mentor extends AppCompatActivity
         mAuth = FirebaseAuth.getInstance();
         menteeID = mAuth.getCurrentUser().getUid();
         RootRef = FirebaseDatabase.getInstance().getReference();
+        mHome = findViewById(R.id.home);
 
         ChattoolBar = (Toolbar) findViewById(R.id.messageMentorToolbar);
         setSupportActionBar(ChattoolBar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
         LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View action_bar_view = layoutInflater.inflate(R.layout.message_mentor_bar, null);
@@ -118,10 +120,8 @@ public class Message_Mentor extends AppCompatActivity
                                                 }else {
                                                     String isRead = snapshot.child("isRead").getValue().toString();
                                                     if (isRead.equals("true")) {
-                                                        Toast.makeText(Message_Mentor.this, "", Toast.LENGTH_SHORT).show();
                                                     }
                                                     if (isRead.equals("false")) {
-                                                        Toast.makeText(Message_Mentor.this, "", Toast.LENGTH_SHORT).show();
 
                                                     }
 
@@ -145,6 +145,13 @@ public class Message_Mentor extends AppCompatActivity
             public void onClick(View v)
             {
                 SendMessage();
+            }
+        });
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 

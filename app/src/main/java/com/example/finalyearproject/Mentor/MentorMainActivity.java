@@ -270,7 +270,8 @@ public class MentorMainActivity extends AppCompatActivity{
 
     private void Signout() {
         Intent i = new Intent(MentorMainActivity.this, Login_Activity.class);
-        startActivity(i);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        this.startActivity(i);
         finish();
     }
 

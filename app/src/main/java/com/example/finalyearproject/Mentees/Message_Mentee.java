@@ -50,6 +50,7 @@ public class Message_Mentee extends AppCompatActivity
     private Toolbar ChattoolBar;
     private ImageButton SendMessageButton;
     private EditText message;
+    private ImageView mHome;
     private RecyclerView RecyclerView;
     private String mentorID, date, time, mentorName;
     private String menteeID = "";
@@ -70,7 +71,7 @@ public class Message_Mentee extends AppCompatActivity
         ChattoolBar = (Toolbar) findViewById(R.id.messageMentorToolbar);
         setSupportActionBar(ChattoolBar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
         LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View action_bar_view = layoutInflater.inflate(R.layout.message_mentor_bar, null);
@@ -80,6 +81,8 @@ public class Message_Mentee extends AppCompatActivity
         mMentorProfileImage = (CircleImageView) findViewById(R.id.messageMentorProfileImage);
         SendMessageButton = (ImageButton) findViewById(R.id.messageMentorSendMessage);
         message = (EditText) findViewById(R.id.messageMentorMessage);
+        mHome = findViewById(R.id.home);
+
 
         messageAdapter = new MentorMessageAdapter(messagesList);
         RecyclerView = (RecyclerView) findViewById(R.id.messageMentorRecyclerView);
@@ -114,10 +117,8 @@ public class Message_Mentee extends AppCompatActivity
                                                 }else {
                                                     String isRead = snapshot.child("isRead").getValue().toString();
                                                     if (isRead.equals("true")) {
-                                                        Toast.makeText(Message_Mentee.this, "", Toast.LENGTH_SHORT).show();
                                                     }
                                                     if (isRead.equals("false")) {
-                                                        Toast.makeText(Message_Mentee.this, "", Toast.LENGTH_SHORT).show();
 
                                                     }
                                                 }
@@ -142,6 +143,13 @@ public class Message_Mentee extends AppCompatActivity
                 SendMessage();
             }
 
+        });
+
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
         });
 
         FetchMessages();
