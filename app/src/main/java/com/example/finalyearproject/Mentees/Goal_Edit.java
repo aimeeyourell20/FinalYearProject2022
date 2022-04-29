@@ -41,8 +41,6 @@ public class Goal_Edit extends AppCompatActivity {
     private Spinner mStatus;
     private TextView mMentor, mMentee;
     private Button mRequest, mCancel;
-    private static final String tag = "Goals";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +77,6 @@ public class Goal_Edit extends AppCompatActivity {
         Intent i = getIntent();
         goal_id = i.getStringExtra("goals_id");
         messageReceiverID1 = i.getStringExtra("menteeid");
-        Log.d(tag, "Hello3" + messageReceiverID1);
 
         dr = FirebaseDatabase.getInstance().getReference().child("Goals").child(currentUser).child(messageReceiverID1).child(goal_id);
         dr1 = FirebaseDatabase.getInstance().getReference().child("Goals").child(messageReceiverID1).child(currentUser).child(goal_id);

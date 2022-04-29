@@ -3,10 +3,12 @@ package com.example.finalyearproject.Mentees;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,7 +24,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class Mentee_Edit_Resume extends AppCompatActivity {
 
@@ -74,6 +79,66 @@ public class Mentee_Edit_Resume extends AppCompatActivity {
         resume_id = i.getStringExtra("resume_id");
 
         RootRef = FirebaseDatabase.getInstance().getReference().child("CV").child(currentUser).child(resume_id);
+
+
+        Calendar calendar1 = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar1.set(Calendar.YEAR, i);
+                calendar1.set(Calendar.MONTH, i1);
+                calendar1.set(Calendar.DAY_OF_MONTH, i2);
+
+                calendar11();
+            }
+
+            private void calendar11() {
+
+                String format = "dd/MM/yy";
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.UK);
+
+                mStartDate.setText(simpleDateFormat.format(calendar1.getTime()));
+            }
+        };
+
+        mStartDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                new DatePickerDialog(Mentee_Edit_Resume.this, dateSetListener, calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH),  calendar1.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
+
+
+        Calendar calendar2 = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dateSetListener2 = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar2.set(Calendar.YEAR, i);
+                calendar2.set(Calendar.MONTH, i1);
+                calendar2.set(Calendar.DAY_OF_MONTH, i2);
+
+                calendar11();
+            }
+
+            private void calendar11() {
+
+                String format = "dd/MM/yy";
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.UK);
+
+                mEndDate.setText(simpleDateFormat.format(calendar1.getTime()));
+            }
+        };
+
+        mEndDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                new DatePickerDialog(Mentee_Edit_Resume.this, dateSetListener2, calendar2.get(Calendar.YEAR), calendar2.get(Calendar.MONTH),  calendar2.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
 
 
 

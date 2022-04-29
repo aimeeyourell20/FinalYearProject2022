@@ -92,26 +92,24 @@ public class CollegeOptions extends AppCompatActivity implements CollegeAdapter.
 
     }
 
+    //creates Request objects which represents a desired request to be executed
     private void parseJSON(String string1) {
         mExampleList.clear();
         String url = "https://world-university-search-and-rankings.p.rapidapi.com/university/ranking?country=" + string1 + "&top=20";
 
-
-
+        //All requests in Volley are placed in a queue first and then processed
         mRequestQueue = Volley.newRequestQueue(this);
         String uri = Uri.parse(url)
                 .buildUpon()
                 .build().toString();
 
-        Log.e(tag1, uri);
-
+        //To receive JSON Array from the server
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, uri, null, new Response.Listener<JSONArray>() {
 
             @Override
             public void onResponse(JSONArray response) {
                 try {
 
-                    //JSONArray collegeArray = new JSONArray(response);
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject college = response.getJSONObject(i);
                         String country = college.getString("country");
@@ -148,6 +146,7 @@ public class CollegeOptions extends AppCompatActivity implements CollegeAdapter.
                 return params;
             }
         };
+        //Fixes network timeout error
         request.setRetryPolicy(new DefaultRetryPolicy(
                 10000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,

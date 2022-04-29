@@ -35,7 +35,7 @@ public class MentorFriends extends AppCompatActivity {
     private DatabaseReference FriendsRequestRef, UsersRef, FriendsRef, RootRef, Messaging;
     private FirebaseAuth mAuth;
     private ImageView mprofile;
-    private String senderUserId, CURRENT_STATE, saveCurrentDate;
+    private String senderUserId;
     private String menteeId = "";
 
     @Override

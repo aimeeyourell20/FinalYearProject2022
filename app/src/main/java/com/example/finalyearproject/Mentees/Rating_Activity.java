@@ -18,12 +18,9 @@ public class Rating_Activity extends AppCompatActivity {
     private Button mRateMentorButton;
     private String mentorId = "";
     private String menteeId;
-    private DatabaseReference RootRef, RootRef1;
+    private DatabaseReference RootRef;
     private RatingBar mRatingBar;
-    private Float rateValue;
     private FirebaseAuth mAuth;
-    private static final String tag = "average";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +46,17 @@ public class Rating_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(Rating_Activity.this, MenteeMainActivity.class);
                 startActivity(i);
-                finish();
+
             }
         });
 
         RootRef = FirebaseDatabase.getInstance().getReference().child("users");
-        RootRef1 = FirebaseDatabase.getInstance().getReference().child("users").child(mentorId);
-
         mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 RootRef.child(mentorId).child("Rating").child(menteeId).child("rating").push();
                 RootRef.child(mentorId).child("Rating").child(menteeId).child("rating").setValue(v);
+
 
 
 

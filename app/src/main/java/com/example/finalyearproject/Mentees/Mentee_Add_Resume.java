@@ -3,10 +3,12 @@ package com.example.finalyearproject.Mentees;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class Mentee_Add_Resume extends AppCompatActivity {
     private EditText mSkills,  mCollege, mCourse, mGraduationYear, mBio, mCompany, mRole, mStartDate,
@@ -50,16 +53,6 @@ public class Mentee_Add_Resume extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         menteeID = mAuth.getCurrentUser().getUid();
 
-        mHome = findViewById(R.id.home);
-        mHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Mentee_Add_Resume.this, Mentee_Resume_Options.class);
-                startActivity(i);
-                finish();
-            }
-        });
-
         mName = findViewById(R.id.name);
         mSkills = findViewById(R.id.interestSkills);
         mGraduationYear = findViewById(R.id.graduationYear);
@@ -75,6 +68,75 @@ public class Mentee_Add_Resume extends AppCompatActivity {
         mProjects = findViewById(R.id.interestProjects);
         mSaveCV = findViewById(R.id.saveCV);
 
+
+        mHome = findViewById(R.id.home);
+        mHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Mentee_Add_Resume.this, Mentee_Resume_Options.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        Calendar calendar1 = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar1.set(Calendar.YEAR, i);
+                calendar1.set(Calendar.MONTH, i1);
+                calendar1.set(Calendar.DAY_OF_MONTH, i2);
+
+                calendar11();
+            }
+
+            private void calendar11() {
+
+                String format = "dd/MM/yy";
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.UK);
+
+                mStartDate.setText(simpleDateFormat.format(calendar1.getTime()));
+            }
+        };
+
+        mStartDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                new DatePickerDialog(Mentee_Add_Resume.this, dateSetListener, calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH),  calendar1.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
+
+
+        Calendar calendar2 = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dateSetListener2 = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar2.set(Calendar.YEAR, i);
+                calendar2.set(Calendar.MONTH, i1);
+                calendar2.set(Calendar.DAY_OF_MONTH, i2);
+
+                calendar11();
+            }
+
+            private void calendar11() {
+
+                String format = "dd/MM/yy";
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.UK);
+
+                mEndDate.setText(simpleDateFormat.format(calendar1.getTime()));
+            }
+        };
+
+        mEndDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                new DatePickerDialog(Mentee_Add_Resume.this, dateSetListener2, calendar2.get(Calendar.YEAR), calendar2.get(Calendar.MONTH),  calendar2.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
 
         dr.addValueEventListener(new ValueEventListener() {
             @Override
