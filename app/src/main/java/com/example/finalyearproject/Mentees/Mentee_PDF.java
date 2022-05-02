@@ -150,7 +150,10 @@ public class Mentee_PDF extends AppCompatActivity {
 
     private Bitmap LoadBitMap(View v, int width, int height) {
 
+        //Returns a bitmap from the specified subset of the source bitmap.
+        //Each pixel is stored on 4 bytes
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        //The Canvas class holds the "draw" calls
         Canvas canvas = new Canvas(bitmap);
         v.draw(canvas);
         return bitmap;
@@ -158,17 +161,24 @@ public class Mentee_PDF extends AppCompatActivity {
 
     private void createPDF() {
 
+        //A structure describing general information about a display, such as its size, density, and font scaling.
         DisplayMetrics displayMetrics = new DisplayMetrics();
         this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        //The absolute width of the available display size in pixels.
         float width = displayMetrics.widthPixels;
+        //The absolute height of the available display size in pixels.
         float height = displayMetrics.heightPixels;
         int convertWidth = (int) width, convertHeight= (int) height;
 
+        //This class enables generating a PDF document from native Android content.
         PdfDocument document = new PdfDocument();
+        //Creates a new builder with the mandatory page info attributes.
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(convertWidth, convertHeight, 1).create();
         PdfDocument.Page page = document.startPage(pageInfo);
+        //The Canvas class holds the "draw" calls
         Canvas canvas = page.getCanvas();
 
+        //The Paint class holds the style and color information about how to draw geometries, text and bitmaps.
         Paint paint = new Paint();
         canvas.drawPaint(paint);
         bitmap = Bitmap.createScaledBitmap(bitmap, convertWidth, convertHeight, true);
