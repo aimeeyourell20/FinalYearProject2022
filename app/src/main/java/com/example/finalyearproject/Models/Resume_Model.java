@@ -2,12 +2,12 @@ package com.example.finalyearproject.Models;
 
 public class Resume_Model {
 
-    private String name, bio, company, role, startDate, endDate, description, college, course, graduationYear, skills, hobbies, projects, date, resumeid;
+    private String name, bio, company, role, startDate, endDate, description, college, course, graduationYear, skills, hobbies, projects, date, resumeid, grades;
 
     public Resume_Model() {
     }
 
-    public Resume_Model(String name, String bio, String company, String role, String startDate, String endDate, String description, String college, String course, String graduationYear, String skills, String hobbies, String projects, String date, String resumeid) {
+    public Resume_Model(String name, String bio, String company, String role, String startDate, String endDate, String description, String college, String course, String graduationYear, String skills, String hobbies, String projects, String date, String resumeid, String grades) {
         this.name = name;
         this.bio = bio;
         this.company = company;
@@ -23,6 +23,7 @@ public class Resume_Model {
         this.projects = projects;
         this.date = date;
         this.resumeid = resumeid;
+        this.grades = grades;
     }
 
     public String getName() {
@@ -143,5 +144,13 @@ public class Resume_Model {
 
     public void setResumeid(String resumeid) {
         this.resumeid = resumeid;
+    }
+
+    public String getGrades() {
+        return grades;
+    }
+
+    public void setGrades(String grades) {
+        this.grades = grades;
     }
 }

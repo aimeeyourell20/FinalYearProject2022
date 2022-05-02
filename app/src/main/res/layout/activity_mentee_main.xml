@@ -42,7 +42,9 @@
                     android:layout_height="50dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/profile_image" />
+                    android:background="@drawable/profile_image"
+                    app:srcCompat="@drawable/profile_image"
+                    tools:src="@drawable/profile_image" />
 
             </LinearLayout>
             <TextView

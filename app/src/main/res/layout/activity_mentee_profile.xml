@@ -44,10 +44,11 @@
         android:layout_width="94dp"
         android:layout_height="88dp"
         android:layout_marginTop="4dp"
+        android:background="@drawable/profile_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/profile_image" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

@@ -31,7 +31,7 @@ import java.util.Locale;
 
 public class Mentee_Add_Resume extends AppCompatActivity {
     private EditText mSkills,  mCollege, mCourse, mGraduationYear, mBio, mCompany, mRole, mStartDate,
-            mEndDate, mDescription, mHobbies, mProjects;
+            mEndDate, mDescription, mHobbies, mProjects, mCollegeGrades;
     private TextView mName;
     private Button mSaveCV;
     private DatabaseReference dr,RootRef;
@@ -67,6 +67,7 @@ public class Mentee_Add_Resume extends AppCompatActivity {
         mHobbies = findViewById(R.id.interestHobbies);
         mProjects = findViewById(R.id.interestProjects);
         mSaveCV = findViewById(R.id.saveCV);
+        mCollegeGrades = findViewById(R.id.collegeGrades);
 
 
         mHome = findViewById(R.id.home);
@@ -158,6 +159,7 @@ public class Mentee_Add_Resume extends AppCompatActivity {
 
 
 
+
                     mName.setText(name);
                     mGraduationYear.setText(graduationYear);
                     mCollege.setText(college);
@@ -172,6 +174,7 @@ public class Mentee_Add_Resume extends AppCompatActivity {
                     mHobbies.setText(hobbies);
                     mProjects.setText(projects);
 
+
                 }
             }
 
@@ -185,6 +188,7 @@ public class Mentee_Add_Resume extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = mName.getText().toString();
+                String grades = mCollegeGrades.getText().toString();
                 String graduationYear = mGraduationYear.getText().toString();
                 String college = mCollege.getText().toString();
                 String bio = mBio.getText().toString();
@@ -198,13 +202,13 @@ public class Mentee_Add_Resume extends AppCompatActivity {
                 String hobbies = mHobbies.getText().toString();
                 String projects = mProjects.getText().toString();
                 String id = RootRef.push().getKey();
-                UpdateMentee(name, graduationYear, college, bio, course, skills, role, company,startDate, endDate, description, hobbies, projects, id);
+                UpdateMentee(name, graduationYear, college, bio, course, skills, role, company,startDate, endDate, description, hobbies, projects, id, grades);
             }
         });
 
     }
 
-    private void UpdateMentee(String name, String graduationYear, String college, String bio, String course, String skills, String role, String company, String startDate, String endDate, String description, String hobbies, String projects, String id) {
+    private void UpdateMentee(String name, String graduationYear, String college, String bio, String course, String skills, String role, String company, String startDate, String endDate, String description, String hobbies, String projects, String id, String grades) {
 
         Calendar calendarDate = Calendar.getInstance();
         SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-yyyy");
@@ -229,6 +233,7 @@ public class Mentee_Add_Resume extends AppCompatActivity {
         CVMap.put("projects", projects);
         CVMap.put("date", date);
         CVMap.put("resumeid", key );
+        CVMap.put("grades", grades );
 
 
 

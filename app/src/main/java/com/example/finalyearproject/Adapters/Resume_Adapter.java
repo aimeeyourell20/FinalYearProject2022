@@ -62,6 +62,7 @@ public class Resume_Adapter extends RecyclerView.Adapter<Resume_Adapter.ResumeVi
         holder.hobbies.setText(resume_model.getHobbies());
         holder.projects.setText(resume_model.getProjects());
         holder.date.setText(resume_model.getDate());
+        holder.grades.setText(resume_model.getGrades());
 
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
